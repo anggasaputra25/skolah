@@ -1,10 +1,31 @@
 import { Navbar } from "@/components/layout/Navbar";
+import { StatCard } from "@/components/layout/StatCard";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { faBook, faHandshake, faUsers } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 
 export default function Home() {
+    const stats = [
+        {
+            value: "30+",
+            label: "Courses",
+            icon: faBook,
+            positionClasses: "bottom-20 left-32",
+        },
+        {
+            value: "100+",
+            label: "Partners",
+            icon: faHandshake,
+            positionClasses: "bottom-20 right-32",
+        },
+        {
+            value: "2.800+",
+            label: "Users",
+            icon: faUsers,
+            positionClasses: "bottom-72 right-52",
+        },
+    ];
+
     return (
         <>
             <Navbar />
@@ -19,27 +40,15 @@ export default function Home() {
                 <Image src={'assets/star1.svg'} alt="star" width={171} height={276} className="absolute left-52 top-40" />
                 <Image src={'assets/star2.svg'} alt="star" width={150} height={148} className="absolute right-32 top-28 rotate-12" />
 
-                <div className="bg-blue-100 absolute bottom-20 left-32 p-5 rounded-lg min-w-36">
-                    <p className="font-semibold text-xl">30+</p>
-                    <p>Courses</p>
-                    <div className="absolute top-0 right-0 p-2 bg-slate-50 rounded-bl-lg">
-                        <FontAwesomeIcon icon={faBook} className="w-5 h-5" />
-                    </div>
-                </div>
-                <div className="bg-blue-100 absolute bottom-20 right-32 p-5 rounded-lg min-w-36">
-                    <p className="font-semibold text-xl">100+</p>
-                    <p>Partners</p>
-                    <div className="absolute top-0 right-0 p-2 bg-slate-50 rounded-bl-lg">
-                        <FontAwesomeIcon icon={faHandshake} className="w-5 h-5" />
-                    </div>
-                </div>
-                <div className="bg-blue-100 absolute bottom-72 right-52 p-5 rounded-lg min-w-36">
-                    <p className="font-semibold text-xl">2.800+</p>
-                    <p>Users</p>
-                    <div className="absolute top-0 right-0 p-2 bg-slate-50 rounded-bl-lg">
-                        <FontAwesomeIcon icon={faUsers} className="w-5 h-5" />
-                    </div>
-                </div>
+                {stats.map((stat, index) => (
+                    <StatCard
+                        key={index}
+                        value={stat.value}
+                        icon={stat.icon}
+                        label={stat.label}
+                        positionClasses={stat.positionClasses}
+                    />
+                ))}
             </div>
         </>
     );
