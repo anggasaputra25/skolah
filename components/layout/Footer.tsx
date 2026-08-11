@@ -32,8 +32,8 @@ export default function Footer() {
                     <div className="flex flex-col gap-3">
                         <p className="font-semibold text-neutral-900">Platform</p>
                         <ul className="flex flex-col gap-2 text-neutral-500">
-                            <li><Link href="#" className="hover:text-blue-600 transition-colors">Courses</Link></li>
-                            <li><Link href="#" className="hover:text-blue-600 transition-colors">Method</Link></li>
+                            <li><Link href="/courses" className="hover:text-blue-600 transition-colors">Courses</Link></li>
+                            <li><Link href="/method" className="hover:text-blue-600 transition-colors">Method</Link></li>
                             <li><Link href="#" className="hover:text-blue-600 transition-colors">Gamification</Link></li>
                             <li><Link href="#" className="hover:text-blue-600 transition-colors">Pricing</Link></li>
                         </ul>
@@ -42,7 +42,7 @@ export default function Footer() {
                     <div className="flex flex-col gap-3">
                         <p className="font-semibold text-neutral-900">Company</p>
                         <ul className="flex flex-col gap-2 text-neutral-500">
-                            <li><Link href="#" className="hover:text-blue-600 transition-colors">About Us</Link></li>
+                            <li><Link href="/about" className="hover:text-blue-600 transition-colors">About Us</Link></li>
                             <li><Link href="#" className="hover:text-blue-600 transition-colors">Careers</Link></li>
                             <li><Link href="#" className="hover:text-blue-600 transition-colors">Blog</Link></li>
                             <li><Link href="#" className="hover:text-blue-600 transition-colors">Contact</Link></li>

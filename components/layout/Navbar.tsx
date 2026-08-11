@@ -19,13 +19,13 @@ export const Navbar = () => {
                     </Link>
 
                     <div className="hidden md:flex gap-4">
-                        <Link className="text-slate-500 hover:text-neutral-900" href={'#'}>Courses</Link>
-                        <Link className="text-slate-500 hover:text-neutral-900" href={'#'}>Method</Link>
-                        <Link className="text-slate-500 hover:text-neutral-900" href={'#'}>About</Link>
+                        <Link className="text-slate-500 hover:text-neutral-900" href={'/courses'}>Courses</Link>
+                        <Link className="text-slate-500 hover:text-neutral-900" href={'/method'}>Method</Link>
+                        <Link className="text-slate-500 hover:text-neutral-900" href={'/about'}>About</Link>
                     </div>
 
                     <div className="hidden md:block">
-                        <ButtonLink href="#">Get Started</ButtonLink>
+                        <ButtonLink href="/register">Get Started</ButtonLink>
                     </div>
 
                     <button
@@ -42,27 +42,27 @@ export const Navbar = () => {
             <div className={`md:hidden w-full absolute bg-neutral-50 px-6 py-4 flex flex-col gap-4 transition-transform z-10 pt-[71.99px] ${isOpen ? "translate-y-0" : "-translate-y-full"}`}>
                 <Link 
                     className="text-slate-500 hover:text-neutral-900" 
-                    href={'#'}
+                    href={'/courses'}
                     onClick={() => setIsOpen(false)}
                 >
                     Courses
                 </Link>
                 <Link 
                     className="text-slate-500 hover:text-neutral-900" 
-                    href={'#'}
+                    href={'/method'}
                     onClick={() => setIsOpen(false)}
                 >
                     Method
                 </Link>
                 <Link 
                     className="text-slate-500 hover:text-neutral-900" 
-                    href={'#'}
+                    href={'/about'}
                     onClick={() => setIsOpen(false)}
                 >
                     About
                 </Link>
                 <div className="pt-2">
-                    <ButtonLink href="#" className="w-full">Get Started</ButtonLink>
+                    <ButtonLink href="/register" className="w-full">Get Started</ButtonLink>
                 </div>
             </div>
         </>

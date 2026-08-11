@@ -5,7 +5,7 @@ import { faBook, faHandshake, faUsers } from "@fortawesome/free-solid-svg-icons"
 import Image from "next/image";
 import Footer from "@/components/layout/Footer";
 
-export default function Home() {
+const Home = () => {
     const stats = [
         {
             value: "30+",
@@ -34,12 +34,12 @@ export default function Home() {
             {/* Hero Section */}
             <div className="lg:pt-22 relative overflow-hidden min-h-dvh flex flex-col justify-center lg:justify-between items-center gap-5">
                 <h1 className="text-2xl md:text-4xl font-bold md:w-xl text-center mt-5">Speak the World and Elevate <span className="text-blue-600">Your Career</span></h1>
-                <ButtonLink href="">Get Started</ButtonLink>
-                <Image src={'assets/person.svg'} alt="person" width={300} height={100} className="hidden lg:block" />
+                <ButtonLink href="/register">Get Started</ButtonLink>
+                <Image src={'/assets/person.png'} alt="person" width={300} height={100} className="hidden lg:block" />
                 <div className="rounded-full bg-blue-100 w-2xl h-168 absolute -bottom-5/12 -z-10 hidden lg:block"></div>
 
-                <Image src={'assets/star1.svg'} alt="star" width={171} height={276} className="absolute left-52 bottom-12 md:top-40" />
-                <Image src={'assets/star2.svg'} alt="star" width={150} height={148} className="absolute right-32 top-28 rotate-12" />
+                <Image src={'/assets/star1.svg'} alt="star" width={171} height={276} className="absolute left-52 bottom-12 md:top-40" />
+                <Image src={'/assets/star2.svg'} alt="star" width={150} height={148} className="absolute right-32 top-28 rotate-12" />
 
                 {stats.map((stat, index) => (
                     <StatCard
@@ -53,6 +53,18 @@ export default function Home() {
             </div>
 
             {/* Features Section */}
+            {/* ### 1. Reading Comprehension
+                Adaptive reading exercises with real-time translation, automated grammar analysis, and contextual comprehension quizzes to strengthen your understanding
+
+                ### 2. Conversation Simulation
+                AI-powered real-time conversation simulations designed to improve grammar, pronunciation, speaking fluency, and confidence in real-world situations
+
+                ### 3. Cross-Cultural Communication
+                Explore cultural nuances, local customs, and authentic idiomatic expressions from native speakers to communicate naturally across cultures
+
+                ### 4. Gamification System
+                Make learning feel like a game with XP points, progression levels, achievement badges, and weekly leaderboards that keep you motivated
+            */}
             <div className="w-11/12 md:w-10/12 mx-auto min-h-dvh flex flex-col justify-center items-center">
                 <h2 className="text-2xl font-semibold">Features</h2>
                 <div className="flex gap-5 mt-5">
@@ -80,3 +92,5 @@ export default function Home() {
         </>
     );
 }
+
+export default Home;
