@@ -1,3 +1,4 @@
+import Footer from "@/components/layout/Footer";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -153,12 +154,8 @@ export default function LicensesPage() {
                         the applicable terms.
                     </p>
                 </section>
-
-                {/* Footer */}
-                <footer className="mt-12 border-t border-neutral-200 pt-6 text-sm text-neutral-500">
-                    Last updated: August 2026
-                </footer>
             </div>
+            <Footer />
         </main>
     );
 }
