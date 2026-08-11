@@ -11,8 +11,8 @@ export const Navbar = () => {
 
     return (
         <>
-            <nav className="py-5 fixed w-full bg-neutral-50 z-10">
-                <div className="w-11/12 m-auto flex justify-between items-center">
+            <nav className="py-5 fixed w-full bg-neutral-50 z-20">
+                <div className="w-11/12 md:w-10/12 m-auto flex justify-between items-center">
                     <Link href={'/'} className="font-semibold text-2xl flex items-center gap-2 text-blue-600 w-36.75">
                         <FontAwesomeIcon icon={faEarthAsia} className="w-6 h-6" />
                         <p>Skolah</p>
@@ -39,7 +39,7 @@ export const Navbar = () => {
             </nav>
 
             {/* Mobile Dropdown Menu */}
-            <div className={`md:hidden w-full absolute bg-neutral-50 px-6 py-4 flex flex-col gap-4 transition-transform -z-10 pt-[71.99px] ${isOpen ? "translate-y-0" : "-translate-y-full"}`}>
+            <div className={`md:hidden w-full absolute bg-neutral-50 px-6 py-4 flex flex-col gap-4 transition-transform z-10 pt-[71.99px] ${isOpen ? "translate-y-0" : "-translate-y-full"}`}>
                 <Link 
                     className="text-slate-500 hover:text-neutral-900" 
                     href={'#'}
