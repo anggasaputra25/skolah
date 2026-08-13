@@ -124,7 +124,7 @@ const Courses = () => {
                 <h2 className="text-2xl font-semibold text-center">Courses for English Speakers</h2>
                 <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
                     {languages.map((item, index) => (
-                        <Link href={'/english'} key={index}>
+                        <Link href={'/login'} key={index}>
                             <BorderCard className="hover:bg-neutral-100 active:border-b-2 active:translate-y-1">
                                 <Image src={item.image} alt="flag" width={120} height={120} className="border-2 border-slate-300 rounded-lg mb-2" />
                                 <p className="font-semibold">{item.title}</p>
