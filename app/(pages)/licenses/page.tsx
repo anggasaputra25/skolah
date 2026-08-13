@@ -30,7 +30,7 @@ const assets: Asset[] = [
     },
 ];
 
-export default function LicensesPage() {
+const LicensesPage = () => {
     return (
         <main className="min-h-screen">
             <div className="mx-auto max-w-4xl px-6 py-20 sm:px-8 lg:py-28">
@@ -159,3 +159,5 @@ export default function LicensesPage() {
         </main>
     );
 }
+
+export default LicensesPage;

@@ -9,7 +9,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { scrollToSection } from "@/lib/scroll";
 
-const Courses = () => {
+const CoursesPage = () => {
     const stats = [
         {
             value: "30+",
@@ -141,4 +141,4 @@ const Courses = () => {
     );
 }
 
-export default Courses;
+export default CoursesPage;

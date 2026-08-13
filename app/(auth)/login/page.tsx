@@ -9,7 +9,7 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Alert } from "@/components/ui/Alert";
 import { useState } from "react";
 
-export default function LoginPage() {
+const LoginPage = () => {
     const [showAlert, setShowAlert] = useState(false);
 
     const loginClick = () => {
@@ -175,3 +175,5 @@ export default function LoginPage() {
         </div>
     );
 }
+
+export default LoginPage;

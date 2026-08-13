@@ -14,7 +14,7 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 import { useState } from "react";
 import { Alert } from "@/components/ui/Alert";
 
-export default function RegisterPage() {
+const RegisterPage = () => {
     const [showAlert, setShowAlert] = useState(false);
     
     const loginClick = () => {
@@ -214,3 +214,5 @@ export default function RegisterPage() {
         </div>
     );
 }
+
+export default RegisterPage;
