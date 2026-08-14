@@ -8,6 +8,7 @@ import { BorderCard } from "@/components/ui/BorderCard";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { scrollToSection } from "@/lib/scroll";
+import { LANGUAGES } from "@/constants/languages";
 
 const CoursesPage = () => {
     const stats = [
@@ -28,69 +29,6 @@ const CoursesPage = () => {
             label: "Learners",
             icon: faUsers,
             positionClasses: "bottom-72 right-80 lg:right-52",
-        },
-    ];
-
-    const languages = [
-        {
-            image: "/assets/flags/english.jpeg",
-            title: "English",
-            description: "8.6M Learners"
-        },
-        {
-            image: "/assets/flags/indonesia.jpeg",
-            title: "Indonesian",
-            description: "8.2M Learners"
-        },
-        {
-            image: "/assets/flags/french.jpeg",
-            title: "French",
-            description: "7.3M Learners"
-        },
-        {
-            image: "/assets/flags/german.jpeg",
-            title: "German",
-            description: "6.2M Learners"
-        },
-        {
-            image: "/assets/flags/japan.jpeg",
-            title: "Japanese",
-            description: "6.1M Learners"
-        },
-        {
-            image: "/assets/flags/korea.jpeg",
-            title: "Korean",
-            description: "5.5M Learners"
-        },
-        {
-            image: "/assets/flags/spain.jpeg",
-            title: "Spanish",
-            description: "5.2M Learners"
-        },
-        {
-            image: "/assets/flags/india.jpeg",
-            title: "Hindi",
-            description: "5.1M Learners"
-        },
-        {
-            image: "/assets/flags/brazil.jpeg",
-            title: "Portuguese",
-            description: "4.9M Learners"
-        },
-        {
-            image: "/assets/flags/russia.jpeg",
-            title: "Russian",
-            description: "4.7M Learners"
-        },
-        {
-            image: "/assets/flags/china.jpeg",
-            title: "Chinese",
-            description: "4.6M Learners"
-        },
-        {
-            image: "/assets/flags/italy.jpeg",
-            title: "Italian",
-            description: "4.2M Learners"
         },
     ];
 
@@ -123,8 +61,8 @@ const CoursesPage = () => {
             <div id="explore" className="w-11/12 md:w-10/12 mx-auto min-h-dvh py-20 flex flex-col justify-center items-center">
                 <h2 className="text-2xl font-semibold text-center">Courses for English Speakers</h2>
                 <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
-                    {languages.map((item, index) => (
-                        <Link href={'/login'} key={index}>
+                    {LANGUAGES.map((item, index) => (
+                        <Link href={'/login'} key={index} className="rounded-2xl">
                             <BorderCard className="hover:bg-neutral-100 active:border-b-2 active:translate-y-1">
                                 <Image src={item.image} alt="flag" width={120} height={120} className="border-2 border-slate-300 rounded-lg mb-2" />
                                 <p className="font-semibold">{item.title}</p>
