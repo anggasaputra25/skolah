@@ -15,7 +15,7 @@ export const Navbar = () => {
                 <div className="w-11/12 md:w-10/12 m-auto flex justify-between items-center">
                     <Link href={'/'} className="font-semibold text-2xl flex items-center gap-2 text-blue-600 w-36.75">
                         <FontAwesomeIcon icon={faEarthAsia} className="w-6 h-6" />
-                        <p>Skolah</p>
+                        <span>Skolah</span>
                     </Link>
 
                     <div className="hidden md:flex gap-4">
