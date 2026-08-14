@@ -19,7 +19,8 @@ export const Button: React.FC<ButtonProps> = ({
         font-bold uppercase tracking-wider
         rounded-2xl
         
-        border-b-4 active:border-b-0
+        border-s-2 border-t-2 border-e-2
+        border-b-4 active:border-b-2
         active:translate-y-1
         transition-all duration-75 ease-in-out
         
@@ -30,7 +31,7 @@ export const Button: React.FC<ButtonProps> = ({
         primary:
             "bg-blue-600 border-blue-800 text-white hover:bg-blue-700",
         secondary:
-            "bg-slate-100 border-slate-300 text-blue-600 hover:bg-slate-200",
+            "border-slate-300 text-blue-600 hover:bg-slate-100",
     };
 
     const sizes = {
