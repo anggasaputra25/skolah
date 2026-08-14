@@ -136,7 +136,7 @@ const LoginForm = () => {
 
             {/* Alert */}
             {showAlert && (
-                <div className="absolute top-5 right-5 max-w-92">
+                <div className="fixed top-5 right-5 max-w-92">
                     <Alert
                         variant="info" 
                         title="Feature Under Development"

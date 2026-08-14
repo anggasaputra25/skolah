@@ -99,7 +99,7 @@ const ForgotPasswordPage = () => {
 
             {/* Alert */}
             {showAlert && (
-                <div className="absolute top-5 right-5 max-w-lg">
+                <div className="fixed top-5 right-5 max-w-lg">
                     <Alert 
                         variant="success" 
                         title="Password Reset Link Sent"
