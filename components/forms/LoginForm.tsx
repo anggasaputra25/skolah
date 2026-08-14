@@ -73,7 +73,7 @@ const LoginForm = () => {
                     </div>
 
                     {/* Submit Button */}
-                    <ButtonLink href="/dashboard" variant="primary" className="w-full mt-2">
+                    <ButtonLink href="/learn" variant="primary" className="w-full mt-2">
                         Log In
                     </ButtonLink>
                 </form>
