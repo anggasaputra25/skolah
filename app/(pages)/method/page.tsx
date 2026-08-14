@@ -4,7 +4,7 @@ import { Navbar } from "@/components/layout/Navbar";
 const MethodPage = () => {
     return (
         <>
-            <Navbar />
+            <Navbar target={2} />
 
             {/* Main Section */}
 

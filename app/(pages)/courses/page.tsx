@@ -34,7 +34,7 @@ const CoursesPage = () => {
 
     return (
         <>
-            <Navbar />
+            <Navbar target={1} />
 
             {/* Hero Section */}
             <div className="lg:pt-22 relative overflow-hidden min-h-dvh flex flex-col justify-center lg:justify-between items-center gap-5">

@@ -6,7 +6,7 @@ import { ButtonLink } from "../ui/ButtonLink"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEarthAsia, faBars, faXmark } from "@fortawesome/free-solid-svg-icons"
 
-export const Navbar = () => {
+export const Navbar = ({target = 0}: {target?: number}) => {
     const [isOpen, setIsOpen] = useState(false)
 
     return (
@@ -19,9 +19,9 @@ export const Navbar = () => {
                     </Link>
 
                     <div className="hidden md:flex gap-4">
-                        <Link className="text-slate-500 hover:text-neutral-900" href={'/courses'}>Courses</Link>
-                        <Link className="text-slate-500 hover:text-neutral-900" href={'/method'}>Method</Link>
-                        <Link className="text-slate-500 hover:text-neutral-900" href={'/about'}>About</Link>
+                        <Link className={`${target == 1 ? 'text-neutral-900' : 'text-slate-500 hover:text-neutral-900'}`} href={'/courses'}>Courses</Link>
+                        <Link className={`${target == 2 ? 'text-neutral-900' : 'text-slate-500 hover:text-neutral-900'}`} href={'/method'}>Method</Link>
+                        <Link className={`${target == 3 ? 'text-neutral-900' : 'text-slate-500 hover:text-neutral-900'}`} href={'/about'}>About</Link>
                     </div>
 
                     <div className="hidden md:block">

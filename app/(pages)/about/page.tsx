@@ -4,7 +4,7 @@ import { Navbar } from "@/components/layout/Navbar";
 const AboutPage = () => {
     return (
         <>
-            <Navbar />
+            <Navbar target={3} />
 
             {/* Main Section */}
 
