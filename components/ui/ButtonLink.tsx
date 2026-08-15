@@ -34,7 +34,7 @@ export const ButtonLink: React.FC<ButtonLinkProps> = ({
         primary:
             "bg-blue-600 border-blue-800 text-white hover:bg-blue-700",
         secondary:
-            "border-slate-300 text-blue-600 hover:bg-slate-100",
+            "bg-neutral-50 border-slate-300 text-blue-600 hover:bg-slate-100",
     };
 
     const sizes = {
