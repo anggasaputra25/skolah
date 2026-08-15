@@ -185,7 +185,7 @@ const RegisterForm = () => {
                             href="/login"
                             className="font-bold text-blue-600"
                         >
-                            Log in
+                            Sign In
                         </Link>
                     </p>
                 </BorderCard>

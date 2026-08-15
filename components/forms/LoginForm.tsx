@@ -21,7 +21,7 @@ const LoginForm = () => {
                 <div className="text-center mb-6">
                     <h1 className="text-2xl font-bold">Welcome Back!</h1>
                     <p className="text-slate-400 text-sm mt-1">
-                        Log in to continue your learning journey
+                        Sign in to continue your learning journey
                     </p>
                 </div>
 
@@ -74,7 +74,7 @@ const LoginForm = () => {
 
                     {/* Submit Button */}
                     <ButtonLink href="/learn" variant="primary" className="w-full mt-2">
-                        Log In
+                        Sign In
                     </ButtonLink>
                 </form>
 
