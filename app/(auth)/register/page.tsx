@@ -29,7 +29,7 @@ const RegisterPage = () => {
                 href="/"
                 className="fixed! top-5 left-5 p-3!"
             >
-                <FontAwesomeIcon icon={faChevronLeft} className="w-4 h-4" />
+                <FontAwesomeIcon icon={faChevronLeft} className="w-4! h-4!" />
             </ButtonLink>
 
             {/* Main Form Container */}

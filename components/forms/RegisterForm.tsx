@@ -57,7 +57,7 @@ const RegisterForm = () => {
                             <div className="relative flex items-center">
                                 <FontAwesomeIcon
                                     icon={faUser}
-                                    className="w-4 h-4 text-slate-400 absolute left-3.5"
+                                    className="w-4! h-4! text-slate-400 absolute left-3.5"
                                 />
                                 <input
                                     type="text"
@@ -76,7 +76,7 @@ const RegisterForm = () => {
                             <div className="relative flex items-center">
                                 <FontAwesomeIcon
                                     icon={faEnvelope}
-                                    className="w-4 h-4 text-slate-400 absolute left-3.5"
+                                    className="w-4! h-4! text-slate-400 absolute left-3.5"
                                 />
                                 <input
                                     type="email"
@@ -95,7 +95,7 @@ const RegisterForm = () => {
                             <div className="relative flex items-center">
                                 <FontAwesomeIcon
                                     icon={faLock}
-                                    className="w-4 h-4 text-slate-400 absolute left-3.5"
+                                    className="w-4! h-4! text-slate-400 absolute left-3.5"
                                 />
                                 <input
                                     type="password"
@@ -114,7 +114,7 @@ const RegisterForm = () => {
                             <div className="relative flex items-center">
                                 <FontAwesomeIcon
                                     icon={faLock}
-                                    className="w-4 h-4 text-slate-400 absolute left-3.5"
+                                    className="w-4! h-4! text-slate-400 absolute left-3.5"
                                 />
                                 <input
                                     type="password"

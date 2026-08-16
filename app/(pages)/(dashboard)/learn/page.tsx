@@ -28,7 +28,7 @@ const LearnPage = () => {
                         className="absolute! ms-40"
                         variant="danger"
                     >
-                        <FontAwesomeIcon icon={faSkull} width={48} className="m-1" />
+                        <FontAwesomeIcon icon={faSkull} className="w-12! h-12! m-1" />
                     </LessonCard>
 
                     {/* Level */}
@@ -38,7 +38,7 @@ const LearnPage = () => {
                         lessonText="Lesson 1 of 5"
                         buttonText="Start +0 XP"
                     >
-                        <FontAwesomeIcon icon={faBook} className="w-8 h-8" />
+                        <FontAwesomeIcon icon={faBook} className="w-8! h-8!" />
                     </LessonCard>
                     <LessonCard
                         href="/learn/1"
@@ -47,7 +47,7 @@ const LearnPage = () => {
                         buttonText="Start +0 XP"
                         className="-ml-24"
                     >
-                        <FontAwesomeIcon icon={faHeadphones} className="w-8 h-8" />
+                        <FontAwesomeIcon icon={faHeadphones} className="w-8! h-8!" />
                     </LessonCard>
                     <LessonCard
                         href="/learn/1"
@@ -56,7 +56,7 @@ const LearnPage = () => {
                         buttonText="Start +0 XP"
                         className="-ml-44"
                     >
-                        <FontAwesomeIcon icon={faVolumeHigh} className="w-8 h-8" />
+                        <FontAwesomeIcon icon={faVolumeHigh} className="w-8! h-8!" />
                     </LessonCard>
                     <LessonCard
                         href="/learn/1"
@@ -66,10 +66,10 @@ const LearnPage = () => {
                         className="-ml-24"
                         active={true}
                     >
-                        <FontAwesomeIcon icon={faComment} className="w-8 h-8" />
+                        <FontAwesomeIcon icon={faComment} className="w-8! h-8!" />
                     </LessonCard>
                     <ButtonLearn variant="secondary">
-                        <FontAwesomeIcon icon={faStar} className="w-8 h-8" />
+                        <FontAwesomeIcon icon={faStar} className="w-8! h-8!" />
                     </ButtonLearn>
                 </div>
             </div>
