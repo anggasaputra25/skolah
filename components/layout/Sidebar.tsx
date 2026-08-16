@@ -15,19 +15,19 @@ const Sidebar = ({target = 0}: {target?: number}) => {
                         <FontAwesomeIcon icon={faBrain} className="w-4! h-4!" />
                         <span>Learn</span>
                     </Link>
-                    <Link href={'/Learn'} className={`w-full rounded-2xl px-4 py-2 flex items-center gap-2 ${target == 2 ? 'border-2 border-blue-300 bg-blue-100 text-blue-600' : 'hover:bg-slate-100'}`}>
+                    <Link href={'/quests'} className={`w-full rounded-2xl px-4 py-2 flex items-center gap-2 ${target == 2 ? 'border-2 border-blue-300 bg-blue-100 text-blue-600' : 'hover:bg-slate-100'}`}>
                         <FontAwesomeIcon icon={faScroll} className="w-4! h-4!" />
                         <span>Quests</span>
                     </Link>
-                    <Link href={'/Learn'} className={`w-full rounded-2xl px-4 py-2 flex items-center gap-2 ${target == 3 ? 'border-2 border-blue-300 bg-blue-100 text-blue-600' : 'hover:bg-slate-100'}`}>
+                    <Link href={'/shop'} className={`w-full rounded-2xl px-4 py-2 flex items-center gap-2 ${target == 3 ? 'border-2 border-blue-300 bg-blue-100 text-blue-600' : 'hover:bg-slate-100'}`}>
                         <FontAwesomeIcon icon={faScaleBalanced} className="w-4! h-4!" />
                         <span>Shop</span>
                     </Link>
-                    <Link href={'/Learn'} className={`w-full rounded-2xl px-4 py-2 flex items-center gap-2 ${target == 4 ? 'border-2 border-blue-300 bg-blue-100 text-blue-600' : 'hover:bg-slate-100'}`}>
+                    <Link href={'/leaderboard'} className={`w-full rounded-2xl px-4 py-2 flex items-center gap-2 ${target == 4 ? 'border-2 border-blue-300 bg-blue-100 text-blue-600' : 'hover:bg-slate-100'}`}>
                         <FontAwesomeIcon icon={faTrophy} className="w-4! h-4!" />
-                        <span>Leaderboards</span>
+                        <span>Leaderboard</span>
                     </Link>
-                    <Link href={'/Learn'} className={`w-full rounded-2xl px-4 py-2 flex items-center gap-2 ${target == 5 ? 'border-2 border-blue-300 bg-blue-100 text-blue-600' : 'hover:bg-slate-100'}`}>
+                    <Link href={'/profile'} className={`w-full rounded-2xl px-4 py-2 flex items-center gap-2 ${target == 5 ? 'border-2 border-blue-300 bg-blue-100 text-blue-600' : 'hover:bg-slate-100'}`}>
                         <FontAwesomeIcon icon={faUserTie} className="w-4! h-4!" />
                         <span>Profile</span>
                     </Link>

@@ -37,7 +37,7 @@ const LearnPage = () => {
                             <FontAwesomeIcon icon={faSkull} className="w-12! h-12! m-1" />
                         </LessonCard>
 
-                        {/* Level */}
+                        {/* Lesson */}
                         <LessonCard
                             href="/learn/1"
                             title="Order food and drinks"
@@ -79,6 +79,7 @@ const LearnPage = () => {
                         </ButtonLearn>
                     </div>
                 </div>
+
                 {/* Level 2 */}
                 <div>
                     <div className="shadow p-5 rounded-2xl bg-slate-900 flex justify-between items-center sticky top-5 z-30">
@@ -98,7 +99,7 @@ const LearnPage = () => {
                             <FontAwesomeIcon icon={faSkull} className="w-12! h-12! m-1" />
                         </ButtonLearn>
 
-                        {/* Level */}
+                        {/* Lesson */}
                         <ButtonLearn variant="secondary">
                             <FontAwesomeIcon icon={faStar} className="w-8! h-8!" />
                         </ButtonLearn>
@@ -119,6 +120,7 @@ const LearnPage = () => {
             </div>
             <div className="w-3xl">
                 <div className="p-5 space-y-5 sticky top-0">
+                    {/* Languages */}
                     <div className="flex items-center justify-between sticky">
                         <Image src={'/assets/flags/indonesia.jpeg'} alt="flag" width={64} height={64} className="block cursor-pointer border-2 aspect-2/1.5 border-slate-300 rounded-lg" />
                         <Image src={'/assets/flags/english.jpeg'} alt="flag" width={64} height={64} className="block cursor-pointer border-2 aspect-2/1.5 border-slate-300 rounded-lg" />
@@ -133,7 +135,7 @@ const LearnPage = () => {
                     <BorderCard className="border-b-2! space-y-5 text-slate-700">
                         <div className="flex justify-between items-center">
                             <p className="font-bold">Point Experience</p>
-                            <Link href={'/quests'} className="text-blue-600 font-bold text-sm">View Detail</Link>
+                            <Link href={'/profile'} className="text-blue-600 font-bold text-sm">View Detail</Link>
                         </div>
                         <div className="flex gap-5 items-center">
                             <FontAwesomeIcon icon={faStar} className="w-12! h-12! text-blue-600 filter-[drop-shadow(0px_2px_0px_#1e3a8a)_drop-shadow(0px_1px_0px_#1e40af)]" />
@@ -162,22 +164,34 @@ const LearnPage = () => {
                         </div>
                     </BorderCard>
 
-                    {/* Weekly */}
+                    {/* Season Leaderboard */}
                     <BorderCard className="border-b-2! space-y-5 text-slate-700">
                         <div className="flex justify-between items-center">
-                            <p className="font-bold">Weekly Quests</p>
-                            <Link href={'/quests'} className="text-blue-600 font-bold text-sm">View All</Link>
+                            <p className="font-bold">Seasonal Leaderboard</p>
+                            <Link href={'/leaderboard'} className="text-blue-600 font-bold text-sm">View All</Link>
                         </div>
-                        <div className="flex gap-5 items-center">
-                            <FontAwesomeIcon icon={faBolt} className="w-12! h-12! text-yellow-500 filter-[drop-shadow(0px_2px_0px_#d97706)_drop-shadow(0px_1px_0px_#b45309)]" />
-                            <div className="space-y-1 w-full font-semibold">
-                                <p>Earn 50 XP</p>
-                                <div className="relative w-full bg-slate-300 rounded-full">
-                                    <div className="absolute bg-yellow-500 h-full rounded-full w-4/5 border-2 border-b-4 border-yellow-600"></div>
-                                    <p className="text-white z-10 relative text-center p-2 text-sm">40 / 50</p>
-                                </div>
+                        <BorderCard className="flex justify-between items-center border-b-2! p-3! font-semibold">
+                            <div className="flex gap-1 items-center">
+                                <p className="text-xl me-1">#12</p>
+                                <Image src={'/assets/flags/indonesia.jpeg'} alt="flag" width={40} height={40} className="border-2 aspect-square border-slate-300 rounded-full" />
+                                <p>Putra</p>
                             </div>
-                        </div>
+                            <div className="flex justify-center gap-1">
+                                <FontAwesomeIcon icon={faStar} className="w-6! h-6! text-blue-600 " />
+                                <p className="text-blue-600 font-bold">30</p>
+                            </div>
+                        </BorderCard>
+                        <BorderCard variant="primary" className="flex justify-between items-center border-b-2! p-3! font-semibold">
+                            <div className="flex gap-1 items-center">
+                                <p className="text-xl me-1">#13</p>
+                                <Image src={'/assets/flags/indonesia.jpeg'} alt="flag" width={40} height={40} className="border-2 aspect-square border-slate-300 rounded-full" />
+                                <p>Angga</p>
+                            </div>
+                            <div className="flex justify-center gap-1">
+                                <FontAwesomeIcon icon={faStar} className="w-6! h-6!" />
+                                <p className="font-bold">20</p>
+                            </div>
+                        </BorderCard>
                     </BorderCard>
                 </div>
             </div>
