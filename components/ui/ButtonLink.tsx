@@ -17,17 +17,18 @@ export const ButtonLink: React.FC<ButtonLinkProps> = ({
     ...props
 }) => {
     const baseStyles = `
-    relative inline-flex items-center justify-center
-    px-6 py-3
-    font-bold uppercase tracking-wider
-    rounded-2xl
-    
-    border-s-2 border-t-2 border-e-2
-    border-b-4 active:border-b-2
-    active:translate-y-1
-    transition-all duration-75 ease-in-out
-    
-    select-none cursor-pointer
+        relative inline-flex items-center justify-center
+        px-6 py-3
+        font-bold uppercase tracking-wider
+        rounded-2xl
+        
+        border-2
+        border-b-4 active:border-b-2
+        active:translate-y-1
+        transition-all duration-75 ease-in-out
+        min-h-[49.6px]
+        
+        select-none cursor-pointer
     `;
 
     const variants = {
