@@ -4,7 +4,7 @@ import React from "react";
 interface ButtonLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
     href: string;
     children: React.ReactNode;
-    variant?: "primary" | "secondary";
+    variant?: "primary" | "secondary" | "danger";
     size?: "sm" | "md" | "lg";
 }
 
@@ -35,6 +35,8 @@ export const ButtonLink: React.FC<ButtonLinkProps> = ({
             "bg-blue-600 border-blue-800 text-white hover:bg-blue-700",
         secondary:
             "bg-neutral-50 border-slate-300 text-blue-600 hover:bg-slate-100",
+        danger:
+            "bg-red-600 border-red-800 text-white hover:bg-red-700",
     };
 
     const sizes = {
