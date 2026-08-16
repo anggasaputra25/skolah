@@ -66,7 +66,7 @@ const CoursesPage = () => {
                             <BorderCard className="hover:bg-neutral-100 active:border-b-2 active:translate-y-1">
                                 <Image src={item.image} alt="flag" width={120} height={120} className="border-2 border-slate-300 rounded-lg mb-2" />
                                 <p className="font-semibold">{item.title}</p>
-                                <p>{item.description}</p>
+                                <p className="text-sm">{item.description}</p>
                             </BorderCard>
                         </Link>
                     ))}

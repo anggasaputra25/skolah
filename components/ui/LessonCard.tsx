@@ -42,7 +42,7 @@ export const LessonCard: React.FC<LessonCardProps> = ({
                         <ButtonLink
                             href={href}
                             variant={variant}
-                            className="flex w-full items-center justify-center rounded-xl border-2 border-b-4 border-blue-800 bg-blue-500 py-3 text-sm font-bold uppercase tracking-wider text-white transition-all active:border-b-2 active:translate-y-0.5 hover:bg-blue-600"
+                            className="flex w-full items-center justify-center rounded-xl border-2 border-b-4 border-blue-800 bg-blue-500 py-3 font-bold uppercase tracking-wider text-white transition-all active:border-b-2 active:translate-y-0.5 hover:bg-blue-600"
                         >
                             {buttonText}
                         </ButtonLink>

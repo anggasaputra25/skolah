@@ -6,14 +6,14 @@ export interface Language {
 
 export const LANGUAGES: Language[] = [
     {
-        image: "/assets/flags/english.jpeg",
-        title: "English",
-        description: "8.6M Learners",
-    },
-    {
         image: "/assets/flags/indonesia.jpeg",
         title: "Indonesian",
         description: "8.2M Learners",
+    },
+    {
+        image: "/assets/flags/english.jpeg",
+        title: "English",
+        description: "8.6M Learners",
     },
     {
         image: "/assets/flags/french.jpeg",

@@ -3,7 +3,6 @@ import React from "react";
 interface ButtonLearnProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     children: React.ReactNode;
     variant?: "primary" | "secondary" | "danger";
-    size?: "sm" | "md" | "lg";
     classDiv?: string;
     active?: boolean;
 }
@@ -11,13 +10,13 @@ interface ButtonLearnProps extends React.ButtonHTMLAttributes<HTMLButtonElement>
 export const ButtonLearn: React.FC<ButtonLearnProps> = ({
     children,
     variant = "primary",
-    size = "md",
     className = "",
     classDiv = "",
     active = false,
     ...props
 }) => {
     const baseStyles = `
+    min-h-[78.4px]
     relative inline-flex items-center justify-center
     p-5
     font-bold uppercase tracking-wider
@@ -40,17 +39,11 @@ export const ButtonLearn: React.FC<ButtonLearnProps> = ({
             "bg-red-600 border-red-800 text-white hover:bg-red-700",
     };
 
-    const sizes = {
-        sm: "text-sm",
-        md: "text-base",
-        lg: "text-lg",
-    };
-
     return (
-        <div className={`relative flex justify-center items-center group min-w-[75.2px] min-h-[78.4px] ${classDiv}`}>
+        <div className={`relative flex justify-center items-center group ${classDiv}`}>
             <div className={`absolute rounded-full border-4 p-11 animate-[spin_10s_linear_infinite] border-blue-300 border-t-blue-600 ${active ? 'block' : 'hidden'}`}></div>
             <button
-                className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
+                className={`${baseStyles} ${variants[variant]} ${className}`}
                 {...props}
             >
                 {children}

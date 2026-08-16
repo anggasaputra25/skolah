@@ -27,10 +27,10 @@ const RegisterForm = () => {
                     <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
                         {LANGUAGES.map((item, index) => (
                             <button onClick={() => setShowFlags(false)} key={index} className="rounded-2xl cursor-pointer">
-                                <BorderCard className="hover:bg-neutral-100 active:border-b-2 active:translate-y-1 ">
+                                <BorderCard className="hover:bg-neutral-100 active:border-b-2 active:translate-y-1 text-left">
                                     <Image src={item.image} alt="flag" width={120} height={120} className="border-2 border-slate-300 rounded-lg mb-2" />
                                     <p className="font-semibold">{item.title}</p>
-                                    <p>{item.description}</p>
+                                    <p className="text-sm">{item.description}</p>
                                 </BorderCard>
                             </button>
                         ))}
