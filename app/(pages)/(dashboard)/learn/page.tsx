@@ -11,66 +11,107 @@ const LearnPage = () => {
             <Sidebar target={1} />
 
             <div className="border-r-2 w-full p-5">
-                <div className="p-5 rounded-2xl bg-blue-600 flex justify-between items-center">
-                    <div>
-                        <p className="text-slate-300 text-sm">Level 1, Lesson 1</p>
-                        <h1 className="text-white font-semibold text-xl">Order food and drinks</h1>
+                {/* Level 1 */}
+                <div>
+                    <div className="shadow p-5 rounded-2xl bg-blue-600 flex justify-between items-center sticky top-5 z-30">
+                        <div>
+                            <p className="text-slate-300 text-sm">Level 1, Lesson 1</p>
+                            <h1 className="text-white font-semibold text-xl">Order food and drinks</h1>
+                        </div>
+                        <Button variant="secondary" >Guidebook</Button>
                     </div>
-                    <Button variant="secondary" >Guidebook</Button>
-                </div>
-                <div className="relative p-5 flex flex-col items-center justify-center gap-8 my-5">
-                    {/* Boss Fight */}
-                    <LessonCard
-                        href="/learn/boss"
-                        title="The Hollow Gourmet"
-                        lessonText="Boss Fight"
-                        buttonText="Start +50 XP"
-                        className="absolute! ms-40"
-                        variant="danger"
-                    >
-                        <FontAwesomeIcon icon={faSkull} className="w-12! h-12! m-1" />
-                    </LessonCard>
+                    
+                    <div className="relative p-5 flex flex-col items-center justify-center gap-8 my-5">
+                        {/* Boss Fight */}
+                        <LessonCard
+                            href="/learn/boss"
+                            title="The Hollow Gourmet"
+                            lessonText="Boss Fight"
+                            buttonText="Start +50 XP"
+                            className="absolute! ms-40"
+                            variant="danger"
+                        >
+                            <FontAwesomeIcon icon={faSkull} className="w-12! h-12! m-1" />
+                        </LessonCard>
 
-                    {/* Level */}
-                    <LessonCard
-                        href="/learn/1"
-                        title="Order food and drinks"
-                        lessonText="Lesson 1 of 5"
-                        buttonText="Start +0 XP"
-                    >
-                        <FontAwesomeIcon icon={faBook} className="w-8! h-8!" />
-                    </LessonCard>
-                    <LessonCard
-                        href="/learn/1"
-                        title="Order food and drinks"
-                        lessonText="Lesson 2 of 5"
-                        buttonText="Start +0 XP"
-                        className="-ml-24"
-                    >
-                        <FontAwesomeIcon icon={faHeadphones} className="w-8! h-8!" />
-                    </LessonCard>
-                    <LessonCard
-                        href="/learn/1"
-                        title="Order food and drinks"
-                        lessonText="Lesson 3 of 5"
-                        buttonText="Start +0 XP"
-                        className="-ml-44"
-                    >
-                        <FontAwesomeIcon icon={faVolumeHigh} className="w-8! h-8!" />
-                    </LessonCard>
-                    <LessonCard
-                        href="/learn/1"
-                        title="Order food and drinks"
-                        lessonText="Lesson 4 of 5"
-                        buttonText="Start +10 XP"
-                        className="-ml-24"
-                        active={true}
-                    >
-                        <FontAwesomeIcon icon={faComment} className="w-8! h-8!" />
-                    </LessonCard>
-                    <ButtonLearn variant="secondary">
-                        <FontAwesomeIcon icon={faStar} className="w-8! h-8!" />
-                    </ButtonLearn>
+                        {/* Level */}
+                        <LessonCard
+                            href="/learn/1"
+                            title="Order food and drinks"
+                            lessonText="Lesson 1 of 5"
+                            buttonText="Start +0 XP"
+                        >
+                            <FontAwesomeIcon icon={faBook} className="w-8! h-8!" />
+                        </LessonCard>
+                        <LessonCard
+                            href="/learn/1"
+                            title="Order food and drinks"
+                            lessonText="Lesson 2 of 5"
+                            buttonText="Start +0 XP"
+                            className="-ms-24"
+                        >
+                            <FontAwesomeIcon icon={faHeadphones} className="w-8! h-8!" />
+                        </LessonCard>
+                        <LessonCard
+                            href="/learn/1"
+                            title="Order food and drinks"
+                            lessonText="Lesson 3 of 5"
+                            buttonText="Start +0 XP"
+                            className="-ms-44"
+                        >
+                            <FontAwesomeIcon icon={faVolumeHigh} className="w-8! h-8!" />
+                        </LessonCard>
+                        <LessonCard
+                            href="/learn/1"
+                            title="Order food and drinks"
+                            lessonText="Lesson 4 of 5"
+                            buttonText="Start +10 XP"
+                            className="-ms-24"
+                            active={true}
+                        >
+                            <FontAwesomeIcon icon={faComment} className="w-8! h-8!" />
+                        </LessonCard>
+                        <ButtonLearn variant="secondary">
+                            <FontAwesomeIcon icon={faStar} className="w-8! h-8!" />
+                        </ButtonLearn>
+                    </div>
+                </div>
+                {/* Level 2 */}
+                <div>
+                    <div className="shadow p-5 rounded-2xl bg-slate-900 flex justify-between items-center sticky top-5 z-30">
+                        <div>
+                            <p className="text-slate-300 text-sm">Level 2, Lesson 1</p>
+                            <h1 className="text-white font-semibold text-xl">Great and say goodbye</h1>
+                        </div>
+                        <Button variant="secondary" >Guidebook</Button>
+                    </div>
+                    
+                    <div className="relative p-5 flex flex-col items-center justify-center gap-8 my-5">
+                        {/* Boss Fight */}
+                        <ButtonLearn
+                            classDiv="absolute! me-40"
+                            variant="secondary"
+                        >
+                            <FontAwesomeIcon icon={faSkull} className="w-12! h-12! m-1" />
+                        </ButtonLearn>
+
+                        {/* Level */}
+                        <ButtonLearn variant="secondary">
+                            <FontAwesomeIcon icon={faStar} className="w-8! h-8!" />
+                        </ButtonLearn>
+                        <ButtonLearn variant="secondary" classDiv="-me-24">
+                            <FontAwesomeIcon icon={faStar} className="w-8! h-8!" />
+                        </ButtonLearn>
+                        <ButtonLearn variant="secondary" classDiv="-me-44">
+                            <FontAwesomeIcon icon={faStar} className="w-8! h-8!" />
+                        </ButtonLearn>
+                        <ButtonLearn variant="secondary" classDiv="-me-24">
+                            <FontAwesomeIcon icon={faStar} className="w-8! h-8!" />
+                        </ButtonLearn>
+                        <ButtonLearn variant="secondary">
+                            <FontAwesomeIcon icon={faStar} className="w-8! h-8!" />
+                        </ButtonLearn>
+                    </div>
                 </div>
             </div>
             <div className="w-full p-5">
