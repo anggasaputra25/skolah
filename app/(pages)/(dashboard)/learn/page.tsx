@@ -1,7 +1,9 @@
+import { LevelLock } from "@/components/layout/LevelLock";
 import Sidebar from "@/components/layout/Sidebar";
 import { BorderCard } from "@/components/ui/BorderCard";
 import { Button } from "@/components/ui/Button";
 import { ButtonLearn } from "@/components/ui/ButtonLearn";
+import { ButtonLink } from "@/components/ui/ButtonLink";
 import { LessonCard } from "@/components/ui/LessonCard";
 import { faBolt, faBook, faComment, faEllipsis, faHeadphones, faSkull, faStar, faVolumeHigh } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,14 +16,14 @@ const LearnPage = () => {
             <Sidebar target={1} />
 
             <div className="w-full p-5">
-                {/* Level 1 */}
+                {/* Section 1 */}
                 <div>
                     <div className="shadow p-5 rounded-2xl bg-blue-600 flex justify-between items-center sticky top-5 z-30">
                         <div>
-                            <p className="text-slate-300 text-sm font-semibold">Level 1, Lesson 1</p>
+                            <p className="text-slate-300 text-sm font-semibold">Section 1, Lesson 1</p>
                             <h1 className="text-white font-bold text-xl">Order food and drinks</h1>
                         </div>
-                        <Button variant="secondary" >Guidebook</Button>
+                        <ButtonLink href="/guidebook" variant="secondary" >Guidebook</ButtonLink>
                     </div>
                     
                     <div className="relative p-5 flex flex-col items-center justify-center gap-8 my-5">
@@ -80,42 +82,32 @@ const LearnPage = () => {
                     </div>
                 </div>
 
-                {/* Level 2 */}
+                {/* Section 2 */}
                 <div>
-                    <div className="shadow p-5 rounded-2xl bg-slate-900 flex justify-between items-center sticky top-5 z-30">
+                    <div className="shadow p-5 rounded-2xl bg-red-600 flex justify-between items-center sticky top-5 z-30">
                         <div>
-                            <p className="text-slate-300 text-sm font-semibold">Level 2, Lesson 1</p>
+                            <p className="text-slate-300 text-sm font-semibold">Section 2, Lesson 1</p>
                             <h1 className="text-white font-bold text-xl">Great and say goodbye</h1>
                         </div>
-                        <Button variant="secondary" >Guidebook</Button>
+                        <ButtonLink href="/guidebook" variant="secondary" className="text-red-600">Guidebook</ButtonLink>
                     </div>
                     
-                    <div className="relative p-5 flex flex-col items-center justify-center gap-8 my-5">
-                        {/* Boss Fight */}
-                        <ButtonLearn
-                            classDiv="absolute! me-40"
-                            variant="secondary"
-                        >
-                            <FontAwesomeIcon icon={faSkull} className="w-12! h-12! m-1" />
-                        </ButtonLearn>
+                    {/* Lesson */}
+                    <LevelLock />
+                </div>
 
-                        {/* Lesson */}
-                        <ButtonLearn variant="secondary">
-                            <FontAwesomeIcon icon={faStar} className="w-8! h-8!" />
-                        </ButtonLearn>
-                        <ButtonLearn variant="secondary" classDiv="-me-24">
-                            <FontAwesomeIcon icon={faStar} className="w-8! h-8!" />
-                        </ButtonLearn>
-                        <ButtonLearn variant="secondary" classDiv="-me-44">
-                            <FontAwesomeIcon icon={faStar} className="w-8! h-8!" />
-                        </ButtonLearn>
-                        <ButtonLearn variant="secondary" classDiv="-me-24">
-                            <FontAwesomeIcon icon={faStar} className="w-8! h-8!" />
-                        </ButtonLearn>
-                        <ButtonLearn variant="secondary">
-                            <FontAwesomeIcon icon={faStar} className="w-8! h-8!" />
-                        </ButtonLearn>
+                {/* Section 3 */}
+                <div>
+                    <div className="shadow p-5 rounded-2xl bg-violet-600 flex justify-between items-center sticky top-5 z-30">
+                        <div>
+                            <p className="text-slate-300 text-sm font-semibold">Section 3, Lesson 1</p>
+                            <h1 className="text-white font-bold text-xl">Tell time</h1>
+                        </div>
+                        <ButtonLink href="/guidebook" variant="secondary" className="text-violet-600">Guidebook</ButtonLink>
                     </div>
+                    
+                    {/* Lesson */}
+                    <LevelLock align="left" />
                 </div>
             </div>
             <div className="w-3xl">
