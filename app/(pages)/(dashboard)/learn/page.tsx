@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/Button";
 import { ButtonLearn } from "@/components/ui/ButtonLearn";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { LessonCard } from "@/components/ui/LessonCard";
+import { LEADERBOARD } from "@/constants/leaderboard";
 import { faBolt, faBook, faComment, faEllipsis, faHeadphones, faSkull, faStar, faVolumeHigh } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
@@ -156,34 +157,40 @@ const LearnPage = () => {
                         </div>
                     </BorderCard>
 
-                    {/* Season Leaderboard */}
+                    {/* Seasonal Leaderboard */}
                     <BorderCard className="border-b-2! space-y-5 text-slate-700">
                         <div className="flex justify-between items-center">
                             <p className="font-bold">Seasonal Leaderboard</p>
                             <Link href={'/leaderboard'} className="text-blue-600 font-bold text-sm">View All</Link>
                         </div>
-                        <BorderCard className="flex justify-between items-center border-b-2! p-3! font-semibold">
-                            <div className="flex gap-1 items-center">
-                                <p className="text-xl me-1">#12</p>
-                                <Image src={'/assets/flags/indonesia.jpeg'} alt="flag" width={40} height={40} className="border-2 aspect-square border-slate-300 rounded-full" />
-                                <p>Putra</p>
-                            </div>
-                            <div className="flex justify-center gap-1">
-                                <FontAwesomeIcon icon={faStar} className="w-6! h-6! text-blue-600 " />
-                                <p className="text-blue-600 font-bold">30</p>
-                            </div>
-                        </BorderCard>
-                        <BorderCard variant="primary" className="flex justify-between items-center border-b-2! p-3! font-semibold">
-                            <div className="flex gap-1 items-center">
-                                <p className="text-xl me-1">#13</p>
-                                <Image src={'/assets/flags/indonesia.jpeg'} alt="flag" width={40} height={40} className="border-2 aspect-square border-slate-300 rounded-full" />
-                                <p>Angga</p>
-                            </div>
-                            <div className="flex justify-center gap-1">
-                                <FontAwesomeIcon icon={faStar} className="w-6! h-6!" />
-                                <p className="font-bold">20</p>
-                            </div>
-                        </BorderCard>
+                        {LEADERBOARD.slice(11, 13).map((user, index) => (
+                            <BorderCard
+                                key={index}
+                                variant={user.isCurrentUser ? "primary" : undefined}
+                                className="flex justify-between items-center border-b-2! p-3! font-semibold"
+                                >
+                                <div className="flex gap-1 items-center">
+                                    <p className="text-xl me-1">#{user.rank}</p>
+                                    <Image
+                                        src={user.avatar}
+                                        alt={`${user.name} flag`}
+                                        width={40}
+                                        height={40}
+                                        className="border-2 aspect-square border-slate-300 rounded-full"
+                                    />
+                                    <p>{user.name}</p>
+                                </div>
+                                <div className="flex justify-center gap-1">
+                                    <FontAwesomeIcon
+                                    icon={faStar}
+                                    className={`w-6! h-6! ${!user.isCurrentUser ? "text-blue-600" : ""}`}
+                                    />
+                                    <p className={!user.isCurrentUser ? "text-blue-600 font-bold" : "font-bold"}>
+                                        {user.score}
+                                    </p>
+                                </div>
+                            </BorderCard>
+                        ))}
                     </BorderCard>
                 </div>
             </div>
