@@ -1,6 +1,7 @@
 import Sidebar from "@/components/layout/Sidebar";
 import { BorderCard } from "@/components/ui/BorderCard";
 import { Button } from "@/components/ui/Button";
+import { LEADERBOARD } from "@/constants/leaderboard";
 import { faBolt, faCheckCircle, faEllipsis, faFire, faShield, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
@@ -41,7 +42,7 @@ const QuestPage = () => {
                                 <p className="text-xs text-slate-400 font-semibold">10 / 10 XP</p>
                             </div>
                         </div>
-                        <Button variant="warning" size="sm">Claim</Button>
+                        <Button variant="warning" size="md">Claim</Button>
                     </BorderCard>
 
                     {/* Quest Item 2: In Progress */}
@@ -56,7 +57,7 @@ const QuestPage = () => {
                                 <p className="text-xs text-slate-400 font-semibold">2 / 3 Completed</p>
                             </div>
                         </div>
-                        <Button variant="secondary" size="sm" disabled className="opacity-60 cursor-not-allowed">
+                        <Button variant="secondary" size="md" disabled className="opacity-60 cursor-not-allowed">
                             In Progress
                         </Button>
                     </BorderCard>
@@ -88,7 +89,7 @@ const QuestPage = () => {
                                 <p className="text-xs text-slate-400 font-semibold">0 / 1 Defeated</p>
                             </div>
                         </div>
-                        <Button variant="primary" size="sm">Start</Button>
+                        <Button variant="primary" size="md">Start</Button>
                     </BorderCard>
                 </div>
             </div>
@@ -131,50 +132,34 @@ const QuestPage = () => {
                             <p className="font-bold">Seasonal Leaderboard</p>
                             <Link href={'/leaderboard'} className="text-blue-600 font-bold text-sm">View All</Link>
                         </div>
-                        <BorderCard className="flex justify-between items-center border-b-2! p-3! font-semibold">
-                            <div className="flex gap-1 items-center">
-                                <p className="text-xl me-1">#11</p>
-                                <Image src={'/assets/flags/indonesia.jpeg'} alt="flag" width={40} height={40} className="border-2 aspect-square border-slate-300 rounded-full" />
-                                <p>Edmund</p>
-                            </div>
-                            <div className="flex justify-center gap-1">
-                                <FontAwesomeIcon icon={faStar} className="w-6! h-6! text-blue-600" />
-                                <p className="text-blue-600 font-bold">35</p>
-                            </div>
-                        </BorderCard>
-                        <BorderCard className="flex justify-between items-center border-b-2! p-3! font-semibold">
-                            <div className="flex gap-1 items-center">
-                                <p className="text-xl me-1">#12</p>
-                                <Image src={'/assets/flags/indonesia.jpeg'} alt="flag" width={40} height={40} className="border-2 aspect-square border-slate-300 rounded-full" />
-                                <p>Putra</p>
-                            </div>
-                            <div className="flex justify-center gap-1">
-                                <FontAwesomeIcon icon={faStar} className="w-6! h-6! text-blue-600" />
-                                <p className="text-blue-600 font-bold">30</p>
-                            </div>
-                        </BorderCard>
-                        <BorderCard variant="primary" className="flex justify-between items-center border-b-2! p-3! font-semibold">
-                            <div className="flex gap-1 items-center">
-                                <p className="text-xl me-1">#13</p>
-                                <Image src={'/assets/flags/indonesia.jpeg'} alt="flag" width={40} height={40} className="border-2 aspect-square border-slate-300 rounded-full" />
-                                <p>Angga</p>
-                            </div>
-                            <div className="flex justify-center gap-1">
-                                <FontAwesomeIcon icon={faStar} className="w-6! h-6!" />
-                                <p className="font-bold">20</p>
-                            </div>
-                        </BorderCard>
-                        <BorderCard className="flex justify-between items-center border-b-2! p-3! font-semibold">
-                            <div className="flex gap-1 items-center">
-                                <p className="text-xl me-1">#14</p>
-                                <Image src={'/assets/flags/indonesia.jpeg'} alt="flag" width={40} height={40} className="border-2 aspect-square border-slate-300 rounded-full" />
-                                <p>Adi</p>
-                            </div>
-                            <div className="flex justify-center gap-1">
-                                <FontAwesomeIcon icon={faStar} className="w-6! h-6! text-blue-600" />
-                                <p className="text-blue-600 font-bold">10</p>
-                            </div>
-                        </BorderCard>
+                        {LEADERBOARD.slice(10, 14).map((user, index) => (
+                            <BorderCard
+                                key={index}
+                                variant={user.isCurrentUser ? "primary" : undefined}
+                                className="flex justify-between items-center border-b-2! p-3! font-semibold"
+                                >
+                                <div className="flex gap-1 items-center">
+                                    <p className="text-xl me-1">#{user.rank}</p>
+                                    <Image
+                                        src={user.avatar}
+                                        alt={`${user.name} flag`}
+                                        width={40}
+                                        height={40}
+                                        className="border-2 aspect-square border-slate-300 rounded-full"
+                                    />
+                                    <p>{user.name}</p>
+                                </div>
+                                <div className="flex justify-center gap-1">
+                                    <FontAwesomeIcon
+                                    icon={faStar}
+                                    className={`w-6! h-6! ${!user.isCurrentUser ? "text-blue-600" : ""}`}
+                                    />
+                                    <p className={!user.isCurrentUser ? "text-blue-600 font-bold" : "font-bold"}>
+                                        {user.score}
+                                    </p>
+                                </div>
+                            </BorderCard>
+                        ))}
                     </BorderCard>
                 </div>
             </div>
