@@ -7,6 +7,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const RightPanel = ({target = 1}: {target?: number}) => {
+    let leaderboard = LEADERBOARD;
+    if (target == 1 || target == 3) {
+        leaderboard = LEADERBOARD.slice(11, 13);
+    } else {
+        leaderboard = LEADERBOARD.slice(10, 14);
+    }
     return (
         <div className="w-3xl">
             <div className="p-5 space-y-5 sticky top-0">
@@ -65,7 +71,7 @@ export const RightPanel = ({target = 1}: {target?: number}) => {
                             <p className="font-bold">Seasonal Leaderboard</p>
                             <Link href={'/leaderboard'} className="text-blue-600 font-bold text-sm">View All</Link>
                         </div>
-                        {LEADERBOARD.slice(11, 13).map((user, index) => (
+                        {leaderboard.map((user, index) => (
                             <BorderCard
                                 key={index}
                                 variant={user.isCurrentUser ? "primary" : undefined}
