@@ -6,19 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { faBookOpen, faCheck, faStar, faVolumeHigh, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-const readingLessonData = {
-    title: "Reading Comprehension",
-    subtitle: "Read the story and answer the question below.",
-    passage: "Sarah wakes up early every morning to prepare fresh bread for her bakery. She loves the smell of warm cinnamon and coffee in her shop.",
-    question: "What does Sarah prepare early in the morning?",
-    options: [
-        { id: "a", text: "Fresh bread for her bakery", isCorrect: true },
-        { id: "b", text: "Hot tea and soup", isCorrect: false },
-        { id: "c", text: "Books for her store", isCorrect: false },
-        { id: "d", text: "Clothes for the market", isCorrect: false },
-    ],
-};
+import { READING } from "@/constants/lesson";
 
 const ReadingPage = () => {
     const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -26,7 +14,7 @@ const ReadingPage = () => {
 
     const handleCheck = () => {
         if (!selectedOption) return;
-        const selected = readingLessonData.options.find((opt) => opt.id === selectedOption);
+        const selected = READING.options.find((opt) => opt.id === selectedOption);
         
         if (selected?.isCorrect) {
             setStatus("correct");
@@ -63,8 +51,8 @@ const ReadingPage = () => {
             <div className="max-w-2xl w-full mx-auto p-5 space-y-6 flex-1 flex flex-col justify-center">
                 {/* Header Title */}
                 <div>
-                    <h1 className="text-2xl font-black text-slate-700">{readingLessonData.title}</h1>
-                    <p className="text-slate-400 font-semibold">{readingLessonData.subtitle}</p>
+                    <h1 className="text-2xl font-black text-slate-700">{READING.title}</h1>
+                    <p className="text-slate-400 font-semibold">{READING.subtitle}</p>
                 </div>
 
                 {/* Reading Passage Card */}
@@ -79,18 +67,18 @@ const ReadingPage = () => {
                         </button>
                     </div>
                     <p className="text-lg font-medium text-slate-800 leading-relaxed">
-                        &quot;{readingLessonData.passage}&quot;
+                        &quot;{READING.passage}&quot;
                     </p>
                 </BorderCard>
 
                 {/* Question Prompt */}
                 <h2 className="text-lg font-extrabold text-slate-700 pt-2">
-                    {readingLessonData.question}
+                    {READING.question}
                 </h2>
 
                 {/* Multiple Choice Options */}
                 <div className="space-y-3">
-                    {readingLessonData.options.map((option) => {
+                    {READING.options.map((option) => {
                         const isSelected = selectedOption === option.id;
                         return (
                             <Button

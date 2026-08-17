@@ -13,69 +13,17 @@ import {
     faXmark 
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-interface DialogueMessage {
-    id: number;
-    speaker: "partner" | "user";
-    name: string;
-    text: string;
-    avatarBg: string;
-}
-
-const conversationLessonData = {
-    title: "Conversation Simulation",
-    subtitle: "Complete the dialogue by choosing the most natural response.",
-    partner: {
-        name: "Marco",
-        role: "Baker",
-    },
-    // Contextual chat log preceding the active question
-    chatHistory: [
-        {
-            id: 1,
-            speaker: "partner",
-            name: "Marco",
-            text: "Good morning! Welcome to the bakery. What can I get for you today?",
-            avatarBg: "bg-amber-500",
-        },
-    ] as DialogueMessage[],
-    questionPrompt: "Choose how to respond to Marco:",
-    options: [
-        { 
-            id: "a", 
-            text: "Hi! I would like a fresh loaf of sourdough bread, please.", 
-            isCorrect: true, 
-            feedback: "Polite and natural response for ordering food!" 
-        },
-        { 
-            id: "b", 
-            text: "Yes, I know where the train station is located.", 
-            isCorrect: false, 
-            feedback: "This does not answer the baker's question." 
-        },
-        { 
-            id: "c", 
-            text: "I wake up early every morning at six o'clock.", 
-            isCorrect: false, 
-            feedback: "Unrelated to ordering items in a bakery." 
-        },
-        { 
-            id: "d", 
-            text: "Goodbye! Have a great afternoon.", 
-            isCorrect: false, 
-            feedback: "You just entered the store, so saying goodbye doesn't fit." 
-        },
-    ],
-};
+import { DialogueMessage } from "@/types/dialogue";
+import { CONVERSATION } from "@/constants/lesson";
 
 const ConversationPage = () => {
     const [selectedOption, setSelectedOption] = useState<string | null>(null);
     const [status, setStatus] = useState<"idle" | "correct" | "incorrect">("idle");
-    const [messages, setMessages] = useState<DialogueMessage[]>(conversationLessonData.chatHistory);
+    const [messages, setMessages] = useState<DialogueMessage[]>(CONVERSATION.chatHistory);
 
     const handleCheck = () => {
         if (!selectedOption) return;
-        const selected = conversationLessonData.options.find((opt) => opt.id === selectedOption);
+        const selected = CONVERSATION.options.find((opt) => opt.id === selectedOption);
         
         if (selected) {
             // Dynamically append user's selected response to the chat stream
@@ -100,7 +48,7 @@ const ConversationPage = () => {
         }
     };
 
-    const selectedOptionObj = conversationLessonData.options.find((opt) => opt.id === selectedOption);
+    const selectedOptionObj = CONVERSATION.options.find((opt) => opt.id === selectedOption);
 
     return (
         <div className="min-h-screen flex flex-col justify-between bg-slate-50">
@@ -126,8 +74,8 @@ const ConversationPage = () => {
             <div className="max-w-2xl w-full mx-auto p-5 space-y-6 flex-1 flex flex-col justify-center">
                 {/* Header Title */}
                 <div>
-                    <h1 className="text-2xl font-black text-slate-700">{conversationLessonData.title}</h1>
-                    <p className="text-slate-400 font-semibold">{conversationLessonData.subtitle}</p>
+                    <h1 className="text-2xl font-black text-slate-700">{CONVERSATION.title}</h1>
+                    <p className="text-slate-400 font-semibold">{CONVERSATION.subtitle}</p>
                 </div>
 
                 {/* Dialogue Chat Feed Container */}
@@ -135,7 +83,7 @@ const ConversationPage = () => {
                     <div className="flex items-center justify-between text-slate-500 pb-2 border-b border-slate-200">
                         <div className="flex items-center gap-2 font-bold text-xs uppercase tracking-wider">
                             <FontAwesomeIcon icon={faUserGroup} className="w-4 h-4 text-slate-400" />
-                            <span>Roleplay with {conversationLessonData.partner.name} ({conversationLessonData.partner.role})</span>
+                            <span>Roleplay with {CONVERSATION.partner.name} ({CONVERSATION.partner.role})</span>
                         </div>
                         <FontAwesomeIcon icon={faComments} className="w-4 h-4 text-slate-400" />
                     </div>
@@ -190,12 +138,12 @@ const ConversationPage = () => {
 
                 {/* Prompt Label */}
                 <h2 className="text-lg font-extrabold text-slate-700 pt-1">
-                    {conversationLessonData.questionPrompt}
+                    {CONVERSATION.questionPrompt}
                 </h2>
 
                 {/* Option Selector List */}
                 <div className="space-y-3">
-                    {conversationLessonData.options.map((option) => {
+                    {CONVERSATION.options.map((option) => {
                         const isSelected = selectedOption === option.id;
                         return (
                             <Button

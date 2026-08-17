@@ -15,16 +15,9 @@ import {
     faXmark 
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-const speakingLessonData = {
-    title: "Speaking Practice",
-    subtitle: "Read the sentence out loud clearly into your microphone.",
-    targetText: "Sarah wakes up early every morning to prepare fresh bread for her bakery.",
-    phoneticHint: "SAH-ruh WAYKS up ER-lee EV-ree MOR-ning...",
-};
+import { SPEAKING } from "@/constants/lesson";
 
 const SpeakingPage = () => {
-    // Recording states: "idle" | "recording" | "recorded"
     const [recordState, setRecordState] = useState<"idle" | "recording" | "recorded">("idle");
     const [isPlayingPlayback, setIsPlayingPlayback] = useState<boolean>(false);
     const [status, setStatus] = useState<"idle" | "correct" | "incorrect">("idle");
@@ -128,8 +121,8 @@ const SpeakingPage = () => {
             <div className="max-w-2xl w-full mx-auto p-5 space-y-6 flex-1 flex flex-col justify-center">
                 {/* Header Title */}
                 <div>
-                    <h1 className="text-2xl font-black text-slate-700">{speakingLessonData.title}</h1>
-                    <p className="text-slate-400 font-semibold">{speakingLessonData.subtitle}</p>
+                    <h1 className="text-2xl font-black text-slate-700">{SPEAKING.title}</h1>
+                    <p className="text-slate-400 font-semibold">{SPEAKING.subtitle}</p>
                 </div>
 
                 {/* Sentence Prompt Card */}
@@ -145,11 +138,11 @@ const SpeakingPage = () => {
                     </div>
 
                     <p className="text-xl font-extrabold text-slate-800 leading-relaxed">
-                        &quot;{speakingLessonData.targetText}&quot;
+                        &quot;{SPEAKING.targetText}&quot;
                     </p>
 
                     <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest">
-                        Hint: {speakingLessonData.phoneticHint}
+                        Hint: {SPEAKING.phoneticHint}
                     </p>
                 </BorderCard>
 

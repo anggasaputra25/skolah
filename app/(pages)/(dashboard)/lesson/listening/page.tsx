@@ -6,20 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { faCheck, faEarListen, faPause, faPlay, faStar, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-const listeningLessonData = {
-    title: "Listening Comprehension",
-    subtitle: "Listen to the audio track and answer the question below.",
-    audioUrl: "/assets/audio/listening.m4a",
-    transcript: "Sarah wakes up early every morning to prepare fresh bread for her bakery. She loves the smell of warm cinnamon and coffee in her shop.",
-    question: "What does Sarah prepare early in the morning?",
-    options: [
-        { id: "a", text: "Fresh bread for her bakery", isCorrect: true },
-        { id: "b", text: "Hot tea and soup", isCorrect: false },
-        { id: "c", text: "Books for her store", isCorrect: false },
-        { id: "d", text: "Clothes for the market", isCorrect: false },
-    ],
-};
+import { LISTENING } from "@/constants/lesson";
 
 const ListeningPage = () => {
     const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -46,7 +33,7 @@ const ListeningPage = () => {
 
     const handleCheck = () => {
         if (!selectedOption) return;
-        const selected = listeningLessonData.options.find((opt) => opt.id === selectedOption);
+        const selected = LISTENING.options.find((opt) => opt.id === selectedOption);
         
         if (selected?.isCorrect) {
             setStatus("correct");
@@ -82,7 +69,7 @@ const ListeningPage = () => {
             {/* Audio Element */}
             <audio 
                 ref={audioRef} 
-                src={listeningLessonData.audioUrl} 
+                src={LISTENING.audioUrl} 
                 onEnded={handleAudioEnded} 
             />
 
@@ -90,8 +77,8 @@ const ListeningPage = () => {
             <div className="max-w-2xl w-full mx-auto p-5 space-y-6 flex-1 flex flex-col justify-center">
                 {/* Header Title */}
                 <div>
-                    <h1 className="text-2xl font-black text-slate-700">{listeningLessonData.title}</h1>
-                    <p className="text-slate-400 font-semibold">{listeningLessonData.subtitle}</p>
+                    <h1 className="text-2xl font-black text-slate-700">{LISTENING.title}</h1>
+                    <p className="text-slate-400 font-semibold">{LISTENING.subtitle}</p>
                 </div>
 
                 {/* Audio Player Card */}
@@ -120,12 +107,12 @@ const ListeningPage = () => {
 
                 {/* Question Prompt */}
                 <h2 className="text-lg font-extrabold text-slate-700 pt-2">
-                    {listeningLessonData.question}
+                    {LISTENING.question}
                 </h2>
 
                 {/* Multiple Choice Options */}
                 <div className="space-y-3">
-                    {listeningLessonData.options.map((option) => {
+                    {LISTENING.options.map((option) => {
                         const isSelected = selectedOption === option.id;
                         return (
                             <Button
@@ -186,7 +173,7 @@ const ListeningPage = () => {
                                 <div>
                                     <p className="font-extrabold text-lg">Not quite right</p>
                                     <p className="text-sm font-semibold">
-                                        Correct Answer: {listeningLessonData.options.find(o => o.isCorrect)?.text}
+                                        Correct Answer: {LISTENING.options.find(o => o.isCorrect)?.text}
                                     </p>
                                 </div>
                             </div>

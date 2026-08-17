@@ -1,8 +1,4 @@
-export interface Language {
-    image: string;
-    title: string;
-    description: string;
-}
+import { Language } from "@/types/language";
 
 export const LANGUAGES: Language[] = [
     {
