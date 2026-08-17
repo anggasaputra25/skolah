@@ -18,7 +18,7 @@ const LeaderboardPage = () => {
                 {/* Header Section Banner */}
                 <div className="shadow p-6 rounded-2xl bg-amber-500 text-white flex justify-between items-center sticky top-5 z-30">
                     <div className="flex items-center gap-4">
-                        <FontAwesomeIcon icon={faTrophy} className="w-10 h-10 text-yellow-200" />
+                        <FontAwesomeIcon icon={faTrophy} className="w-10! h-10! text-yellow-200" />
                         <div>
                             <p className="text-amber-100 text-sm font-semibold uppercase tracking-wider">Weekly League</p>
                             <h1 className="font-bold text-2xl">Bronze League</h1>
@@ -36,21 +36,21 @@ const LeaderboardPage = () => {
                         </div>
                         <p className="font-bold text-slate-700 truncate w-full">{LEADERBOARD[1].name}</p>
                         <div className="flex items-center gap-1 text-slate-500 text-sm font-semibold mt-1">
-                            <FontAwesomeIcon icon={faStar} className="w-4 h-4 text-blue-600" />
+                            <FontAwesomeIcon icon={faStar} className="w-4! h-4! text-blue-600" />
                             <span>{LEADERBOARD[1].score} XP</span>
                         </div>
                     </BorderCard>
 
                     {/* Rank 1 */}
                     <BorderCard className="flex flex-col items-center text-center p-4 bg-yellow-50 border-yellow-400 border-b-6">
-                        <FontAwesomeIcon icon={faMedal} className="w-8 h-8 text-yellow-500 mb-1" />
+                        <FontAwesomeIcon icon={faMedal} className="w-8! h-8! text-yellow-500 mb-1" />
                         <div className="relative mb-2">
                             <Image src={LEADERBOARD[0].avatar} alt="avatar" width={64} height={64} className="border-2 aspect-square object-cover border-yellow-400 rounded-full" />
                             <span className="absolute -bottom-2 -right-1 bg-yellow-500 text-white font-black text-xs px-2 py-0.5 rounded-full border border-white">1</span>
                         </div>
                         <p className="font-bold text-slate-800 truncate w-full">{LEADERBOARD[0].name}</p>
                         <div className="flex items-center gap-1 text-yellow-600 text-sm font-bold mt-1">
-                            <FontAwesomeIcon icon={faStar} className="w-4 h-4 text-yellow-500" />
+                            <FontAwesomeIcon icon={faStar} className="w-4! h-4! text-yellow-500" />
                             <span>{LEADERBOARD[0].score} XP</span>
                         </div>
                     </BorderCard>
@@ -63,7 +63,7 @@ const LeaderboardPage = () => {
                         </div>
                         <p className="font-bold text-slate-700 truncate w-full">{LEADERBOARD[2].name}</p>
                         <div className="flex items-center gap-1 text-slate-500 text-sm font-semibold mt-1">
-                            <FontAwesomeIcon icon={faStar} className="w-4 h-4 text-amber-600" />
+                            <FontAwesomeIcon icon={faStar} className="w-4! h-4! text-amber-600" />
                             <span>{LEADERBOARD[2].score} XP</span>
                         </div>
                     </BorderCard>
@@ -100,7 +100,7 @@ const LeaderboardPage = () => {
                             <div className="flex justify-center items-center gap-1.5">
                                 <FontAwesomeIcon
                                     icon={faStar}
-                                    className={`w-5 h-5 ${item.isCurrentUser ? "text-white" : "text-blue-600"}`}
+                                    className={`w-5! h-5! ${item.isCurrentUser ? "text-white" : "text-blue-600"}`}
                                 />
                                 <p className={`font-bold ${item.isCurrentUser ? "text-white" : "text-blue-600"}`}>
                                     {item.score} XP
@@ -121,7 +121,7 @@ const LeaderboardPage = () => {
                         <Image src={'/assets/flags/french.jpeg'} alt="flag" width={64} height={64} className="block cursor-pointer border-2 aspect-2/1.5 border-slate-300 rounded-lg" />
                         <Image src={'/assets/flags/german.jpeg'} alt="flag" width={64} height={64} className="block cursor-pointer border-2 aspect-2/1.5 border-slate-300 rounded-lg" />
                         <Link href={'/languages'} className="border-2 aspect-2/1.5 border-slate-300 rounded-lg w-16 h-auto flex justify-center items-center">
-                            <FontAwesomeIcon icon={faEllipsis} className="w-8 h-8 text-slate-500" />
+                            <FontAwesomeIcon icon={faEllipsis} className="w-8! h-8! text-slate-500" />
                         </Link>
                     </div>
 

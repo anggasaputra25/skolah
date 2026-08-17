@@ -33,7 +33,7 @@ const QuestPage = () => {
                     {/* Quest Item 1: Ready to Claim */}
                     <BorderCard className="flex items-center justify-between gap-4">
                         <div className="flex items-center gap-4">
-                            <FontAwesomeIcon icon={faBolt} className="w-10 h-10 text-yellow-500 filter-[drop-shadow(0px_2px_0px_#d97706)]" />
+                            <FontAwesomeIcon icon={faBolt} className="w-10! h-10! text-yellow-500 filter-[drop-shadow(0px_2px_0px_#d97706)]" />
                             <div className="space-y-1">
                                 <p className="font-bold text-slate-700">Earn 10 XP</p>
                                 <div className="w-48 bg-slate-200 rounded-full h-3 overflow-hidden">
@@ -48,7 +48,7 @@ const QuestPage = () => {
                     {/* Quest Item 2: In Progress */}
                     <BorderCard className="flex items-center justify-between gap-4">
                         <div className="flex items-center gap-4">
-                            <FontAwesomeIcon icon={faFire} className="w-10 h-10 text-orange-500 filter-[drop-shadow(0px_2px_0px_#c2410c)]" />
+                            <FontAwesomeIcon icon={faFire} className="w-10! h-10! text-orange-500 filter-[drop-shadow(0px_2px_0px_#c2410c)]" />
                             <div className="space-y-1">
                                 <p className="font-bold text-slate-700">Complete 3 Lessons</p>
                                 <div className="w-48 bg-slate-200 rounded-full h-3 overflow-hidden">
@@ -65,7 +65,7 @@ const QuestPage = () => {
                     {/* Quest Item 3: Completed */}
                     <BorderCard className="flex items-center justify-between gap-4 bg-slate-50 border-slate-200">
                         <div className="flex items-center gap-4">
-                            <FontAwesomeIcon icon={faCheckCircle} className="w-10 h-10 text-green-500" />
+                            <FontAwesomeIcon icon={faCheckCircle} className="w-10! h-10! text-green-500" />
                             <div className="space-y-1">
                                 <p className="font-bold text-slate-400 line-through">Score 90% or higher in 1 lesson</p>
                                 <p className="text-xs text-green-600 font-bold">Reward Claimed +20 XP</p>
@@ -80,7 +80,7 @@ const QuestPage = () => {
 
                     <BorderCard className="flex items-center justify-between gap-4">
                         <div className="flex items-center gap-4">
-                            <FontAwesomeIcon icon={faShield} className="w-10 h-10 text-violet-600 filter-[drop-shadow(0px_2px_0px_#4c1d95)]" />
+                            <FontAwesomeIcon icon={faShield} className="w-10! h-10! text-violet-600 filter-[drop-shadow(0px_2px_0px_#4c1d95)]" />
                             <div className="space-y-1">
                                 <p className="font-bold text-slate-700">Defeat 1 Boss Fight</p>
                                 <div className="w-48 bg-slate-200 rounded-full h-3 overflow-hidden">
@@ -104,7 +104,7 @@ const QuestPage = () => {
                         <Image src={'/assets/flags/french.jpeg'} alt="flag" width={64} height={64} className="block cursor-pointer border-2 aspect-2/1.5 border-slate-300 rounded-lg" />
                         <Image src={'/assets/flags/german.jpeg'} alt="flag" width={64} height={64} className="block cursor-pointer border-2 aspect-2/1.5 border-slate-300 rounded-lg" />
                         <Link href={'/languages'} className="border-2 aspect-2/1.5 border-slate-300 rounded-lg w-16 h-auto flex justify-center items-center">
-                            <FontAwesomeIcon icon={faEllipsis} className="w-8 h-8 text-slate-500" />
+                            <FontAwesomeIcon icon={faEllipsis} className="w-8! h-8! text-slate-500" />
                         </Link>
                     </div>
 

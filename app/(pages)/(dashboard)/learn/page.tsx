@@ -120,7 +120,7 @@ const LearnPage = () => {
                         <Image src={'/assets/flags/french.jpeg'} alt="flag" width={64} height={64} className="block cursor-pointer border-2 aspect-2/1.5 border-slate-300 rounded-lg" />
                         <Image src={'/assets/flags/german.jpeg'} alt="flag" width={64} height={64} className="block cursor-pointer border-2 aspect-2/1.5 border-slate-300 rounded-lg" />
                         <Link href={'/languages'} className="border-2 aspect-2/1.5 border-slate-300 rounded-lg w-16 h-auto flex justify-center items-center">
-                            <FontAwesomeIcon icon={faEllipsis} className="w-8 h-8 text-slate-500" />
+                            <FontAwesomeIcon icon={faEllipsis} className="w-8! h-8! text-slate-500" />
                         </Link>
                     </div>
 

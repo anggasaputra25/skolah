@@ -47,14 +47,14 @@ const ProfilePage = () => {
                                     className="border-4 aspect-square border-slate-300 rounded-full"
                                 />
                                 <span className="absolute bottom-0 right-0 bg-blue-600 text-white rounded-full p-1 border-2 border-white">
-                                    <FontAwesomeIcon icon={faUserCheck} className="w-4 h-4" />
+                                    <FontAwesomeIcon icon={faUserCheck} className="w-4! h-4!" />
                                 </span>
                             </div>
                             <div>
                                 <h1 className="text-2xl font-bold text-slate-800">Angga</h1>
                                 <p className="text-slate-400 font-semibold text-sm">@angga_dev</p>
                                 <div className="flex items-center gap-2 text-slate-500 text-xs font-semibold mt-2">
-                                    <FontAwesomeIcon icon={faCalendarDays} className="w-4 h-4" />
+                                    <FontAwesomeIcon icon={faCalendarDays} className="w-4! h-4!" />
                                     <span>Joined August 2026</span>
                                 </div>
                             </div>
@@ -62,7 +62,7 @@ const ProfilePage = () => {
 
                         <Link href="/settings">
                             <Button variant="secondary" size="sm" className="flex items-center gap-2">
-                                <FontAwesomeIcon icon={faGear} className="w-4 h-4 text-slate-500" />
+                                <FontAwesomeIcon icon={faGear} className="w-4! h-4! text-slate-500" />
                                 <span>Edit Profile</span>
                             </Button>
                         </Link>
@@ -74,7 +74,7 @@ const ProfilePage = () => {
                     <h2 className="text-xl font-bold text-slate-700">Statistics</h2>
                     <div className="grid grid-cols-2 gap-4">
                         <BorderCard className="flex items-center gap-4">
-                            <FontAwesomeIcon icon={faFire} className="w-8 h-8 text-orange-500" />
+                            <FontAwesomeIcon icon={faFire} className="w-8! h-8! text-orange-500" />
                             <div>
                                 <p className="text-xl font-black text-slate-700">7</p>
                                 <p className="text-sm font-semibold text-slate-400">Day streak</p>
@@ -82,7 +82,7 @@ const ProfilePage = () => {
                         </BorderCard>
 
                         <BorderCard className="flex items-center gap-4">
-                            <FontAwesomeIcon icon={faBolt} className="w-8 h-8 text-yellow-500" />
+                            <FontAwesomeIcon icon={faBolt} className="w-8! h-8! text-yellow-500" />
                             <div>
                                 <p className="text-xl font-black text-slate-700">450</p>
                                 <p className="text-sm font-semibold text-slate-400">Total XP</p>
@@ -90,7 +90,7 @@ const ProfilePage = () => {
                         </BorderCard>
 
                         <BorderCard className="flex items-center gap-4">
-                            <FontAwesomeIcon icon={faShieldHalved} className="w-8 h-8 text-violet-600" />
+                            <FontAwesomeIcon icon={faShieldHalved} className="w-8! h-8! text-violet-600" />
                             <div>
                                 <p className="text-xl font-black text-slate-700">Diamond</p>
                                 <p className="text-sm font-semibold text-slate-400">Current league</p>
@@ -98,7 +98,7 @@ const ProfilePage = () => {
                         </BorderCard>
 
                         <BorderCard className="flex items-center gap-4">
-                            <FontAwesomeIcon icon={faMedal} className="w-8 h-8 text-blue-600" />
+                            <FontAwesomeIcon icon={faMedal} className="w-8! h-8! text-blue-600" />
                             <div>
                                 <p className="text-xl font-black text-slate-700">#13</p>
                                 <p className="text-sm font-semibold text-slate-400">League Rank</p>
@@ -119,7 +119,7 @@ const ProfilePage = () => {
                             <BorderCard key={index} className="flex items-center justify-between gap-4">
                                 <div className="flex items-center gap-4">
                                     <div className="p-3 rounded-2xl bg-slate-100 border-2 border-slate-200">
-                                        <FontAwesomeIcon icon={item.icon} className={`w-8 h-8 ${item.color}`} />
+                                        <FontAwesomeIcon icon={item.icon} className={`w-8! h-8! ${item.color}`} />
                                     </div>
                                     <div className="space-y-1">
                                         <div className="flex items-center gap-2">
@@ -150,7 +150,7 @@ const ProfilePage = () => {
                         <Image src={'/assets/flags/french.jpeg'} alt="flag" width={64} height={64} className="block cursor-pointer border-2 aspect-2/1.5 border-slate-300 rounded-lg" />
                         <Image src={'/assets/flags/german.jpeg'} alt="flag" width={64} height={64} className="block cursor-pointer border-2 aspect-2/1.5 border-slate-300 rounded-lg" />
                         <Link href={'/languages'} className="border-2 aspect-2/1.5 border-slate-300 rounded-lg w-16 h-auto flex justify-center items-center">
-                            <FontAwesomeIcon icon={faEllipsis} className="w-8 h-8 text-slate-500" />
+                            <FontAwesomeIcon icon={faEllipsis} className="w-8! h-8! text-slate-500" />
                         </Link>
                     </div>
 
