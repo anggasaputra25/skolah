@@ -39,7 +39,7 @@ const LearnPage = () => {
 
                         {/* Lesson */}
                         <LessonCard
-                            href="/learn/1"
+                            href="/lesson/reading"
                             title="Order food and drinks"
                             lessonText="Lesson 1 of 5"
                             buttonText="Start +0 XP"
@@ -47,7 +47,7 @@ const LearnPage = () => {
                             <FontAwesomeIcon icon={faBook} className="w-8! h-8!" />
                         </LessonCard>
                         <LessonCard
-                            href="/learn/1"
+                            href="/lesson/listening"
                             title="Order food and drinks"
                             lessonText="Lesson 2 of 5"
                             buttonText="Start +0 XP"
@@ -56,7 +56,7 @@ const LearnPage = () => {
                             <FontAwesomeIcon icon={faHeadphones} className="w-8! h-8!" />
                         </LessonCard>
                         <LessonCard
-                            href="/learn/1"
+                            href="/lesson/speaking"
                             title="Order food and drinks"
                             lessonText="Lesson 3 of 5"
                             buttonText="Start +0 XP"
@@ -65,7 +65,7 @@ const LearnPage = () => {
                             <FontAwesomeIcon icon={faVolumeHigh} className="w-8! h-8!" />
                         </LessonCard>
                         <LessonCard
-                            href="/learn/1"
+                            href="/lesson/conversation"
                             title="Order food and drinks"
                             lessonText="Lesson 4 of 5"
                             buttonText="Start +10 XP"
