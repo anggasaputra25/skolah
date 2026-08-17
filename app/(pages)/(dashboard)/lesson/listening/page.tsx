@@ -1,16 +1,17 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { BorderCard } from "@/components/ui/BorderCard";
 import { Button } from "@/components/ui/Button";
 import { ButtonLink } from "@/components/ui/ButtonLink";
-import { faBookOpen, faCheck, faStar, faVolumeHigh, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faEarListen, faPause, faPlay, faStar, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const readingLessonData = {
-    title: "Reading Comprehension",
-    subtitle: "Read the story and answer the question below.",
-    passage: "Sarah wakes up early every morning to prepare fresh bread for her bakery. She loves the smell of warm cinnamon and coffee in her shop.",
+const listeningLessonData = {
+    title: "Listening Comprehension",
+    subtitle: "Listen to the audio track and answer the question below.",
+    audioUrl: "/assets/audio/listening.m4a",
+    transcript: "Sarah wakes up early every morning to prepare fresh bread for her bakery. She loves the smell of warm cinnamon and coffee in her shop.",
     question: "What does Sarah prepare early in the morning?",
     options: [
         { id: "a", text: "Fresh bread for her bakery", isCorrect: true },
@@ -20,13 +21,32 @@ const readingLessonData = {
     ],
 };
 
-const ReadingPage = () => {
+const ListeningPage = () => {
     const [selectedOption, setSelectedOption] = useState<string | null>(null);
     const [status, setStatus] = useState<"idle" | "correct" | "incorrect">("idle");
+    const [isPlaying, setIsPlaying] = useState<boolean>(false);
+    
+    const audioRef = useRef<HTMLAudioElement | null>(null);
+
+    const togglePlay = () => {
+        if (!audioRef.current) return;
+        
+        if (isPlaying) {
+            audioRef.current.pause();
+            setIsPlaying(false);
+        } else {
+            audioRef.current.play();
+            setIsPlaying(true);
+        }
+    };
+
+    const handleAudioEnded = () => {
+        setIsPlaying(false);
+    };
 
     const handleCheck = () => {
         if (!selectedOption) return;
-        const selected = readingLessonData.options.find((opt) => opt.id === selectedOption);
+        const selected = listeningLessonData.options.find((opt) => opt.id === selectedOption);
         
         if (selected?.isCorrect) {
             setStatus("correct");
@@ -59,38 +79,53 @@ const ReadingPage = () => {
                 </div>
             </div>
 
+            {/* Audio Element */}
+            <audio 
+                ref={audioRef} 
+                src={listeningLessonData.audioUrl} 
+                onEnded={handleAudioEnded} 
+            />
+
             {/* Main Lesson Content */}
             <div className="max-w-2xl w-full mx-auto p-5 space-y-6 flex-1 flex flex-col justify-center">
                 {/* Header Title */}
                 <div>
-                    <h1 className="text-2xl font-black text-slate-700">{readingLessonData.title}</h1>
-                    <p className="text-slate-400 font-semibold">{readingLessonData.subtitle}</p>
+                    <h1 className="text-2xl font-black text-slate-700">{listeningLessonData.title}</h1>
+                    <p className="text-slate-400 font-semibold">{listeningLessonData.subtitle}</p>
                 </div>
 
-                {/* Reading Passage Card */}
-                <BorderCard className="p-6 bg-blue-50 border-blue-200 border-b-4 space-y-3">
+                {/* Audio Player Card */}
+                <BorderCard className="p-6 bg-blue-50 border-blue-200 border-b-4 space-y-4">
                     <div className="flex justify-between items-center text-blue-600">
                         <div className="flex items-center gap-2 font-bold text-sm">
-                            <FontAwesomeIcon icon={faBookOpen} className="w-5 h-5" />
-                            <span>Passage</span>
+                            <FontAwesomeIcon icon={faEarListen} className="w-5 h-5" />
+                            <span>Audio Track</span>
                         </div>
-                        <button className="text-blue-600 hover:text-blue-800 transition">
-                            <FontAwesomeIcon icon={faVolumeHigh} className="w-5 h-5" />
+                    </div>
+
+                    {/* Big Audio Play Control */}
+                    <div className="flex items-center justify-center py-4">
+                        <button
+                            onClick={togglePlay}
+                            className="w-20 h-20 rounded-2xl bg-blue-600 hover:bg-blue-700 active:translate-y-1 text-white border-b-4 border-blue-800 flex items-center justify-center shadow-lg transition-all"
+                            aria-label={isPlaying ? "Pause audio" : "Play audio"}
+                        >
+                            <FontAwesomeIcon 
+                                icon={isPlaying ? faPause : faPlay} 
+                                className="w-8 h-8 ml-1" 
+                            />
                         </button>
                     </div>
-                    <p className="text-lg font-medium text-slate-800 leading-relaxed">
-                        &quot;{readingLessonData.passage}&quot;
-                    </p>
                 </BorderCard>
 
                 {/* Question Prompt */}
                 <h2 className="text-lg font-extrabold text-slate-700 pt-2">
-                    {readingLessonData.question}
+                    {listeningLessonData.question}
                 </h2>
 
                 {/* Multiple Choice Options */}
                 <div className="space-y-3">
-                    {readingLessonData.options.map((option) => {
+                    {listeningLessonData.options.map((option) => {
                         const isSelected = selectedOption === option.id;
                         return (
                             <Button
@@ -150,7 +185,9 @@ const ReadingPage = () => {
                                 </div>
                                 <div>
                                     <p className="font-extrabold text-lg">Not quite right</p>
-                                    <p className="text-sm font-semibold">Correct Answer: Fresh bread for her bakery</p>
+                                    <p className="text-sm font-semibold">
+                                        Correct Answer: {listeningLessonData.options.find(o => o.isCorrect)?.text}
+                                    </p>
                                 </div>
                             </div>
                         )}
@@ -182,4 +219,4 @@ const ReadingPage = () => {
     );
 };
 
-export default ReadingPage;
+export default ListeningPage;
