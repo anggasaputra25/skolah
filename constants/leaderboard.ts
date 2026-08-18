@@ -33,9 +33,10 @@ export const LEADERBOARD: Leaderboard[] = [
     },
     {
         rank: 6,
-        name: "Min-jun Kim",
-        avatar: "/assets/flags/korea.jpeg",
+        name: "Angga Saputra",
+        avatar: "/assets/flags/indonesia.jpeg",
         score: 65,
+        isCurrentUser: true,
     },
     {
         rank: 7,
@@ -75,10 +76,9 @@ export const LEADERBOARD: Leaderboard[] = [
     },
     {
         rank: 13,
-        name: "Angga Saputra",
-        avatar: "/assets/flags/indonesia.jpeg",
+        name: "Min-jun Kim",
+        avatar: "/assets/flags/korea.jpeg",
         score: 20,
-        isCurrentUser: true,
     },
     {
         rank: 14,

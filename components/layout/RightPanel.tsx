@@ -9,9 +9,9 @@ import Link from "next/link";
 export const RightPanel = ({target = 1}: {target?: number}) => {
     let leaderboard = LEADERBOARD;
     if (target == 1 || target == 3) {
-        leaderboard = LEADERBOARD.slice(11, 13);
+        leaderboard = LEADERBOARD.slice(4, 6);
     } else {
-        leaderboard = LEADERBOARD.slice(10, 14);
+        leaderboard = LEADERBOARD.slice(3, 7);
     }
     return (
         <div className="w-3xl">
@@ -29,7 +29,7 @@ export const RightPanel = ({target = 1}: {target?: number}) => {
 
                 {/* Level */}
                 {target != 5 &&
-                    <BorderCard className="border-b-2! space-y-5 text-slate-700">
+                    <BorderCard className="border-b-2! space-y-5">
                         <div className="flex justify-between items-center">
                             <p className="font-bold">Point Experience</p>
                             <Link href={'/profile'} className="text-blue-600 font-bold text-sm">View Detail</Link>
@@ -37,10 +37,10 @@ export const RightPanel = ({target = 1}: {target?: number}) => {
                         <div className="flex gap-5 items-center">
                             <FontAwesomeIcon icon={faStar} className="w-12! h-12! text-blue-600 filter-[drop-shadow(0px_2px_0px_#1e3a8a)_drop-shadow(0px_1px_0px_#1e40af)]" />
                             <div className="space-y-1 w-full font-semibold">
-                                <p>Level 3</p>
+                                <p>Level 4</p>
                                 <div className="relative w-full bg-slate-300 rounded-full">
-                                    <div className="absolute bg-blue-600 h-full rounded-full w-3/5 border-2 border-b-4 border-blue-700"></div>
-                                    <p className="text-white z-10 relative text-center p-2 text-sm">40 / 60</p>
+                                    <div className="absolute bg-blue-600 h-full rounded-full w-4/5 border-2 border-b-4 border-blue-700"></div>
+                                    <p className="text-white z-10 relative text-center p-2 text-sm">90 / 120</p>
                                 </div>
                             </div>
                         </div>
@@ -49,7 +49,7 @@ export const RightPanel = ({target = 1}: {target?: number}) => {
 
                 {/* Daily */}
                 {target != 2 &&
-                    <BorderCard className="border-b-2! space-y-5 text-slate-700">
+                    <BorderCard className="border-b-2! space-y-5">
                         <div className="flex justify-between items-center">
                             <p className="font-bold">Daily Quests</p>
                             <Link href={'/quests'} className="text-blue-600 font-bold text-sm">View All</Link>
@@ -66,7 +66,7 @@ export const RightPanel = ({target = 1}: {target?: number}) => {
 
                 {/* Seasonal Leaderboard */}
                 {target != 4 &&
-                    <BorderCard className="border-b-2! space-y-5 text-slate-700">
+                    <BorderCard className="border-b-2! space-y-5">
                         <div className="flex justify-between items-center">
                             <p className="font-bold">Seasonal Leaderboard</p>
                             <Link href={'/leaderboard'} className="text-blue-600 font-bold text-sm">View All</Link>
