@@ -2,7 +2,7 @@ import React from "react";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     children: React.ReactNode;
-    variant?: "primary" | "secondary" | "warning";
+    variant?: "primary" | "secondary" | "warning" | "disabled";
     size?: "sm" | "md" | "lg";
 }
 
@@ -33,6 +33,8 @@ export const Button: React.FC<ButtonProps> = ({
             "bg-neutral-50 border-slate-300 text-blue-600 hover:bg-slate-100",
         warning:
             "bg-yellow-500 border-yellow-700 text-white hover:bg-yellow-600",
+        disabled:
+            "bg-neutral-200 border-neutral-300 text-neutral-400 cursor-not-allowed pointer-events-none",
     };
 
     const sizes = {

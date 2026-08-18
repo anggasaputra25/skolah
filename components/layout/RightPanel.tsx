@@ -1,7 +1,7 @@
 import { BorderCard } from "@/components/ui/BorderCard";
 import { Button } from "@/components/ui/Button";
 import { LEADERBOARD } from "@/constants/leaderboard";
-import { faBolt, faEllipsis, faStar } from "@fortawesome/free-solid-svg-icons";
+import { faEllipsis, faScrollTorah, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import Link from "next/link";
@@ -55,7 +55,7 @@ export const RightPanel = ({target = 1}: {target?: number}) => {
                             <Link href={'/quests'} className="text-blue-600 font-bold text-sm">View All</Link>
                         </div>
                         <div className="flex gap-5 items-center">
-                            <FontAwesomeIcon icon={faBolt} className="w-12! h-12! text-yellow-500 filter-[drop-shadow(0px_2px_0px_#d97706)_drop-shadow(0px_1px_0px_#b45309)]" />
+                            <FontAwesomeIcon icon={faScrollTorah} className="w-12! h-12! text-yellow-500 filter-[drop-shadow(0px_2px_0px_#d97706)_drop-shadow(0px_1px_0px_#b45309)]" />
                             <div className="space-y-1 w-full font-semibold">
                                 <p>Earn 10 XP</p>
                                 <Button variant="warning" size="sm" className="w-full">Claim</Button>

@@ -2,7 +2,7 @@ import { RightPanel } from "@/components/layout/RightPanel";
 import Sidebar from "@/components/layout/Sidebar";
 import { BorderCard } from "@/components/ui/BorderCard";
 import { Button } from "@/components/ui/Button";
-import { faBolt, faCheckCircle, faShield } from "@fortawesome/free-solid-svg-icons";
+import { faCheckCircle, faScrollTorah } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const QuestPage = () => {
@@ -15,9 +15,9 @@ const QuestPage = () => {
             {/* Main Content Area */}
             <div className="w-full p-5 space-y-6">
                 {/* Header Section Banner */}
-                <div className="shadow p-5 rounded-2xl bg-blue-600">
-                    <p className="text-slate-300 text-sm font-semibold">Daily & Weekly</p>
-                    <h1 className="text-white font-bold text-xl">Quests & Challenges</h1>
+                <div className="shadow p-5 rounded-2xl bg-slate-900">
+                    <p className="text-slate-300 text-sm font-semibold">Earn More Coins</p>
+                    <h1 className="text-white font-bold text-xl">Quests</h1>
                 </div>
 
                 {/* Quests List Container */}
@@ -30,7 +30,7 @@ const QuestPage = () => {
                     {/* Quest Item 1: Ready to Claim */}
                     <BorderCard className="flex items-center justify-between gap-4">
                         <div className="flex items-center gap-4">
-                            <FontAwesomeIcon icon={faBolt} className="w-10! h-10! text-yellow-500 filter-[drop-shadow(0px_2px_0px_#d97706)]" />
+                            <FontAwesomeIcon icon={faScrollTorah} className="w-10! h-10! text-yellow-500 filter-[drop-shadow(0px_2px_0px_#d97706)]" />
                             <div className="space-y-1">
                                 <p className="font-semibold">Earn 10 XP</p>
                                 <p className="text-xs text-slate-500">10 / 10 XP</p>
@@ -67,13 +67,13 @@ const QuestPage = () => {
 
                     <BorderCard className="flex items-center justify-between gap-4">
                         <div className="flex items-center gap-4">
-                            <FontAwesomeIcon icon={faShield} className="w-10! h-10! text-violet-600 filter-[drop-shadow(0px_2px_0px_#4c1d95)]" />
+                            <FontAwesomeIcon icon={faScrollTorah} className="w-10! h-10! text-yellow-500 filter-[drop-shadow(0px_2px_0px_#d97706)]" />
                             <div className="space-y-1">
                                 <p className="font-semibold">Defeat 1 Boss Fight</p>
                                 <p className="text-xs text-slate-500">0 / 1 Defeated</p>
                             </div>
                         </div>
-                        <Button variant="primary" size="md">Start</Button>
+                        <Button variant="warning" size="md">Start</Button>
                     </BorderCard>
                 </div>
             </div>

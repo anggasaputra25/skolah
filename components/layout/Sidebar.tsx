@@ -1,4 +1,4 @@
-import { faBrain, faEarthAsia, faScaleBalanced, faScroll, faTrophy, faUserTie } from "@fortawesome/free-solid-svg-icons";
+import { faBrain, faEarthAsia, faScaleBalanced, faScrollTorah, faTrophy, faUserTie } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 
@@ -16,7 +16,7 @@ const Sidebar = ({target = 0}: {target?: number}) => {
                         <span>Learn</span>
                     </Link>
                     <Link href={'/quests'} className={`w-full rounded-2xl px-4 py-2 flex items-center gap-2 ${target == 2 ? 'border-2 border-blue-300 bg-blue-100 text-blue-600' : 'hover:bg-slate-100'}`}>
-                        <FontAwesomeIcon icon={faScroll} className="w-4! h-4!" />
+                        <FontAwesomeIcon icon={faScrollTorah} className="w-4! h-4!" />
                         <span>Quests</span>
                     </Link>
                     <Link href={'/shop'} className={`w-full rounded-2xl px-4 py-2 flex items-center gap-2 ${target == 3 ? 'border-2 border-blue-300 bg-blue-100 text-blue-600' : 'hover:bg-slate-100'}`}>
