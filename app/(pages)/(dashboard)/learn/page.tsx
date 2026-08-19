@@ -27,7 +27,7 @@ const LearnPage = () => {
                     <div className="relative p-5 flex flex-col items-center justify-center gap-8 my-5">
                         {/* Boss Fight */}
                         <LessonCard
-                            href="/learn/boss"
+                            href="/lesson/reading"
                             title="The Hollow Gourmet"
                             lessonText="Boss Fight"
                             buttonText="Start +50 XP"

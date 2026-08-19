@@ -1,8 +1,6 @@
 import { DialogueMessage } from "@/types/dialogue";
 
 export const READING = {
-    title: "Reading Comprehension",
-    subtitle: "Read the story and answer the question below.",
     passage: "Sarah bangun tidur lebih awal setiap pagi untuk menyiapkan roti segar untuk toko rotinya. Dia menyukai aroma kayu manis yang hangat dan kopi di tokonya.",
     question: "Apa yang disiapkan Sarah lebih awal di pagi hari?",
     options: [

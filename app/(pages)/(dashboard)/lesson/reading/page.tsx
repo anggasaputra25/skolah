@@ -4,13 +4,14 @@ import React, { useState } from "react";
 import { BorderCard } from "@/components/ui/BorderCard";
 import { Button } from "@/components/ui/Button";
 import { ButtonLink } from "@/components/ui/ButtonLink";
-import { faBookOpen, faCheck, faStar, faVolumeHigh, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faBookOpen, faCheck, faStar, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { READING } from "@/constants/lesson";
 
 const ReadingPage = () => {
     const [selectedOption, setSelectedOption] = useState<string | null>(null);
     const [status, setStatus] = useState<"idle" | "correct" | "incorrect">("idle");
+    const correctAnswer = READING.options.find((opt) => opt.isCorrect)?.text;
 
     const handleCheck = () => {
         if (!selectedOption) return;
@@ -28,51 +29,41 @@ const ReadingPage = () => {
     };
 
     return (
-        <div className="min-h-screen flex flex-col justify-between bg-slate-50">
+        <div className="min-h-screen flex flex-col justify-between">
             {/* Header / Progress Bar */}
             <div className="max-w-4xl w-full mx-auto p-5 flex items-center gap-6">
                 <ButtonLink href="/learn" variant="secondary" className="px-3! min-h-10 border-b-2!">
-                    <FontAwesomeIcon icon={faXmark} className="w-5 h-5 text-slate-400" />
+                    <FontAwesomeIcon icon={faXmark} className="w-5! h-5! text-slate-500" />
                 </ButtonLink>
 
                 {/* Progress Bar */}
-                <div className="w-full bg-slate-200 h-4 rounded-full overflow-hidden border-2 border-slate-300">
-                    <div className="bg-blue-600 h-full w-1/5 transition-all duration-300"></div>
+                <div className="w-full bg-slate-300 h-4 rounded-full">
+                    <div className="bg-blue-600 h-full w-1/5 border-2 border-b-4 border-blue-700 rounded-full"></div>
                 </div>
 
                 {/* Point */}
                 <div className="flex items-center gap-1 font-black text-blue-600 text-lg">
-                    <FontAwesomeIcon icon={faStar} className="w-6 h-6" />
+                    <FontAwesomeIcon icon={faStar} className="w-6! h-6!" />
                     <span>2</span>
                 </div>
             </div>
 
             {/* Main Lesson Content */}
             <div className="max-w-2xl w-full mx-auto p-5 space-y-6 flex-1 flex flex-col justify-center">
-                {/* Header Title */}
-                <div>
-                    <h1 className="text-2xl font-black text-slate-700">{READING.title}</h1>
-                    <p className="text-slate-400 font-semibold">{READING.subtitle}</p>
-                </div>
 
                 {/* Reading Passage Card */}
-                <BorderCard className="p-6 bg-blue-50 border-blue-200 border-b-4 space-y-3">
-                    <div className="flex justify-between items-center text-blue-600">
-                        <div className="flex items-center gap-2 font-bold text-sm">
-                            <FontAwesomeIcon icon={faBookOpen} className="w-5 h-5" />
-                            <span>Passage</span>
-                        </div>
-                        <button className="text-blue-600 hover:text-blue-800 transition">
-                            <FontAwesomeIcon icon={faVolumeHigh} className="w-5 h-5" />
-                        </button>
+                <BorderCard className="p-6 space-y-3">
+                    <div className="flex items-center gap-2 font-bold text-sm text-blue-600">
+                        <FontAwesomeIcon icon={faBookOpen} className="w-5! h-5!" />
+                        <span>Reading</span>
                     </div>
-                    <p className="text-lg font-medium text-slate-800 leading-relaxed">
+                    <p className="leading-relaxed">
                         &quot;{READING.passage}&quot;
                     </p>
                 </BorderCard>
 
                 {/* Question Prompt */}
-                <h2 className="text-lg font-extrabold text-slate-700 pt-2">
+                <h2 className="text-lg font-bold pt-2">
                     {READING.question}
                 </h2>
 
@@ -80,26 +71,44 @@ const ReadingPage = () => {
                 <div className="space-y-3">
                     {READING.options.map((option) => {
                         const isSelected = selectedOption === option.id;
+                        const isCorrectOption = option.isCorrect;
+
+                        let variant: "primary" | "secondary" | "success" | "danger" = "secondary";
+
+                        if (status === "idle") {
+                            variant = isSelected ? "primary" : "secondary";
+                        } else {
+                            if (isCorrectOption) {
+                                variant = "primary";
+                            } else if (isSelected && !isCorrectOption) {
+                                variant = "danger";
+                            } else {
+                                variant = "secondary";
+                            }
+                        }
+
                         return (
                             <Button
                                 key={option.id}
-                                variant="secondary"
+                                variant={variant}
                                 onClick={() => status === "idle" && setSelectedOption(option.id)}
-                                className={`flex items-center justify-between! py-4! w-full ${
-                                    isSelected
-                                        ? "bg-blue-100 border-blue-400 text-blue-700"
-                                        : "hover:bg-slate-100 border-slate-300 text-slate-700"
+                                className={`flex items-center justify-between! py-4! w-full normal-case! font-semibold min-h-[61.6px]! ${
+                                    isSelected || (status !== "idle" && isCorrectOption) ? "" : "text-slate-500"
                                 }`}
                             >
-                                <span className="font-bold text-base">{option.text}</span>
+                                <span>{option.text}</span>
                                 <div
                                     className={`w-6 h-6 rounded-full border-2 flex items-center justify-center font-bold text-xs ${
-                                        isSelected
-                                            ? "border-blue-600 bg-blue-600 text-white"
+                                        isSelected || (status !== "idle" && isCorrectOption)
+                                            ? "border-white bg-white text-blue-600"
                                             : "border-slate-300 text-slate-400"
-                                    }`}
+                                    }
+                                    ${
+                                        status !== "idle" && variant === "danger" ? "border-white bg-white text-red-600!" : ""
+                                    }
+                                            `}
                                 >
-                                    {option.id.toUpperCase()}
+                                    <p className="ps-px">{option.id.toUpperCase()}</p>
                                 </div>
                             </Button>
                         );
@@ -109,36 +118,34 @@ const ReadingPage = () => {
 
             {/* Bottom Action / Validation Bar */}
             <div
-                className={`border-t-2 p-5 transition-colors ${
-                    status === "correct"
-                        ? "bg-green-100 border-green-300"
-                        : status === "incorrect"
-                        ? "bg-red-100 border-red-300"
-                        : "bg-white border-slate-200"
+                className={`border-t-2 p-5 transition-colors border-slate-300 ${
+                    status !== "idle"
+                        ? "bg-slate-100"
+                        : ""
                 }`}
             >
                 <div className="max-w-2xl w-full mx-auto flex items-center justify-between">
                     {/* Status Feedback */}
                     <div>
                         {status === "correct" && (
-                            <div className="flex items-center gap-3 text-green-700">
-                                <div className="p-2 bg-green-500 text-white rounded-full">
-                                    <FontAwesomeIcon icon={faCheck} className="w-6 h-6" />
+                            <div className="flex items-center gap-3 text-blue-600">
+                                <div className="w-10! h-10! bg-blue-600 text-white rounded-full flex justify-center items-center">
+                                    <FontAwesomeIcon icon={faCheck} className="w-6! h-6!" />
                                 </div>
                                 <div>
-                                    <p className="font-extrabold text-lg">Excellent!</p>
-                                    <p className="text-sm font-semibold">You selected the right answer.</p>
+                                    <p className="font-bold text-lg">Excellent!</p>
+                                    <p>You selected the right answer.</p>
                                 </div>
                             </div>
                         )}
                         {status === "incorrect" && (
-                            <div className="flex items-center gap-3 text-red-700">
-                                <div className="p-2 bg-red-500 text-white rounded-full">
-                                    <FontAwesomeIcon icon={faXmark} className="w-6 h-6" />
+                            <div className="flex items-center gap-3 text-red-600">
+                                <div className="w-10! h-10! bg-red-600 text-white rounded-full flex justify-center items-center">
+                                    <FontAwesomeIcon icon={faXmark} className="w-6! h-6!" />
                                 </div>
                                 <div>
-                                    <p className="font-extrabold text-lg">Not quite right</p>
-                                    <p className="text-sm font-semibold">Correct Answer: Fresh bread for her bakery</p>
+                                    <p className="font-bold text-lg">Not quite right</p>
+                                    <p>Correct Answer: {correctAnswer}</p>
                                 </div>
                             </div>
                         )}
@@ -147,11 +154,9 @@ const ReadingPage = () => {
                     {/* Action Buttons */}
                     {status === "idle" ? (
                         <Button
-                            variant="primary"
-                            size="lg"
-                            disabled={!selectedOption}
+                            variant={selectedOption ? "primary" : "disabled"}
                             onClick={handleCheck}
-                            className={!selectedOption ? "opacity-50 cursor-not-allowed" : ""}
+                            size="lg"
                         >
                             Check Answer
                         </Button>
