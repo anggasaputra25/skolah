@@ -43,7 +43,7 @@ const ConversationPage = () => {
             } else {
                 setStatus("incorrect");
                 const wrongAudio = new Audio("/assets/audio/wrong.mp3");
-                wrongAudio.play().catch((err) => console.error("Error playing correct sound:", err));
+                wrongAudio.play().catch((err) => console.error("Error playing wrong sound:", err));
             }
         }
     };
@@ -51,41 +51,36 @@ const ConversationPage = () => {
     const selectedOptionObj = CONVERSATION.options.find((opt) => opt.id === selectedOption);
 
     return (
-        <div className="min-h-screen flex flex-col justify-between bg-slate-50">
+        <div className="min-h-screen flex flex-col justify-between">
             {/* Header / Progress Bar */}
             <div className="max-w-4xl w-full mx-auto p-5 flex items-center gap-6">
                 <ButtonLink href="/learn" variant="secondary" className="px-3! min-h-10 border-b-2!">
-                    <FontAwesomeIcon icon={faXmark} className="w-5 h-5 text-slate-400" />
+                    <FontAwesomeIcon icon={faXmark} className="w-5! h-5! text-slate-500" />
                 </ButtonLink>
 
                 {/* Progress Bar */}
-                <div className="w-full bg-slate-200 h-4 rounded-full overflow-hidden border-2 border-slate-300">
-                    <div className="bg-blue-600 h-full w-1/5 transition-all duration-300"></div>
+                <div className="w-full bg-slate-300 h-4 rounded-full">
+                    <div className="bg-blue-600 h-full w-1/5 border-2 border-b-4 border-blue-700 rounded-full"></div>
                 </div>
 
                 {/* Point */}
                 <div className="flex items-center gap-1 font-black text-blue-600 text-lg">
-                    <FontAwesomeIcon icon={faStar} className="w-6 h-6" />
+                    <FontAwesomeIcon icon={faStar} className="w-6! h-6!" />
                     <span>2</span>
                 </div>
             </div>
 
             {/* Main Lesson Content */}
             <div className="max-w-2xl w-full mx-auto p-5 space-y-6 flex-1 flex flex-col justify-center">
-                {/* Header Title */}
-                <div>
-                    <h1 className="text-2xl font-black text-slate-700">{CONVERSATION.title}</h1>
-                    <p className="text-slate-400 font-semibold">{CONVERSATION.subtitle}</p>
-                </div>
 
                 {/* Dialogue Chat Feed Container */}
-                <BorderCard className="p-6 bg-slate-100 border-slate-300 border-b-4 space-y-4 max-h-85 overflow-y-auto">
-                    <div className="flex items-center justify-between text-slate-500 pb-2 border-b border-slate-200">
-                        <div className="flex items-center gap-2 font-bold text-xs uppercase tracking-wider">
-                            <FontAwesomeIcon icon={faUserGroup} className="w-4 h-4 text-slate-400" />
+                <BorderCard className="p-6 space-y-3 max-h-85 overflow-y-auto">
+                    <div className="flex items-center justify-between text-blue-600 pb-2 border-b border-slate-200">
+                        <div className="flex items-center gap-2 font-bold text-sm">
+                            <FontAwesomeIcon icon={faUserGroup} className="w-5! h-5!" />
                             <span>Roleplay with {CONVERSATION.partner.name} ({CONVERSATION.partner.role})</span>
                         </div>
-                        <FontAwesomeIcon icon={faComments} className="w-4 h-4 text-slate-400" />
+                        <FontAwesomeIcon icon={faComments} className="w-5! h-5!" />
                     </div>
 
                     {/* Speech Bubbles Stream */}
@@ -137,7 +132,7 @@ const ConversationPage = () => {
                 </BorderCard>
 
                 {/* Prompt Label */}
-                <h2 className="text-lg font-extrabold text-slate-700 pt-1">
+                <h2 className="text-lg font-bold pt-2">
                     {CONVERSATION.questionPrompt}
                 </h2>
 
@@ -145,26 +140,44 @@ const ConversationPage = () => {
                 <div className="space-y-3">
                     {CONVERSATION.options.map((option) => {
                         const isSelected = selectedOption === option.id;
+                        const isCorrectOption = option.isCorrect;
+
+                        let variant: "primary" | "secondary" | "success" | "danger" = "secondary";
+
+                        if (status === "idle") {
+                            variant = isSelected ? "primary" : "secondary";
+                        } else {
+                            if (isCorrectOption) {
+                                variant = "primary";
+                            } else if (isSelected && !isCorrectOption) {
+                                variant = "danger";
+                            } else {
+                                variant = "secondary";
+                            }
+                        }
+
                         return (
                             <Button
                                 key={option.id}
-                                variant="secondary"
+                                variant={variant}
                                 onClick={() => status === "idle" && setSelectedOption(option.id)}
-                                className={`flex items-center justify-between! py-4! w-full ${
-                                    isSelected
-                                        ? "bg-blue-100 border-blue-400 text-blue-700"
-                                        : "hover:bg-slate-100 border-slate-300 text-slate-700"
+                                className={`flex items-center justify-between! py-4! w-full normal-case! font-semibold min-h-[61.6px]! ${
+                                    isSelected || (status !== "idle" && isCorrectOption) ? "" : "text-slate-500"
                                 }`}
                             >
-                                <span className="font-bold text-base text-left pr-4">{option.text}</span>
+                                <span className="text-left pr-4">{option.text}</span>
                                 <div
                                     className={`w-6 h-6 rounded-full border-2 flex items-center justify-center font-bold text-xs shrink-0 ${
-                                        isSelected
-                                            ? "border-blue-600 bg-blue-600 text-white"
+                                        isSelected || (status !== "idle" && isCorrectOption)
+                                            ? "border-white bg-white text-blue-600"
                                             : "border-slate-300 text-slate-400"
-                                    }`}
+                                    }
+                                    ${
+                                        status !== "idle" && variant === "danger" ? "border-white bg-white text-red-600!" : ""
+                                    }
+                                            `}
                                 >
-                                    {option.id.toUpperCase()}
+                                    <p className="ps-px">{option.id.toUpperCase()}</p>
                                 </div>
                             </Button>
                         );
@@ -174,40 +187,34 @@ const ConversationPage = () => {
 
             {/* Bottom Action / Validation Bar */}
             <div
-                className={`border-t-2 p-5 transition-colors ${
-                    status === "correct"
-                        ? "bg-green-100 border-green-300"
-                        : status === "incorrect"
-                        ? "bg-red-100 border-red-300"
-                        : "bg-white border-slate-200"
+                className={`border-t-2 p-5 transition-colors border-slate-300 ${
+                    status !== "idle"
+                        ? "bg-slate-100"
+                        : ""
                 }`}
             >
                 <div className="max-w-2xl w-full mx-auto flex items-center justify-between">
                     {/* Status Feedback */}
                     <div>
                         {status === "correct" && (
-                            <div className="flex items-center gap-3 text-green-700">
-                                <div className="p-2 bg-green-500 text-white rounded-full">
-                                    <FontAwesomeIcon icon={faCheck} className="w-6 h-6" />
+                            <div className="flex items-center gap-3 text-blue-600">
+                                <div className="w-10! h-10! bg-blue-600 text-white rounded-full flex justify-center items-center">
+                                    <FontAwesomeIcon icon={faCheck} className="w-6! h-6!" />
                                 </div>
                                 <div>
-                                    <p className="font-extrabold text-lg">Well said!</p>
-                                    <p className="text-sm font-semibold">
-                                        {selectedOptionObj?.feedback || "That is the right response."}
-                                    </p>
+                                    <p className="font-bold text-lg">Well said!</p>
+                                    <p>{selectedOptionObj?.feedback || "That is the right response."}</p>
                                 </div>
                             </div>
                         )}
                         {status === "incorrect" && (
-                            <div className="flex items-center gap-3 text-red-700">
-                                <div className="p-2 bg-red-500 text-white rounded-full">
-                                    <FontAwesomeIcon icon={faXmark} className="w-6 h-6" />
+                            <div className="flex items-center gap-3 text-red-600">
+                                <div className="w-10! h-10! bg-red-600 text-white rounded-full flex justify-center items-center">
+                                    <FontAwesomeIcon icon={faXmark} className="w-6! h-6!" />
                                 </div>
                                 <div>
-                                    <p className="font-extrabold text-lg">Not quite fitting</p>
-                                    <p className="text-sm font-semibold">
-                                        {selectedOptionObj?.feedback || "Try picking a response that matches the conversation context."}
-                                    </p>
+                                    <p className="font-bold text-lg">Not quite fitting</p>
+                                    <p>{selectedOptionObj?.feedback || "Try picking a response that matches the conversation context."}</p>
                                 </div>
                             </div>
                         )}
@@ -216,11 +223,9 @@ const ConversationPage = () => {
                     {/* Action Buttons */}
                     {status === "idle" ? (
                         <Button
-                            variant="primary"
-                            size="lg"
-                            disabled={!selectedOption}
+                            variant={selectedOption ? "primary" : "disabled"}
                             onClick={handleCheck}
-                            className={!selectedOption ? "opacity-50 cursor-not-allowed" : ""}
+                            size="lg"
                         >
                             Check Answer
                         </Button>

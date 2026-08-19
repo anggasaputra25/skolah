@@ -27,6 +27,8 @@ const SpeakingPage = () => {
     const audioChunksRef = useRef<Blob[]>([]);
     const audioPlaybackRef = useRef<HTMLAudioElement | null>(null);
 
+    const audioRef = useRef<HTMLAudioElement | null>(null);
+
     // Frontend Speech Recording logic using Web Audio API
     const startRecording = async () => {
         try {
@@ -50,7 +52,6 @@ const SpeakingPage = () => {
             setRecordState("recording");
         } catch (err) {
             console.error("Microphone access denied or unsupported:", err);
-            // Fallback state simulation for UI testing without mic access
             setRecordState("recording");
         }
     };
@@ -58,7 +59,6 @@ const SpeakingPage = () => {
     const stopRecording = () => {
         if (mediaRecorderRef.current && mediaRecorderRef.current.state !== "inactive") {
             mediaRecorderRef.current.stop();
-            // Stop media stream tracks
             mediaRecorderRef.current.stream.getTracks().forEach((track) => track.stop());
         }
         setRecordState("recorded");
@@ -75,35 +75,59 @@ const SpeakingPage = () => {
         }
     };
 
+    // Handle Audio
+    const handleAudio = () => {
+        if (audioRef.current && !audioRef.current.paused) {
+            audioRef.current.pause();
+            audioRef.current.currentTime = 0;
+            audioRef.current = null;
+            return;
+        }
+
+        const sound = new Audio("/assets/audio/listening.m4a");
+        audioRef.current = sound;
+
+        sound.play().catch((err) => console.error("Error playing sound:", err));
+
+        sound.onended = () => {
+            if (audioRef.current === sound) {
+                audioRef.current = null;
+            }
+        };
+    };
+
     // Frontend validation mock
     const handleCheck = () => {
         if (recordState !== "recorded") return;
 
-        // Frontend simulation logic: toggle pass/fail or randomize for frontend review
         const isPass = true; 
         if (isPass) {
             setStatus("correct");
+            const correctAudio = new Audio("/assets/audio/correct.mp3");
+            correctAudio.play().catch((err) => console.error("Error playing correct sound:", err));
         } else {
             setStatus("incorrect");
+            const wrongAudio = new Audio("/assets/audio/wrong.mp3");
+            wrongAudio.play().catch((err) => console.error("Error playing wrong sound:", err));
         }
     };
 
     return (
-        <div className="min-h-screen flex flex-col justify-between bg-slate-50">
+        <div className="min-h-screen flex flex-col justify-between">
             {/* Header / Progress Bar */}
             <div className="max-w-4xl w-full mx-auto p-5 flex items-center gap-6">
                 <ButtonLink href="/learn" variant="secondary" className="px-3! min-h-10 border-b-2!">
-                    <FontAwesomeIcon icon={faXmark} className="w-5 h-5 text-slate-400" />
+                    <FontAwesomeIcon icon={faXmark} className="w-5! h-5! text-slate-500" />
                 </ButtonLink>
 
                 {/* Progress Bar */}
-                <div className="w-full bg-slate-200 h-4 rounded-full overflow-hidden border-2 border-slate-300">
-                    <div className="bg-blue-600 h-full w-1/5 transition-all duration-300"></div>
+                <div className="w-full bg-slate-300 h-4 rounded-full">
+                    <div className="bg-blue-600 h-full w-1/5 border-2 border-b-4 border-blue-700 rounded-full"></div>
                 </div>
 
                 {/* Point */}
                 <div className="flex items-center gap-1 font-black text-blue-600 text-lg">
-                    <FontAwesomeIcon icon={faStar} className="w-6 h-6" />
+                    <FontAwesomeIcon icon={faStar} className="w-6! h-6!" />
                     <span>2</span>
                 </div>
             </div>
@@ -119,32 +143,34 @@ const SpeakingPage = () => {
 
             {/* Main Lesson Content */}
             <div className="max-w-2xl w-full mx-auto p-5 space-y-6 flex-1 flex flex-col justify-center">
-                {/* Header Title */}
-                <div>
-                    <h1 className="text-2xl font-black text-slate-700">{SPEAKING.title}</h1>
-                    <p className="text-slate-400 font-semibold">{SPEAKING.subtitle}</p>
-                </div>
-
+                
                 {/* Sentence Prompt Card */}
-                <BorderCard className="p-6 bg-blue-50 border-blue-200 border-b-4 space-y-4">
-                    <div className="flex justify-between items-center text-blue-600">
-                        <div className="flex items-center gap-2 font-bold text-sm">
-                            <FontAwesomeIcon icon={faMicrophone} className="w-5 h-5" />
-                            <span>Speak Prompt</span>
+                <BorderCard className="p-6 space-y-3">
+                    <div className="flex justify-between items-center text-blue-600 font-bold text-sm">
+                        <div className="flex items-center gap-2">
+                            <FontAwesomeIcon icon={faMicrophone} className="w-5! h-5!" />
+                            <span>Speaking</span>
                         </div>
-                        <button className="text-blue-600 hover:text-blue-800 transition">
-                            <FontAwesomeIcon icon={faVolumeHigh} className="w-5 h-5" />
+                        <button className="cursor-pointer" onClick={handleAudio}>
+                            <FontAwesomeIcon icon={faVolumeHigh} className="w-5! h-5!" />
                         </button>
                     </div>
 
-                    <p className="text-xl font-extrabold text-slate-800 leading-relaxed">
+                    <p className="leading-relaxed font-bold text-lg">
                         &quot;{SPEAKING.targetText}&quot;
                     </p>
 
-                    <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest">
-                        Hint: {SPEAKING.phoneticHint}
-                    </p>
+                    {SPEAKING.phoneticHint && (
+                        <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest">
+                            Hint: {SPEAKING.phoneticHint}
+                        </p>
+                    )}
                 </BorderCard>
+
+                {/* Question / Instruction Prompt */}
+                <h2 className="text-lg font-bold pt-2">
+                    {SPEAKING.subtitle || "Record your response"}
+                </h2>
 
                 {/* Microphone Record Controls */}
                 <div className="py-6 flex flex-col items-center justify-center space-y-4">
@@ -154,13 +180,12 @@ const SpeakingPage = () => {
                             className="w-24 h-24 rounded-full bg-blue-600 hover:bg-blue-700 active:translate-y-1 text-white border-b-4 border-blue-800 flex items-center justify-center shadow-lg transition-all"
                             aria-label="Start recording"
                         >
-                            <FontAwesomeIcon icon={faMicrophone} className="w-10 h-10" />
+                            <FontAwesomeIcon icon={faMicrophone} className="w-8! h-8!" />
                         </button>
                     )}
 
                     {recordState === "recording" && (
                         <div className="flex flex-col items-center space-y-3">
-                            {/* Animated Pulse Ring */}
                             <div className="relative">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                                 <button
@@ -168,7 +193,7 @@ const SpeakingPage = () => {
                                     className="relative w-24 h-24 rounded-full bg-red-500 hover:bg-red-600 active:translate-y-1 text-white border-b-4 border-red-700 flex items-center justify-center shadow-lg transition-all"
                                     aria-label="Stop recording"
                                 >
-                                    <FontAwesomeIcon icon={faPause} className="w-10 h-10" />
+                                    <FontAwesomeIcon icon={faPause} className="w-8! h-8!" />
                                 </button>
                             </div>
                             <span className="text-xs font-extrabold text-red-500 uppercase tracking-wider animate-pulse">
@@ -179,17 +204,15 @@ const SpeakingPage = () => {
 
                     {recordState === "recorded" && (
                         <div className="flex items-center gap-4">
-                            {/* Re-record Button */}
                             <button
                                 onClick={startRecording}
                                 disabled={status !== "idle"}
                                 className="w-14 h-14 rounded-2xl bg-slate-200 hover:bg-slate-300 text-slate-600 border-b-4 border-slate-400 flex items-center justify-center transition disabled:opacity-50"
                                 aria-label="Re-record"
                             >
-                                <FontAwesomeIcon icon={faRotateRight} className="w-6 h-6" />
+                                <FontAwesomeIcon icon={faRotateRight} className="w-6! h-6!" />
                             </button>
 
-                            {/* Play Recorded Audio */}
                             <button
                                 onClick={togglePlayback}
                                 className="w-20 h-20 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white border-b-4 border-blue-800 flex items-center justify-center shadow-md transition"
@@ -197,13 +220,13 @@ const SpeakingPage = () => {
                             >
                                 <FontAwesomeIcon
                                     icon={isPlayingPlayback ? faPause : faPlay}
-                                    className="w-8 h-8 ml-1"
+                                    className="w-8! h-8! ml-1"
                                 />
                             </button>
                         </div>
                     )}
 
-                    <p className="text-sm font-semibold text-slate-400">
+                    <p className="text-sm font-semibold text-slate-500">
                         {recordState === "idle" && "Tap the mic to start speaking"}
                         {recordState === "recorded" && "Listen to your recording or click Check Answer"}
                     </p>
@@ -212,36 +235,34 @@ const SpeakingPage = () => {
 
             {/* Bottom Action / Validation Bar */}
             <div
-                className={`border-t-2 p-5 transition-colors ${
-                    status === "correct"
-                        ? "bg-green-100 border-green-300"
-                        : status === "incorrect"
-                        ? "bg-red-100 border-red-300"
-                        : "bg-white border-slate-200"
+                className={`border-t-2 p-5 transition-colors border-slate-300 ${
+                    status !== "idle"
+                        ? "bg-slate-100"
+                        : ""
                 }`}
             >
                 <div className="max-w-2xl w-full mx-auto flex items-center justify-between">
                     {/* Status Feedback */}
                     <div>
                         {status === "correct" && (
-                            <div className="flex items-center gap-3 text-green-700">
-                                <div className="p-2 bg-green-500 text-white rounded-full">
-                                    <FontAwesomeIcon icon={faCheck} className="w-6 h-6" />
+                            <div className="flex items-center gap-3 text-blue-600">
+                                <div className="w-10! h-10! bg-blue-600 text-white rounded-full flex justify-center items-center">
+                                    <FontAwesomeIcon icon={faCheck} className="w-6! h-6!" />
                                 </div>
                                 <div>
-                                    <p className="font-extrabold text-lg">Great pronunciation!</p>
-                                    <p className="text-sm font-semibold">Your speech match was clear and accurate.</p>
+                                    <p className="font-bold text-lg">Great pronunciation!</p>
+                                    <p>Your speech match was clear and accurate.</p>
                                 </div>
                             </div>
                         )}
                         {status === "incorrect" && (
-                            <div className="flex items-center gap-3 text-red-700">
-                                <div className="p-2 bg-red-500 text-white rounded-full">
-                                    <FontAwesomeIcon icon={faXmark} className="w-6 h-6" />
+                            <div className="flex items-center gap-3 text-red-600">
+                                <div className="w-10! h-10! bg-red-600 text-white rounded-full flex justify-center items-center">
+                                    <FontAwesomeIcon icon={faXmark} className="w-6! h-6!" />
                                 </div>
                                 <div>
-                                    <p className="font-extrabold text-lg">Needs practice</p>
-                                    <p className="text-sm font-semibold">Try speaking a bit slower and clearer.</p>
+                                    <p className="font-bold text-lg">Needs practice</p>
+                                    <p>Try speaking a bit slower and clearer.</p>
                                 </div>
                             </div>
                         )}
@@ -250,11 +271,9 @@ const SpeakingPage = () => {
                     {/* Action Buttons */}
                     {status === "idle" ? (
                         <Button
-                            variant="primary"
-                            size="lg"
-                            disabled={recordState !== "recorded"}
+                            variant={recordState === "recorded" ? "primary" : "disabled"}
                             onClick={handleCheck}
-                            className={recordState !== "recorded" ? "opacity-50 cursor-not-allowed" : ""}
+                            size="lg"
                         >
                             Check Answer
                         </Button>
