@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export const RightPanel = ({target = 1}: {target?: number}) => {
     let leaderboard = LEADERBOARD;
-    if (target == 1 || target == 3) {
+    if (target == 1 || target == 3 || target == 5) {
         leaderboard = LEADERBOARD.slice(4, 6);
     } else {
         leaderboard = LEADERBOARD.slice(3, 7);
@@ -28,7 +28,7 @@ export const RightPanel = ({target = 1}: {target?: number}) => {
                 </div>
 
                 {/* Level */}
-                {target != 5 &&
+                {target != 6 &&
                     <BorderCard className="border-b-2! space-y-5">
                         <div className="flex justify-between items-center">
                             <p className="font-bold">Point Experience</p>

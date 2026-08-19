@@ -17,7 +17,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const ProfilePage = () => {
-    const targetPage = 5;
+    const targetPage = 6;
     return (
         <div className="flex">
             <Sidebar target={targetPage} />

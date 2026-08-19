@@ -1,4 +1,4 @@
-import { faBrain, faEarthAsia, faScaleBalanced, faScrollTorah, faTrophy, faUserTie } from "@fortawesome/free-solid-svg-icons";
+import { faBrain, faEarthAsia, faScaleBalanced, faScrollTorah, faTrophy, faUserGroup, faUserTie } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 
@@ -27,7 +27,11 @@ const Sidebar = ({target = 0}: {target?: number}) => {
                         <FontAwesomeIcon icon={faTrophy} className="w-4! h-4!" />
                         <span>Leaderboard</span>
                     </Link>
-                    <Link href={'/profile'} className={`w-full rounded-2xl px-4 py-2 flex items-center gap-2 ${target == 5 ? 'border-2 border-blue-300 bg-blue-100 text-blue-600' : 'hover:bg-slate-100'}`}>
+                    <Link href={'/community'} className={`w-full rounded-2xl px-4 py-2 flex items-center gap-2 ${target == 5 ? 'border-2 border-blue-300 bg-blue-100 text-blue-600' : 'hover:bg-slate-100'}`}>
+                        <FontAwesomeIcon icon={faUserGroup} className="w-4! h-4!" />
+                        <span>Community</span>
+                    </Link>
+                    <Link href={'/profile'} className={`w-full rounded-2xl px-4 py-2 flex items-center gap-2 ${target == 6 ? 'border-2 border-blue-300 bg-blue-100 text-blue-600' : 'hover:bg-slate-100'}`}>
                         <FontAwesomeIcon icon={faUserTie} className="w-4! h-4!" />
                         <span>Profile</span>
                     </Link>
