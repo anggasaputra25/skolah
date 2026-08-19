@@ -15,9 +15,12 @@ const QuestPage = () => {
             {/* Main Content Area */}
             <div className="w-full p-5 space-y-6">
                 {/* Header Section Banner */}
-                <div className="shadow p-5 rounded-2xl bg-slate-900">
-                    <p className="text-slate-300 text-sm font-semibold">Earn More Coins</p>
-                    <h1 className="text-white font-bold text-xl">Quests</h1>
+                <div className="shadow p-5 rounded-2xl bg-slate-900 flex gap-3 items-center">
+                    <FontAwesomeIcon icon={faScrollTorah} className="w-10! h-10! text-white" />
+                    <div>
+                        <p className="text-slate-300 text-sm font-semibold">Earn More Coins</p>
+                        <h1 className="text-white font-bold text-xl">Quests</h1>
+                    </div>
                 </div>
 
                 {/* Quests List Container */}
@@ -65,15 +68,12 @@ const QuestPage = () => {
                         <p className="text-slate-500 text-sm font-bold">Resets in 1d 12h</p>
                     </div>
 
-                    <BorderCard className="flex items-center justify-between gap-4">
-                        <div className="flex items-center gap-4">
-                            <FontAwesomeIcon icon={faScrollTorah} className="w-10! h-10! text-yellow-500 filter-[drop-shadow(0px_2px_0px_#d97706)]" />
-                            <div className="space-y-1">
-                                <p className="font-semibold">Defeat 1 Boss Fight</p>
-                                <p className="text-sm text-slate-500">0 / 1 Defeated</p>
-                            </div>
+                    <BorderCard className="flex items-center gap-4">
+                        <FontAwesomeIcon icon={faScrollTorah} className="w-10! h-10! text-yellow-500 filter-[drop-shadow(0px_2px_0px_#d97706)]" />
+                        <div className="space-y-1">
+                            <p className="font-semibold">Defeat 1 Boss Fight</p>
+                            <p className="text-sm text-slate-500">0 / 1 Defeated</p>
                         </div>
-                        <Button variant="warning" size="md">Start</Button>
                     </BorderCard>
                 </div>
             </div>

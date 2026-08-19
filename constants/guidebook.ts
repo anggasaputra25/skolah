@@ -15,9 +15,4 @@ export const GUIDEBOOK = {
         { word: "Meja", meaning: "Table" },
         { word: "Sendok & Garpu", meaning: "Spoon & Fork" },
     ],
-    grammarTip: {
-        title: "Polite Requests with 'Tolong' & 'Bisa'",
-        explanation: "When ordering food or asking for help, use 'Tolong' (Please) at the start of a sentence or 'Bisa' (Can I/Could you) to make your request sound polite.",
-        example: "Tolong air putih satu lagi. (Please bring one more plain water.)",
-    },
 };

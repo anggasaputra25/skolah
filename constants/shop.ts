@@ -35,7 +35,7 @@ export const SHOP_ITEMS = [
                 id: "conversation-lesson",
                 title: "Conversation Lesson (1 Hours)",
                 desc: "Access all conversation lesson for the next 1 hours",
-                price: 100,
+                price: 120,
                 icon: faComment,
                 iconColor: "text-blue-600",
                 buttonVariant: "primary" as const,

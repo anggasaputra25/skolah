@@ -3,7 +3,7 @@ import Sidebar from "@/components/layout/Sidebar";
 import { BorderCard } from "@/components/ui/BorderCard";
 import { Button } from "@/components/ui/Button";
 import { SHOP_ITEMS } from "@/constants/shop";
-import { faCoins } from "@fortawesome/free-solid-svg-icons";
+import { faCoins, faScaleBalanced } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ShopPage = () => {
@@ -15,14 +15,17 @@ const ShopPage = () => {
             {/* Main Content Area */}
             <div className="w-full p-5 space-y-6">
                 {/* Header Section Banner */}
-                <div className="shadow p-5 rounded-2xl bg-slate-900 flex justify-between items-center">
-                    <div>
-                        <p className="text-slate-300 text-sm font-semibold">Boost Your Progress</p>
-                        <h1 className="text-white font-bold text-xl">Shop</h1>
-                    </div>
-                    <div className="flex items-center gap-2 font-bold px-4 py-2 bg-neutral-50 rounded-2xl text-blue-600">
-                        <FontAwesomeIcon icon={faCoins} className="w-4! h-4!"/>
-                        <p>220</p>
+                <div className="shadow p-5 rounded-2xl bg-slate-900 flex gap-3 items-center">
+                    <FontAwesomeIcon icon={faScaleBalanced} className="w-10! h-10! text-white" />
+                    <div className="flex justify-between items-center w-full">
+                        <div>
+                            <p className="text-slate-300 text-sm font-semibold">Boost Your Progress</p>
+                            <h1 className="text-white font-bold text-xl">Shop</h1>
+                        </div>
+                        <div className="flex items-center gap-2 font-bold px-4 py-2 bg-neutral-50 rounded-2xl text-blue-600">
+                            <FontAwesomeIcon icon={faCoins} className="w-4! h-4!"/>
+                            <p>220</p>
+                        </div>
                     </div>
                 </div>
 

@@ -1,22 +1,25 @@
+'use client'
 import { RightPanel } from "@/components/layout/RightPanel";
 import Sidebar from "@/components/layout/Sidebar";
 import { BorderCard } from "@/components/ui/BorderCard";
 import { Button } from "@/components/ui/Button";
+import { ButtonLink } from "@/components/ui/ButtonLink";
 import { ACHIEVEMENTS } from "@/constants/achievements";
 import { LEADERBOARD } from "@/constants/leaderboard";
 import { 
     faDiamond, 
     faFire, 
     faGear, 
-    faPen, 
     faStar, 
     faTrophy, 
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 const ProfilePage = () => {
+    const [statTab, setStatTab] = useState<"current" | "best">("current");
     const targetPage = 6;
     return (
         <div className="flex">
@@ -36,8 +39,8 @@ const ProfilePage = () => {
                                     height={96} 
                                     className="border-4 aspect-square border-slate-300 rounded-full"
                                 />
-                                <button className="absolute cursor-pointer bottom-0 right-0 bg-blue-600 text-white rounded-full w-8 h-8 border-2 border-white flex justify-center items-center">
-                                    <FontAwesomeIcon icon={faPen} className="w-3! h-3!" />
+                                <button className="absolute cursor-pointer bottom-0 right-0 bg-blue-600 text-white rounded-full min-w-8 h-8 p-2 border-2 border-white flex justify-center items-center font-bold">
+                                    4
                                 </button>
                             </div>
                             <div>
@@ -87,39 +90,99 @@ const ProfilePage = () => {
 
                 {/* Statistics Grid */}
                 <div className="space-y-3">
-                    <h2 className="text-xl font-bold">Statistics</h2>
+                    <div className="flex justify-between items-center">
+                        <h2 className="text-xl font-bold">Statistics</h2>
+                        {/* Toggle Switch */}
+                        <div className="flex bg-slate-100 p-1 rounded-xl border border-slate-200">
+                            <button 
+                                onClick={() => setStatTab("current")}
+                                className={`px-3 cursor-pointer py-1 text-sm font-bold rounded-lg ${
+                                    statTab === "current" ? "bg-white text-blue-600 shadow-sm" : "text-slate-500"
+                                }`}
+                            >
+                                Current
+                            </button>
+                            <button 
+                                onClick={() => setStatTab("best")}
+                                className={`px-3 cursor-pointer py-1 text-sm font-bold rounded-lg ${
+                                    statTab === "best" ? "bg-white text-blue-600 shadow-sm" : "text-slate-500"
+                                }`}
+                            >
+                                Best Record
+                            </button>
+                        </div>
+                    </div>
+
                     <div className="grid grid-cols-2 gap-4">
-                        <BorderCard className="flex items-center gap-4">
-                            <FontAwesomeIcon icon={faFire} className="w-10! h-10! text-orange-500 filter-[drop-shadow(0px_2px_0px_#c2410c)]" />
-                            <div>
-                                <p className="font-semibold">3</p>
-                                <p className="text-sm text-slate-500">Day streak</p>
-                            </div>
-                        </BorderCard>
+                        {statTab === "current" ? (
+                            <>
+                                <BorderCard className="flex items-center gap-4">
+                                    <FontAwesomeIcon icon={faFire} className="w-10! h-10! text-orange-500 filter-[drop-shadow(0px_2px_0px_#c2410c)]" />
+                                    <div>
+                                        <p className="font-semibold">2</p>
+                                        <p className="text-sm text-slate-500">Day streak</p>
+                                    </div>
+                                </BorderCard>
 
-                        <BorderCard className="flex items-center gap-4">
-                            <FontAwesomeIcon icon={faStar} className="w-10! h-10! text-blue-600 filter-[drop-shadow(0px_2px_0px_#1c398e)]" />
-                            <div>
-                                <p className="font-semibold">90</p>
-                                <p className="text-sm text-slate-500">Total XP</p>
-                            </div>
-                        </BorderCard>
+                                <BorderCard className="flex items-center gap-4">
+                                    <FontAwesomeIcon icon={faStar} className="w-10! h-10! text-blue-600 filter-[drop-shadow(0px_2px_0px_#1c398e)]" />
+                                    <div>
+                                        <p className="font-semibold">65</p>
+                                        <p className="text-sm text-slate-500">Total XP</p>
+                                    </div>
+                                </BorderCard>
 
-                        <BorderCard className="flex items-center gap-4">
-                            <FontAwesomeIcon icon={faDiamond} className="w-10! h-10! text-violet-600 filter-[drop-shadow(0px_2px_0px_#4d179a)]" />
-                            <div>
-                                <p className="font-semibold">Diamond</p>
-                                <p className="text-sm text-slate-500">Current league</p>
-                            </div>
-                        </BorderCard>
+                                <BorderCard className="flex items-center gap-4">
+                                    <FontAwesomeIcon icon={faDiamond} className="w-10! h-10! text-violet-600 filter-[drop-shadow(0px_2px_0px_#4d179a)]" />
+                                    <div>
+                                        <p className="font-semibold">Diamond</p>
+                                        <p className="text-sm text-slate-500">Current league</p>
+                                    </div>
+                                </BorderCard>
 
-                        <BorderCard className="flex items-center gap-4">
-                            <FontAwesomeIcon icon={faTrophy} className="w-10! h-10! text-yellow-500 filter-[drop-shadow(0px_2px_0px_#d97706)]" />
-                            <div>
-                                <p className="font-semibold">#6</p>
-                                <p className="text-sm text-slate-500">League Rank</p>
-                            </div>
-                        </BorderCard>
+                                <BorderCard className="flex items-center gap-4">
+                                    <FontAwesomeIcon icon={faTrophy} className="w-10! h-10! text-yellow-500 filter-[drop-shadow(0px_2px_0px_#d97706)]" />
+                                    <div>
+                                        <p className="font-semibold">#6</p>
+                                        <p className="text-sm text-slate-500">League Rank</p>
+                                    </div>
+                                </BorderCard>
+                            </>
+                        ) : (
+                            <>
+                                <BorderCard className="flex items-center gap-4">
+                                    <FontAwesomeIcon icon={faFire} className="w-10! h-10! text-orange-500 filter-[drop-shadow(0px_2px_0px_#c2410c)]" />
+                                    <div>
+                                        <p className="font-semibold">3</p>
+                                        <p className="text-sm text-slate-500">Day streak</p>
+                                    </div>
+                                </BorderCard>
+
+                                <BorderCard className="flex items-center gap-4">
+                                    <FontAwesomeIcon icon={faStar} className="w-10! h-10! text-blue-600 filter-[drop-shadow(0px_2px_0px_#1c398e)]" />
+                                    <div>
+                                        <p className="font-semibold">90</p>
+                                        <p className="text-sm text-slate-500">Total XP</p>
+                                    </div>
+                                </BorderCard>
+
+                                <BorderCard className="flex items-center gap-4">
+                                    <FontAwesomeIcon icon={faDiamond} className="w-10! h-10! text-violet-600 filter-[drop-shadow(0px_2px_0px_#4d179a)]" />
+                                    <div>
+                                        <p className="font-semibold">Diamond</p>
+                                        <p className="text-sm text-slate-500">Current league</p>
+                                    </div>
+                                </BorderCard>
+
+                                <BorderCard className="flex items-center gap-4">
+                                    <FontAwesomeIcon icon={faTrophy} className="w-10! h-10! text-yellow-500 filter-[drop-shadow(0px_2px_0px_#d97706)]" />
+                                    <div>
+                                        <p className="font-semibold">#4</p>
+                                        <p className="text-sm text-slate-500">League Rank</p>
+                                    </div>
+                                </BorderCard>
+                            </>
+                        )}
                     </div>
                 </div>
 
@@ -148,6 +211,41 @@ const ProfilePage = () => {
                             </BorderCard>
                         ))}
                     </div>
+                </div>
+
+                {/* Danger Zone / Account Actions */}
+                <div className="space-y-3 pt-4">
+                    <h2 className="text-xl font-bold text-slate-800">Account Actions</h2>
+                    
+                    <BorderCard className="p-4 space-y-4">
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
+                            <div>
+                                <p className="font-semibold text-red-600">Log Out</p>
+                                <p className="text-sm text-slate-500">Sign out of your account on this device.</p>
+                            </div>
+                            <ButtonLink
+                                href='login'
+                                variant="danger" 
+                                size="sm" 
+                            >
+                                Log Out
+                            </ButtonLink>
+                        </div>
+
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                            <div>
+                                <p className="font-semibold text-red-600">Delete Account</p>
+                                <p className="text-sm text-slate-500">Permanently deletes your account and all your progress data.</p>
+                            </div>
+                            <ButtonLink
+                                href='login'
+                                variant="danger" 
+                                size="sm" 
+                            >
+                                Delete Account
+                            </ButtonLink>
+                        </div>
+                    </BorderCard>
                 </div>
             </div>
 
