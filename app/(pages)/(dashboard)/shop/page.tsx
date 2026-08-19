@@ -35,10 +35,10 @@ const ShopPage = () => {
                             {section.items.map((item) => (
                                 <BorderCard key={item.id} className="flex items-center justify-between gap-4">
                                     <div className="flex items-center gap-4">
-                                        <FontAwesomeIcon icon={item.icon} className={`w-10! h-10! ${item.iconColor}`} />
+                                        <FontAwesomeIcon icon={item.icon} className={`w-10! h-10! filter-[drop-shadow(0px_2px_0px_#1e3a8a)] ${item.iconColor}`} />
                                         <div className="space-y-1">
                                             <p className="font-semibold">{item.title}</p>
-                                            <p className="text-xs text-slate-500">{item.desc}</p>
+                                            <p className="text-sm text-slate-500">{item.desc}</p>
                                         </div>
                                     </div>
                                     <Button variant={item.buttonVariant} size="md" className="flex items-center gap-2">

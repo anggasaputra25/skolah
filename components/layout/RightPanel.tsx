@@ -35,7 +35,7 @@ export const RightPanel = ({target = 1}: {target?: number}) => {
                             <Link href={'/profile'} className="text-blue-600 font-bold text-sm">View Detail</Link>
                         </div>
                         <div className="flex gap-5 items-center">
-                            <FontAwesomeIcon icon={faStar} className="w-12! h-12! text-blue-600 filter-[drop-shadow(0px_2px_0px_#1e3a8a)_drop-shadow(0px_1px_0px_#1e40af)]" />
+                            <FontAwesomeIcon icon={faStar} className="w-12! h-12! text-blue-600 filter-[drop-shadow(0px_2px_0px_#1e3a8a)]" />
                             <div className="space-y-1 w-full font-semibold">
                                 <p>Level 4</p>
                                 <div className="relative w-full bg-slate-300 rounded-full">
@@ -55,7 +55,7 @@ export const RightPanel = ({target = 1}: {target?: number}) => {
                             <Link href={'/quests'} className="text-blue-600 font-bold text-sm">View All</Link>
                         </div>
                         <div className="flex gap-5 items-center">
-                            <FontAwesomeIcon icon={faScrollTorah} className="w-12! h-12! text-yellow-500 filter-[drop-shadow(0px_2px_0px_#d97706)_drop-shadow(0px_1px_0px_#b45309)]" />
+                            <FontAwesomeIcon icon={faScrollTorah} className="w-12! h-12! text-yellow-500 filter-[drop-shadow(0px_2px_0px_#d97706)]" />
                             <div className="space-y-1 w-full font-semibold">
                                 <p>Earn 10 XP</p>
                                 <Button variant="warning" size="sm" className="w-full">Claim</Button>
@@ -86,7 +86,9 @@ export const RightPanel = ({target = 1}: {target?: number}) => {
                                         height={40}
                                         className="border-2 aspect-square border-slate-300 rounded-full"
                                     />
-                                    <p>{user.name}</p>
+                                    <p className={user.isCurrentUser ? "font-bold" : ""}>
+                                        {user.name}
+                                    </p>
                                 </div>
                                 <div className="flex justify-center gap-1">
                                     <FontAwesomeIcon

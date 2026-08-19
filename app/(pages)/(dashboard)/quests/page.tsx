@@ -33,7 +33,7 @@ const QuestPage = () => {
                             <FontAwesomeIcon icon={faScrollTorah} className="w-10! h-10! text-yellow-500 filter-[drop-shadow(0px_2px_0px_#d97706)]" />
                             <div className="space-y-1">
                                 <p className="font-semibold">Earn 10 XP</p>
-                                <p className="text-xs text-slate-500">10 / 10 XP</p>
+                                <p className="text-sm text-slate-500">10 / 10 XP</p>
                             </div>
                         </div>
                         <Button variant="warning" size="md">Claim</Button>
@@ -44,7 +44,7 @@ const QuestPage = () => {
                         <FontAwesomeIcon icon={faCheckCircle} className="w-10! h-10! text-green-500" />
                         <div className="space-y-1">
                             <p className="font-semibold text-slate-500 line-through">Completed 3 lesson</p>
-                            <p className="text-xs text-green-600 font-bold">Reward Claimed +20 Coins</p>
+                            <p className="text-sm text-green-600 font-bold">Reward Claimed +20 Coins</p>
                         </div>
                     </BorderCard>
 
@@ -53,7 +53,7 @@ const QuestPage = () => {
                         <FontAwesomeIcon icon={faCheckCircle} className="w-10! h-10! text-green-500" />
                         <div className="space-y-1">
                             <p className="font-semibold text-slate-500 line-through">Score 90% or higher in 1 lesson</p>
-                            <p className="text-xs text-green-600 font-bold">Reward Claimed +10 Coins</p>
+                            <p className="text-sm text-green-600 font-bold">Reward Claimed +10 Coins</p>
                         </div>
                     </BorderCard>
                 </div>
@@ -70,7 +70,7 @@ const QuestPage = () => {
                             <FontAwesomeIcon icon={faScrollTorah} className="w-10! h-10! text-yellow-500 filter-[drop-shadow(0px_2px_0px_#d97706)]" />
                             <div className="space-y-1">
                                 <p className="font-semibold">Defeat 1 Boss Fight</p>
-                                <p className="text-xs text-slate-500">0 / 1 Defeated</p>
+                                <p className="text-sm text-slate-500">0 / 1 Defeated</p>
                             </div>
                         </div>
                         <Button variant="warning" size="md">Start</Button>
