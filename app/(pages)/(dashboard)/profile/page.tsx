@@ -36,7 +36,7 @@ const ProfilePage = () => {
                                     height={96} 
                                     className="border-4 aspect-square border-slate-300 rounded-full"
                                 />
-                                <button className="absolute cursor-pointer bottom-0 right-0 bg-blue-600 text-white rounded-full p-2 border-2 border-white">
+                                <button className="absolute cursor-pointer bottom-0 right-0 bg-blue-600 text-white rounded-full w-8 h-8 border-2 border-white flex justify-center items-center">
                                     <FontAwesomeIcon icon={faPen} className="w-3! h-3!" />
                                 </button>
                             </div>
@@ -116,7 +116,7 @@ const ProfilePage = () => {
                         <BorderCard className="flex items-center gap-4">
                             <FontAwesomeIcon icon={faTrophy} className="w-10! h-10! text-yellow-500 filter-[drop-shadow(0px_2px_0px_#d97706)]" />
                             <div>
-                                <p className="font-semibold">#13</p>
+                                <p className="font-semibold">#6</p>
                                 <p className="text-sm text-slate-500">League Rank</p>
                             </div>
                         </BorderCard>

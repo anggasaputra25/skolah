@@ -14,58 +14,11 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import { RightPanel } from "@/components/layout/RightPanel";
-
-const initialPosts = [
-    {
-        id: 1,
-        author: "Sarah Jenkins",
-        username: "@sarah_j",
-        avatar: "/assets/flags/english.jpeg",
-        badge: "Polyglot",
-        timeAgo: "2 hours ago",
-        title: "Best tips for remembering vocabulary faster?",
-        content: "I've been struggling with Section 2 vocabulary lately. Does anyone have specific spaced repetition methods or mnemonic tricks that worked well for you?",
-        likes: 24,
-        comments: 8,
-        category: "Learning Tips",
-        isLiked: false,
-    },
-    {
-        id: 2,
-        author: "Budi Santoso",
-        username: "@budi_s",
-        avatar: "/assets/flags/indonesia.jpeg",
-        badge: "Top 3 Leaderboard",
-        timeAgo: "5 hours ago",
-        title: "Completed my 30-day streak today! 🎉",
-        content: "Consistency is key! Making time for just 15 minutes every morning before work really made a huge difference. Don't give up on your daily quests!",
-        likes: 56,
-        comments: 14,
-        category: "Achievement",
-        isLiked: true,
-    },
-    {
-        id: 3,
-        author: "Claire Dupont",
-        username: "@claire_d",
-        avatar: "/assets/flags/french.jpeg",
-        badge: "Level 5",
-        timeAgo: "1 day ago",
-        title: "Grammar Question: Difference between 'Tolong' and 'Silakan'?",
-        content: "Can a native speaker clarify when it's appropriate to use 'Tolong' versus 'Silakan' when asking someone to do something politely?",
-        likes: 12,
-        comments: 6,
-        category: "Grammar Help",
-        isLiked: false,
-    },
-];
-
-const categories = ["All Topics", "Learning Tips", "Grammar Help", "Achievement", "Discussion"];
+import { POSTS } from "@/constants/posts";
 
 const CommunityPage = () => {
     const targetPage = 5;
-    const [selectedCategory, setSelectedCategory] = useState("All Topics");
-    const [posts, setPosts] = useState(initialPosts);
+    const [posts, setPosts] = useState(POSTS);
     const [newPostText, setNewPostText] = useState("");
 
     const handleLike = (id: number) => {
@@ -82,10 +35,6 @@ const CommunityPage = () => {
             })
         );
     };
-
-    const filteredPosts = selectedCategory === "All Topics" 
-        ? posts 
-        : posts.filter(post => post.category === selectedCategory);
 
     return (
         <div className="flex">
@@ -120,43 +69,26 @@ const CommunityPage = () => {
                             placeholder="Share your learning progress or ask a question..."
                             value={newPostText}
                             onChange={(e) => setNewPostText(e.target.value)}
-                            className="w-full bg-slate-100 border-2 border-slate-200 rounded-xl px-4 py-2.5 font-semibold text-slate-700 outline-none focus:border-blue-500 transition"
+                            className="w-full border-2 border-slate-300 rounded-xl px-4 py-2.5 outline-none focus:border-blue-500 transition"
                         />
                     </div>
                     <div className="flex justify-between items-center pt-1 border-t border-slate-100">
-                        <span className="text-xs font-bold text-slate-400">Keep it friendly and constructive!</span>
+                        <span className="text-sm text-slate-500">Keep it friendly and constructive!</span>
                         <Button 
                             variant="primary" 
                             size="sm" 
                             disabled={!newPostText.trim()}
                             className={!newPostText.trim() ? "opacity-50 cursor-not-allowed" : ""}
                         >
-                            <FontAwesomeIcon icon={faPenToSquare} className="w-4 h-4 me-2" />
+                            <FontAwesomeIcon icon={faPenToSquare} className="w-4! h-4! me-2" />
                             Post
                         </Button>
                     </div>
                 </BorderCard>
 
-                {/* Category Filters */}
-                <div className="flex gap-2 overflow-x-auto pb-1 no-scrollbar">
-                    {categories.map((cat) => (
-                        <button
-                            key={cat}
-                            onClick={() => setSelectedCategory(cat)}
-                            className={`px-4 py-2 rounded-xl border-2 font-bold text-sm whitespace-nowrap transition ${
-                                selectedCategory === cat
-                                    ? "bg-blue-600 border-blue-800 text-white"
-                                    : "bg-white border-slate-300 text-slate-600 hover:bg-slate-100"
-                            }`}
-                        >
-                            {cat}
-                        </button>
-                    ))}
-                </div>
-
                 {/* Forum Posts List */}
                 <div className="space-y-4">
-                    {filteredPosts.map((post) => (
+                    {posts.map((post) => (
                         <BorderCard key={post.id} className="p-5 space-y-4 bg-white">
                             {/* Post Header */}
                             <div className="flex justify-between items-start">
@@ -169,50 +101,41 @@ const CommunityPage = () => {
                                         className="border-2 aspect-square border-slate-300 rounded-full"
                                     />
                                     <div>
-                                        <div className="flex items-center gap-2">
-                                            <p className="font-extrabold text-slate-800">{post.author}</p>
-                                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-blue-100 text-blue-700 font-extrabold uppercase">
-                                                {post.badge}
-                                            </span>
-                                        </div>
-                                        <p className="text-xs font-semibold text-slate-400">
+                                        <p className="font-bold">{post.author}</p>
+                                        <p className="text-sm text-slate-500">
                                             {post.username} • {post.timeAgo}
                                         </p>
                                     </div>
                                 </div>
-
-                                <span className="text-xs font-bold px-3 py-1 rounded-full bg-slate-100 text-slate-500 border border-slate-200">
-                                    {post.category}
+                                <span className="text-xs px-2 py-1 rounded-full bg-blue-100 text-blue-700 font-semibold">
+                                    {post.badge}
                                 </span>
                             </div>
 
-                            {/* Post Body */}
-                            <div className="space-y-1">
-                                <h2 className="text-lg font-bold text-slate-800">{post.title}</h2>
-                                <p className="text-slate-600 font-medium text-sm leading-relaxed">{post.content}</p>
-                            </div>
+                            {/* Post Content */}
+                            <p className="leading-relaxed">{post.content}</p>
 
                             {/* Post Actions Footer */}
-                            <div className="flex items-center gap-4 pt-2 border-t border-slate-100 text-slate-500 font-bold text-sm">
+                            <div className="flex items-center gap-4 pt-2 border-t border-slate-100 text-slate-500 text-sm font-semibold">
                                 <button
                                     onClick={() => handleLike(post.id)}
-                                    className={`flex items-center gap-2 px-3 py-1.5 rounded-xl border transition ${
+                                    className={`flex items-center gap-2 cursor-pointer ${
                                         post.isLiked
-                                            ? "bg-red-50 border-red-300 text-red-500"
-                                            : "border-slate-200 hover:bg-slate-100 text-slate-500"
+                                            ? "text-red-500"
+                                            : ""
                                     }`}
                                 >
-                                    <FontAwesomeIcon icon={faHeart} className={`w-4 h-4 ${post.isLiked ? "text-red-500" : ""}`} />
+                                    <FontAwesomeIcon icon={faHeart} className="w-4! h-4!" />
                                     <span>{post.likes}</span>
                                 </button>
 
-                                <button className="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-slate-200 hover:bg-slate-100 transition">
-                                    <FontAwesomeIcon icon={faMessage} className="w-4 h-4 text-slate-400" />
+                                <button className="flex items-center gap-2 cursor-pointer">
+                                    <FontAwesomeIcon icon={faMessage} className="w-4! h-4!" />
                                     <span>{post.comments} Comments</span>
                                 </button>
 
-                                <button className="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-slate-200 hover:bg-slate-100 transition ms-auto">
-                                    <FontAwesomeIcon icon={faShareNodes} className="w-4 h-4 text-slate-400" />
+                                <button className="flex items-center gap-2 cursor-pointer ms-auto">
+                                    <FontAwesomeIcon icon={faShareNodes} className="w-4! h-4!" />
                                     <span>Share</span>
                                 </button>
                             </div>
