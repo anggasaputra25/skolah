@@ -68,7 +68,7 @@ const ProfilePage = () => {
 
                     <div className="flex gap-3">
                         {LEADERBOARD.slice(0,4).map((user, index) => (
-                            <BorderCard key={index} className="flex flex-col items-center gap-2 w-full">
+                            <BorderCard key={index} className={`flex flex-col items-center gap-2 w-full ${index === 3 ? "hidden lg:flex" : ""}`}>
                                 <Image 
                                     src={user.avatar}
                                     alt="Profile Avatar" 

@@ -14,7 +14,7 @@ export const RightPanel = ({target = 1}: {target?: number}) => {
         leaderboard = LEADERBOARD.slice(3, 7);
     }
     return (
-        <div className="w-3xl">
+        <div className="w-3xl hidden lg:block">
             <div className="p-5 space-y-5 sticky top-0">
                 {/* Languages */}
                 <div className="flex items-center justify-between sticky">

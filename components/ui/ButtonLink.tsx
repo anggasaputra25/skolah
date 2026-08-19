@@ -17,6 +17,7 @@ export const ButtonLink: React.FC<ButtonLinkProps> = ({
     ...props
 }) => {
     const baseStyles = `
+        shrink-0
         relative inline-flex items-center justify-center
         font-bold uppercase tracking-wider
         rounded-2xl
