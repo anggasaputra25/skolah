@@ -3,6 +3,7 @@ import Sidebar from "@/components/layout/Sidebar";
 import { BorderCard } from "@/components/ui/BorderCard";
 import { Button } from "@/components/ui/Button";
 import { ACHIEVEMENTS } from "@/constants/achievements";
+import { LEADERBOARD } from "@/constants/leaderboard";
 import { 
     faDiamond, 
     faFire, 
@@ -10,7 +11,6 @@ import {
     faPen, 
     faStar, 
     faTrophy, 
-    faUserCheck 
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
@@ -43,6 +43,7 @@ const ProfilePage = () => {
                             <div>
                                 <h1 className="text-2xl font-bold">Angga Saputra</h1>
                                 <p className="text-slate-500 font-semibold text-sm">@angga</p>
+                                <p className="text-slate-500 font-semibold text-sm mt-2">12 Followers / 10 Following</p>
                             </div>
                         </div>
 
@@ -55,12 +56,41 @@ const ProfilePage = () => {
                     </div>
                 </BorderCard>
 
+                {/* Friend Suggestions */}
+                <div className="space-y-3">
+                    <div className="flex justify-between items-center">
+                        <h2 className="text-xl font-bold">Friend Suggestions</h2>
+                        <Link href="#" className="text-blue-600 font-bold text-sm">View All</Link>
+                    </div>
+
+                    <div className="flex gap-3">
+                        {LEADERBOARD.slice(0,4).map((user, index) => (
+                            <BorderCard key={index} className="flex flex-col items-center gap-2 w-full">
+                                <Image 
+                                    src={user.avatar}
+                                    alt="Profile Avatar" 
+                                    width={96} 
+                                    height={96} 
+                                    className="border-4 aspect-square border-slate-300 rounded-full object-cover"
+                                />
+                                <div className="text-center">
+                                    <p className="font-semibold text-lg">{user.name}</p>
+                                    <p className="text-slate-500 font-semibold text-sm">Follows You</p>
+                                </div>
+                                <Button size="sm" className="w-full">
+                                    Follow
+                                </Button>
+                            </BorderCard>
+                        ))}
+                    </div>
+                </div>
+
                 {/* Statistics Grid */}
                 <div className="space-y-3">
                     <h2 className="text-xl font-bold">Statistics</h2>
                     <div className="grid grid-cols-2 gap-4">
                         <BorderCard className="flex items-center gap-4">
-                            <FontAwesomeIcon icon={faFire} className="w-8! h-8! text-orange-500 filter-[drop-shadow(0px_2px_0px_#c2410c)]" />
+                            <FontAwesomeIcon icon={faFire} className="w-10! h-10! text-orange-500 filter-[drop-shadow(0px_2px_0px_#c2410c)]" />
                             <div>
                                 <p className="font-semibold">3</p>
                                 <p className="text-sm text-slate-500">Day streak</p>
@@ -68,7 +98,7 @@ const ProfilePage = () => {
                         </BorderCard>
 
                         <BorderCard className="flex items-center gap-4">
-                            <FontAwesomeIcon icon={faStar} className="w-8! h-8! text-blue-600 filter-[drop-shadow(0px_2px_0px_#1c398e)]" />
+                            <FontAwesomeIcon icon={faStar} className="w-10! h-10! text-blue-600 filter-[drop-shadow(0px_2px_0px_#1c398e)]" />
                             <div>
                                 <p className="font-semibold">90</p>
                                 <p className="text-sm text-slate-500">Total XP</p>
@@ -76,7 +106,7 @@ const ProfilePage = () => {
                         </BorderCard>
 
                         <BorderCard className="flex items-center gap-4">
-                            <FontAwesomeIcon icon={faDiamond} className="w-8! h-8! text-violet-600 filter-[drop-shadow(0px_2px_0px_#4d179a)]" />
+                            <FontAwesomeIcon icon={faDiamond} className="w-10! h-10! text-violet-600 filter-[drop-shadow(0px_2px_0px_#4d179a)]" />
                             <div>
                                 <p className="font-semibold">Diamond</p>
                                 <p className="text-sm text-slate-500">Current league</p>
@@ -84,7 +114,7 @@ const ProfilePage = () => {
                         </BorderCard>
 
                         <BorderCard className="flex items-center gap-4">
-                            <FontAwesomeIcon icon={faTrophy} className="w-8! h-8! text-yellow-500 filter-[drop-shadow(0px_2px_0px_#d97706)]" />
+                            <FontAwesomeIcon icon={faTrophy} className="w-10! h-10! text-yellow-500 filter-[drop-shadow(0px_2px_0px_#d97706)]" />
                             <div>
                                 <p className="font-semibold">#13</p>
                                 <p className="text-sm text-slate-500">League Rank</p>
@@ -104,9 +134,7 @@ const ProfilePage = () => {
                         {ACHIEVEMENTS.map((item, index) => (
                             <BorderCard key={index} className="flex items-center justify-between gap-4">
                                 <div className="flex items-center gap-4">
-                                    <div className="p-3 rounded-2xl bg-slate-100 border-2 border-slate-200">
-                                        <FontAwesomeIcon icon={item.icon} className={`w-8! h-8! ${item.color}`} />
-                                    </div>
+                                    <FontAwesomeIcon icon={item.icon} className={`w-10! h-10! ${item.color}`} />
                                     <div className="space-y-1">
                                         <p className="font-semibold">{item.title}</p>
                                         <p className="text-sm text-slate-500">{item.desc}</p>

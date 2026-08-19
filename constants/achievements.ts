@@ -1,4 +1,4 @@
-import { faFire, faGraduationCap, faScrollTorah, faTrophy } from "@fortawesome/free-solid-svg-icons";
+import { faFire, faGraduationCap, faScrollTorah } from "@fortawesome/free-solid-svg-icons";
 
 export const ACHIEVEMENTS = [
     { 
