@@ -80,28 +80,27 @@ const SpeakingPage = () => {
         if (audioRef.current && !audioRef.current.paused) {
             audioRef.current.pause();
             audioRef.current.currentTime = 0;
-            audioRef.current = null;
             return;
         }
 
-        const sound = new Audio("/assets/audio/listening.m4a");
-        audioRef.current = sound;
+        if (!audioRef.current) {
+            audioRef.current = new Audio("/assets/audio/listening.m4a");
 
-        sound.play().catch((err) => console.error("Error playing sound:", err));
-
-        sound.onended = () => {
-            if (audioRef.current === sound) {
+            audioRef.current.onended = () => {
                 audioRef.current = null;
-            }
-        };
+            };
+        }
+
+        audioRef.current.play().catch((err) => {
+            console.error("Error playing sound:", err);
+        });
     };
 
     // Frontend validation mock
     const handleCheck = () => {
         if (recordState !== "recorded") return;
 
-        const isPass = true; 
-        if (isPass) {
+        if (true) {
             setStatus("correct");
             const correctAudio = new Audio("/assets/audio/correct.mp3");
             correctAudio.play().catch((err) => console.error("Error playing correct sound:", err));
@@ -169,32 +168,33 @@ const SpeakingPage = () => {
 
                 {/* Question / Instruction Prompt */}
                 <h2 className="text-lg font-bold pt-2">
-                    {SPEAKING.subtitle || "Record your response"}
+                    Read the sentence out loud clearly into your microphone.
                 </h2>
 
                 {/* Microphone Record Controls */}
                 <div className="py-6 flex flex-col items-center justify-center space-y-4">
                     {recordState === "idle" && (
-                        <button
+                        <Button
                             onClick={startRecording}
-                            className="w-24 h-24 rounded-full bg-blue-600 hover:bg-blue-700 active:translate-y-1 text-white border-b-4 border-blue-800 flex items-center justify-center shadow-lg transition-all"
+                            className="w-24 h-24 rounded-full flex items-center justify-center"
                             aria-label="Start recording"
                         >
                             <FontAwesomeIcon icon={faMicrophone} className="w-8! h-8!" />
-                        </button>
+                        </Button>
                     )}
 
                     {recordState === "recording" && (
                         <div className="flex flex-col items-center space-y-3">
                             <div className="relative">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                                <button
+                                <Button
+                                    variant="danger"
                                     onClick={stopRecording}
-                                    className="relative w-24 h-24 rounded-full bg-red-500 hover:bg-red-600 active:translate-y-1 text-white border-b-4 border-red-700 flex items-center justify-center shadow-lg transition-all"
+                                    className="relative w-24 h-24 rounded-full flex items-center justify-center"
                                     aria-label="Stop recording"
                                 >
                                     <FontAwesomeIcon icon={faPause} className="w-8! h-8!" />
-                                </button>
+                                </Button>
                             </div>
                             <span className="text-xs font-extrabold text-red-500 uppercase tracking-wider animate-pulse">
                                 Recording... Tap to stop
@@ -204,25 +204,26 @@ const SpeakingPage = () => {
 
                     {recordState === "recorded" && (
                         <div className="flex items-center gap-4">
-                            <button
+                            <Button
+                                variant="secondary"
                                 onClick={startRecording}
                                 disabled={status !== "idle"}
-                                className="w-14 h-14 rounded-2xl bg-slate-200 hover:bg-slate-300 text-slate-600 border-b-4 border-slate-400 flex items-center justify-center transition disabled:opacity-50"
+                                className="w-14 h-14 flex items-center justify-center"
                                 aria-label="Re-record"
                             >
                                 <FontAwesomeIcon icon={faRotateRight} className="w-6! h-6!" />
-                            </button>
+                            </Button>
 
-                            <button
+                            <Button
                                 onClick={togglePlayback}
-                                className="w-20 h-20 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white border-b-4 border-blue-800 flex items-center justify-center shadow-md transition"
+                                className="w-20 h-20 flex items-center justify-center"
                                 aria-label="Play recording preview"
                             >
                                 <FontAwesomeIcon
                                     icon={isPlayingPlayback ? faPause : faPlay}
                                     className="w-8! h-8! ml-1"
                                 />
-                            </button>
+                            </Button>
                         </div>
                     )}
 

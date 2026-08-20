@@ -86,16 +86,16 @@ const ListeningPage = () => {
                     
                     {/* Big Audio Play Control */}
                     <div className="flex items-center justify-center py-4">
-                        <button
+                        <Button
                             onClick={togglePlay}
-                            className="cursor-pointer w-20 h-20 rounded-2xl bg-blue-600 hover:bg-blue-700 active:translate-y-1 text-white border-b-4 border-blue-800 flex items-center justify-center shadow-lg transition-all"
+                            className="w-20 h-20 rounded-2xl flex items-center justify-center"
                             aria-label={isPlaying ? "Pause audio" : "Play audio"}
                         >
                             <FontAwesomeIcon 
                                 icon={isPlaying ? faPause : faPlay} 
                                 className="w-8! h-8! ml-1" 
                             />
-                        </button>
+                        </Button>
                     </div>
                 </BorderCard>
 
@@ -110,7 +110,7 @@ const ListeningPage = () => {
                         const isSelected = selectedOption === option.id;
                         const isCorrectOption = option.isCorrect;
 
-                        let variant: "primary" | "secondary" | "success" | "danger" = "secondary";
+                        let variant: "primary" | "secondary" | "danger" = "secondary";
 
                         if (status === "idle") {
                             variant = isSelected ? "primary" : "secondary";

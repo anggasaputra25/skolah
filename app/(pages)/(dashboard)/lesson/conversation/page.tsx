@@ -1,11 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
-import { BorderCard } from "@/components/ui/BorderCard";
+import React, { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/Button";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { 
-    faComments, 
     faCheck, 
     faStar, 
     faUserGroup, 
@@ -15,18 +13,29 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { DialogueMessage } from "@/types/dialogue";
 import { CONVERSATION } from "@/constants/lesson";
+import { DialogueCard } from "@/components/ui/DialogueCard";
 
 const ConversationPage = () => {
+    const [currentIndex, setCurrentIndex] = useState(0);
     const [selectedOption, setSelectedOption] = useState<string | null>(null);
     const [status, setStatus] = useState<"idle" | "correct" | "incorrect">("idle");
-    const [messages, setMessages] = useState<DialogueMessage[]>(CONVERSATION.chatHistory);
+    const [messages, setMessages] = useState<DialogueMessage[]>([CONVERSATION[0].partnerMessage]);
+
+    const chatContainerRef = useRef<HTMLDivElement>(null);
+
+    const currentConversation = CONVERSATION[currentIndex];
+
+    useEffect(() => {
+        if (chatContainerRef.current) {
+            chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+        }
+    }, [messages]);
 
     const handleCheck = () => {
         if (!selectedOption) return;
-        const selected = CONVERSATION.options.find((opt) => opt.id === selectedOption);
+        const selected = currentConversation.options.find((opt) => opt.id === selectedOption);
         
         if (selected) {
-            // Dynamically append user's selected response to the chat stream
             const userResponse: DialogueMessage = {
                 id: Date.now(),
                 speaker: "user",
@@ -48,7 +57,22 @@ const ConversationPage = () => {
         }
     };
 
-    const selectedOptionObj = CONVERSATION.options.find((opt) => opt.id === selectedOption);
+    const handleContinue = () => {
+        const nextIndex = currentIndex + 1;
+
+        if (nextIndex < CONVERSATION.length) {
+            setCurrentIndex(nextIndex);
+
+            const nextPartnerMessage = CONVERSATION[nextIndex].partnerMessage;
+            setMessages((prev) => [...prev, nextPartnerMessage]);
+
+            setSelectedOption(null);
+            setStatus("idle");
+        }
+    };
+
+    const selectedOptionObj = currentConversation.options.find((opt) => opt.id === selectedOption);
+    const isLastConversation = currentIndex === CONVERSATION.length - 1;
 
     return (
         <div className="min-h-screen flex flex-col justify-between">
@@ -58,9 +82,12 @@ const ConversationPage = () => {
                     <FontAwesomeIcon icon={faXmark} className="w-5! h-5! text-slate-500" />
                 </ButtonLink>
 
-                {/* Progress Bar */}
-                <div className="w-full bg-slate-300 h-4 rounded-full">
-                    <div className="bg-blue-600 h-full w-1/5 border-2 border-b-4 border-blue-700 rounded-full"></div>
+                {/* Progress Bar Dinamis */}
+                <div className="w-full bg-slate-300 h-4 rounded-full overflow-hidden">
+                    <div 
+                        className="bg-blue-600 h-full border-2 border-b-4 border-blue-700 rounded-full transition-all duration-300"
+                        style={{ width: `${((currentIndex + 1) / CONVERSATION.length) * 100}%` }}
+                    ></div>
                 </div>
 
                 {/* Point */}
@@ -74,13 +101,13 @@ const ConversationPage = () => {
             <div className="max-w-2xl w-full mx-auto p-5 space-y-6 flex-1 flex flex-col justify-center">
 
                 {/* Dialogue Chat Feed Container */}
-                <BorderCard className="p-6 space-y-3 max-h-85 overflow-y-auto">
-                    <div className="flex items-center justify-between text-blue-600 pb-2 border-b border-slate-200">
-                        <div className="flex items-center gap-2 font-bold text-sm">
-                            <FontAwesomeIcon icon={faUserGroup} className="w-5! h-5!" />
-                            <span>Roleplay with {CONVERSATION.partner.name} ({CONVERSATION.partner.role})</span>
-                        </div>
-                        <FontAwesomeIcon icon={faComments} className="w-5! h-5!" />
+                <DialogueCard 
+                    ref={chatContainerRef} 
+                    className="p-6 space-y-3 h-72 overflow-y-auto scroll-smooth"
+                >
+                    <div className="flex items-center gap-2 text-blue-600 pb-2 border-b border-slate-200 font-bold text-sm">
+                        <FontAwesomeIcon icon={faUserGroup} className="w-5! h-5!" />
+                        <span>Roleplay with {currentConversation.partner.name} ({currentConversation.partner.role})</span>
                     </div>
 
                     {/* Speech Bubbles Stream */}
@@ -129,20 +156,15 @@ const ConversationPage = () => {
                             </div>
                         ))}
                     </div>
-                </BorderCard>
-
-                {/* Prompt Label */}
-                <h2 className="text-lg font-bold pt-2">
-                    {CONVERSATION.questionPrompt}
-                </h2>
+                </DialogueCard>
 
                 {/* Option Selector List */}
                 <div className="space-y-3">
-                    {CONVERSATION.options.map((option) => {
+                    {currentConversation.options.map((option) => {
                         const isSelected = selectedOption === option.id;
                         const isCorrectOption = option.isCorrect;
 
-                        let variant: "primary" | "secondary" | "success" | "danger" = "secondary";
+                        let variant: "primary" | "secondary" | "danger" = "secondary";
 
                         if (status === "idle") {
                             variant = isSelected ? "primary" : "secondary";
@@ -229,14 +251,22 @@ const ConversationPage = () => {
                         >
                             Check Answer
                         </Button>
-                    ) : (
+                    ) : isLastConversation ? (
                         <ButtonLink
                             href="/learn"
+                            variant="primary"
+                            size="lg"
+                        >
+                            Finish Lesson
+                        </ButtonLink>
+                    ) : (
+                        <Button
+                            onClick={handleContinue}
                             variant={status === "correct" ? "primary" : "danger"}
                             size="lg"
                         >
                             Continue
-                        </ButtonLink>
+                        </Button>
                     )}
                 </div>
             </div>
