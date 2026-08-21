@@ -1,7 +1,7 @@
 'use client'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { BorderCard } from "../ui/BorderCard";
-import { faEnvelope, faLock, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown, faEnvelope, faLock, faUser } from "@fortawesome/free-solid-svg-icons";
 import { ButtonLink } from "../ui/ButtonLink";
 import { Button } from "../ui/Button";
 import Link from "next/link";
@@ -9,10 +9,12 @@ import { Alert } from "../ui/Alert";
 import { useState } from "react";
 import Image from "next/image";
 import { LANGUAGES } from "@/constants/languages";
+import { Popover } from "../ui/PopOver";
 
 const RegisterForm = () => {
     const [showAlert, setShowAlert] = useState(false);
     const [showFlags, setShowFlags] = useState(true);
+    const [isOpen, setOpen] = useState(false);
     
     const loginClick = () => {
         setShowAlert(true);
@@ -22,8 +24,33 @@ const RegisterForm = () => {
         <>
             {/* Flags Section */}
             {showFlags && 
-                <div className="w-11/12 md:w-10/12 mx-auto min-h-dvh py-20 flex flex-col justify-center items-center">
-                    <h2 className="text-2xl font-semibold text-center">I Want to Learn...</h2>
+                <div className="w-full max-w-3xl mx-auto min-h-dvh py-20 flex flex-col justify-center items-center">
+                    <div className="flex justify-between items-center w-full">
+                        <h2 className="text-2xl font-bold">Courses for English Speakers</h2>
+                        <div className="relative">
+                            <button onClick={() => setOpen(!isOpen)} className="text-slate-500 flex gap-2 items-center cursor-pointer font-semibold">
+                                <span>I speak English</span>
+                                <FontAwesomeIcon icon={faChevronDown} className="w-4! h-4!" />
+                            </button>
+                            
+                            {/* Window */}
+                            {isOpen && 
+                                <Popover align="right" width="w-72">
+                                    <div className="text-left h-96 overflow-y-auto space-y-1">
+                                        {LANGUAGES.map((item, index) => (
+                                            <button
+                                                onClick={() => setOpen(false)}
+                                                key={index}
+                                                className="w-full text-left cursor-pointer p-2.5 rounded-xl hover:bg-slate-100 transition-colors"
+                                            >
+                                                {item.title}
+                                            </button>
+                                        ))}
+                                    </div>
+                                </Popover>
+                            }
+                        </div>
+                    </div>
                     <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
                         {LANGUAGES.map((item, index) => (
                             <button onClick={() => setShowFlags(false)} key={index} className="rounded-2xl cursor-pointer">

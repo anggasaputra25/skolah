@@ -1,7 +1,7 @@
 'use client';
 import { Navbar } from "@/components/layout/Navbar";
 import { StatCard } from "@/components/ui/StatCard";
-import { faBook, faHandshake, faUsers } from "@fortawesome/free-solid-svg-icons";
+import { faBook, faChevronDown, faHandshake, faUsers } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import Footer from "@/components/layout/Footer";
 import { BorderCard } from "@/components/ui/BorderCard";
@@ -9,8 +9,12 @@ import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { scrollToSection } from "@/lib/scroll";
 import { LANGUAGES } from "@/constants/languages";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Popover } from "@/components/ui/PopOver";
+import { useState } from "react";
 
 const CoursesPage = () => {
+    const [isOpen, setOpen] = useState(false);
     const stats = [
         {
             value: "30+",
@@ -59,7 +63,32 @@ const CoursesPage = () => {
             
             {/* Main Section */}
             <div id="explore" className="w-11/12 md:w-10/12 mx-auto min-h-dvh py-20 flex flex-col justify-center items-center">
-                <h2 className="text-2xl font-semibold text-center">Courses for English Speakers</h2>
+                <div className="flex justify-between items-center w-full">
+                    <h2 className="text-2xl font-bold">Courses for English Speakers</h2>
+                    <div className="relative">
+                        <button onClick={() => setOpen(!isOpen)} className="text-slate-500 flex gap-2 items-center cursor-pointer font-semibold">
+                            <span>I speak English</span>
+                            <FontAwesomeIcon icon={faChevronDown} className="w-4! h-4!" />
+                        </button>
+                        
+                        {/* Window */}
+                        {isOpen && 
+                            <Popover align="right" width="w-72">
+                                <div className="text-left h-96 overflow-y-auto space-y-1">
+                                    {LANGUAGES.map((item, index) => (
+                                        <button
+                                            onClick={() => setOpen(false)}
+                                            key={index}
+                                            className="w-full text-left cursor-pointer p-2.5 rounded-xl hover:bg-slate-100 transition-colors"
+                                        >
+                                            {item.title}
+                                        </button>
+                                    ))}
+                                </div>
+                            </Popover>
+                        }
+                    </div>
+                </div>
                 <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
                     {LANGUAGES.map((item, index) => (
                         <Link href={'/login'} key={index} className="rounded-2xl">
