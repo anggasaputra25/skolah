@@ -242,12 +242,12 @@ const SpeakingPage = () => {
                         : ""
                 }`}
             >
-                <div className="max-w-2xl w-full mx-auto flex items-center justify-between">
+                <div className="max-w-2xl w-full mx-auto flex gap-5 flex-col-reverse md:flex-row items-center justify-between">
                     {/* Status Feedback */}
                     <div>
                         {status === "correct" && (
                             <div className="flex items-center gap-3 text-blue-600">
-                                <div className="w-10! h-10! bg-blue-600 text-white rounded-full flex justify-center items-center">
+                                <div className="shrink-0 w-10! h-10! bg-blue-600 text-white rounded-full flex justify-center items-center">
                                     <FontAwesomeIcon icon={faCheck} className="w-6! h-6!" />
                                 </div>
                                 <div>
@@ -258,7 +258,7 @@ const SpeakingPage = () => {
                         )}
                         {status === "incorrect" && (
                             <div className="flex items-center gap-3 text-red-600">
-                                <div className="w-10! h-10! bg-red-600 text-white rounded-full flex justify-center items-center">
+                                <div className="shrink-0 w-10! h-10! bg-red-600 text-white rounded-full flex justify-center items-center">
                                     <FontAwesomeIcon icon={faXmark} className="w-6! h-6!" />
                                 </div>
                                 <div>
@@ -275,6 +275,7 @@ const SpeakingPage = () => {
                             variant={recordState === "recorded" ? "primary" : "disabled"}
                             onClick={handleCheck}
                             size="lg"
+                            className="w-full"
                         >
                             Check Answer
                         </Button>
@@ -283,6 +284,7 @@ const SpeakingPage = () => {
                             href="/learn"
                             variant={status === "correct" ? "primary" : "danger"}
                             size="lg"
+                            className="w-full"
                         >
                             Continue
                         </ButtonLink>

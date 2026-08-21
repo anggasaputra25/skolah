@@ -1,3 +1,4 @@
+import Bottombar from "@/components/layout/Bottombar";
 import { LevelLock } from "@/components/layout/LevelLock";
 import { RightPanel } from "@/components/layout/RightPanel";
 import Sidebar from "@/components/layout/Sidebar";
@@ -10,7 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const LearnPage = () => {
     const targetPage = 1;
     return (
-        <div className="flex">
+        <div className="flex mb-10 md:mb-0">
             <Sidebar target={targetPage} />
 
             <div className="w-full p-5">
@@ -111,6 +112,9 @@ const LearnPage = () => {
             
             {/* Right Panel */}
             <RightPanel target={targetPage} />
+
+            {/* Bottombar */}
+            <Bottombar target={targetPage} />
         </div>
     )
 }

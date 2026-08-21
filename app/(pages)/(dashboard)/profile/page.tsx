@@ -1,4 +1,5 @@
 'use client'
+import Bottombar from "@/components/layout/Bottombar";
 import { RightPanel } from "@/components/layout/RightPanel";
 import Sidebar from "@/components/layout/Sidebar";
 import { BorderCard } from "@/components/ui/BorderCard";
@@ -22,14 +23,14 @@ const ProfilePage = () => {
     const [statTab, setStatTab] = useState<"current" | "best">("current");
     const targetPage = 6;
     return (
-        <div className="flex">
+        <div className="flex mb-20 md:mb-0">
             <Sidebar target={targetPage} />
 
             {/* Main Content Area */}
             <div className="w-full p-5 space-y-6">
                 {/* Profile Header Card */}
                 <BorderCard className="p-6 space-y-6">
-                    <div className="flex justify-between items-start">
+                    <div className="flex flex-col md:flex-row gap-5 justify-between items-start">
                         <div className="flex gap-5 items-center">
                             <div className="relative">
                                 <Image 
@@ -49,13 +50,11 @@ const ProfilePage = () => {
                                 <p className="text-slate-500 font-semibold text-sm mt-2">12 Followers / 10 Following</p>
                             </div>
                         </div>
-
-                        <Link href="">
-                            <Button variant="primary" size="sm" className="flex items-center gap-2">
-                                <FontAwesomeIcon icon={faGear} className="w-4! h-4!" />
-                                <span>Edit Profile</span>
-                            </Button>
-                        </Link>
+                        
+                        <ButtonLink href="#" variant="primary" size="sm" className="flex items-center gap-2 w-full md:w-fit">
+                            <FontAwesomeIcon icon={faGear} className="w-4! h-4!" />
+                            <span>Edit Profile</span>
+                        </ButtonLink>
                     </div>
                 </BorderCard>
 
@@ -67,8 +66,8 @@ const ProfilePage = () => {
                     </div>
 
                     <div className="flex gap-3">
-                        {LEADERBOARD.slice(0,4).map((user, index) => (
-                            <BorderCard key={index} className={`flex flex-col items-center gap-2 w-full ${index === 3 ? "hidden lg:flex" : ""}`}>
+                        {LEADERBOARD.slice(1,5).map((user, index) => (
+                            <BorderCard key={index} className={`flex flex-col items-center gap-2 w-full ${index === 3 ? "hidden lg:flex" : ""} ${index === 2 ? "hidden md:flex" : ""}`}>
                                 <Image 
                                     src={user.avatar}
                                     alt="Profile Avatar" 
@@ -251,6 +250,9 @@ const ProfilePage = () => {
 
             {/* Right Panel */}
             <RightPanel target={targetPage} />
+
+            {/* Bottombar */}
+            <Bottombar target={targetPage} />
         </div>
     );
 };

@@ -1,3 +1,4 @@
+import Bottombar from "@/components/layout/Bottombar";
 import { RightPanel } from "@/components/layout/RightPanel";
 import Sidebar from "@/components/layout/Sidebar";
 import { BorderCard } from "@/components/ui/BorderCard";
@@ -80,6 +81,9 @@ const QuestPage = () => {
 
             {/* Right Panel */}
             <RightPanel target={targetPage} />
+
+            {/* Bottombar */}
+            <Bottombar target={targetPage} />
         </div>
     );
 };

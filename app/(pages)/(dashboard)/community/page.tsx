@@ -15,6 +15,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import { RightPanel } from "@/components/layout/RightPanel";
 import { POSTS } from "@/constants/posts";
+import Bottombar from "@/components/layout/Bottombar";
 
 const CommunityPage = () => {
     const targetPage = 5;
@@ -37,7 +38,7 @@ const CommunityPage = () => {
     };
 
     return (
-        <div className="flex">
+        <div className="flex mb-20 md:mb-0">
             <Sidebar target={targetPage} />
 
             {/* Main Content Area */}
@@ -45,12 +46,12 @@ const CommunityPage = () => {
                 {/* Header Banner */}
                 <div className="shadow p-5 rounded-2xl bg-slate-900 flex gap-3 items-center">
                     <FontAwesomeIcon icon={faUserGroup} className="w-10! h-10! text-white" />
-                    <div className="flex justify-between items-center w-full">
+                    <div className="flex flex-col gap-2 md:flex-row justify-between md:items-center w-full">
                         <div>
                             <p className="text-slate-300 text-sm font-semibold">Learners Hub</p>
                             <h1 className="text-white font-bold text-xl">Community Forum</h1>
                         </div>
-                        <p className="font-bold text-sm px-4 py-2 bg-neutral-50 rounded-lg text-blue-600">1,420 Active Learners</p>
+                        <p className="font-bold text-sm px-4 py-2 bg-neutral-50 rounded-lg text-blue-600 w-fit">1,420 Active Learners</p>
                     </div>
                 </div>
 
@@ -72,13 +73,13 @@ const CommunityPage = () => {
                             className="w-full border-2 border-slate-300 rounded-xl px-4 py-2.5 outline-none focus:border-blue-500 transition"
                         />
                     </div>
-                    <div className="flex justify-between items-center pt-1 border-t border-slate-100">
+                    <div className="flex flex-col gap-2 md:flex-row justify-between items-center pt-1 border-t border-slate-100">
                         <span className="text-sm text-slate-500">Keep it friendly and constructive!</span>
                         <Button 
                             variant="primary" 
                             size="sm" 
                             disabled={!newPostText.trim()}
-                            className={!newPostText.trim() ? "opacity-50 cursor-not-allowed" : ""}
+                            className={`w-full md:w-fit ${!newPostText.trim() ? "opacity-50 cursor-not-allowed" : ""}`}
                         >
                             <FontAwesomeIcon icon={faPenToSquare} className="w-4! h-4! me-2" />
                             Post
@@ -146,6 +147,9 @@ const CommunityPage = () => {
 
             {/* Right Panel */}
             <RightPanel target={targetPage} />
+
+            {/* Bottombar */}
+            <Bottombar target={targetPage} />
         </div>
     );
 };

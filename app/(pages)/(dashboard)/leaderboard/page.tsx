@@ -1,3 +1,4 @@
+import Bottombar from "@/components/layout/Bottombar";
 import { RightPanel } from "@/components/layout/RightPanel";
 import Sidebar from "@/components/layout/Sidebar";
 import { BorderCard } from "@/components/ui/BorderCard";
@@ -9,7 +10,7 @@ import Image from "next/image";
 const LeaderboardPage = () => {
     const targetPage = 4;
     return (
-        <div className="flex">
+        <div className="flex mb-20 md:mb-0">
             <Sidebar target={targetPage} />
 
             {/* Main Content Area */}
@@ -17,12 +18,12 @@ const LeaderboardPage = () => {
                 {/* Header Section Banner */}
                 <div className="shadow p-5 rounded-2xl bg-slate-900 flex gap-3 items-center">
                     <FontAwesomeIcon icon={faTrophy} className="w-10! h-10! text-white" />
-                    <div className="flex justify-between items-center w-full">
+                    <div className="flex flex-col gap-2 md:flex-row justify-between md:items-center w-full">
                         <div>
                             <p className="text-slate-300 text-sm font-semibold">Seasonal League</p>
                             <h1 className="text-white font-bold text-xl">Diamond League</h1>
                         </div>
-                        <p className="font-bold text-sm px-4 py-2 bg-neutral-50 rounded-lg text-blue-600">Resets in 1d 12h</p>
+                        <p className="font-bold text-sm px-4 py-2 bg-neutral-50 rounded-lg text-blue-600 w-fit">Resets in 1d 12h</p>
                     </div>
                 </div>
 
@@ -113,6 +114,9 @@ const LeaderboardPage = () => {
 
             {/* Right Panel */}
             <RightPanel target={targetPage} />
+
+            {/* Bottombar */}
+            <Bottombar target={targetPage} />
         </div>
     );
 };

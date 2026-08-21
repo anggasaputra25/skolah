@@ -1,3 +1,4 @@
+import Bottombar from "@/components/layout/Bottombar";
 import { RightPanel } from "@/components/layout/RightPanel";
 import Sidebar from "@/components/layout/Sidebar";
 import { BorderCard } from "@/components/ui/BorderCard";
@@ -9,7 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const ShopPage = () => {
     const targetPage = 3;
     return (
-        <div className="flex">
+        <div className="flex mb-20 md:mb-0">
             <Sidebar target={targetPage} />
 
             {/* Main Content Area */}
@@ -36,7 +37,7 @@ const ShopPage = () => {
 
                         <div className="space-y-3">
                             {section.items.map((item) => (
-                                <BorderCard key={item.id} className="flex items-center justify-between gap-4">
+                                <BorderCard key={item.id} className="flex flex-col md:flex-row items-center justify-between gap-4">
                                     <div className="flex items-center gap-4">
                                         <FontAwesomeIcon icon={item.icon} className={`w-10! h-10! filter-[drop-shadow(0px_2px_0px_#1e3a8a)] ${item.iconColor}`} />
                                         <div className="space-y-1">
@@ -44,7 +45,7 @@ const ShopPage = () => {
                                             <p className="text-sm text-slate-500">{item.desc}</p>
                                         </div>
                                     </div>
-                                    <Button variant={item.buttonVariant} size="md" className="flex items-center gap-2">
+                                    <Button variant={item.buttonVariant} size="md" className="flex items-center gap-2 w-full md:w-fit">
                                         <FontAwesomeIcon icon={faCoins} className="w-4! h-4!" />
                                         <span>{item.price}</span>
                                     </Button>
@@ -57,6 +58,9 @@ const ShopPage = () => {
 
             {/* Right Panel */}
             <RightPanel target={targetPage} />
+
+            {/* Bottombar */}
+            <Bottombar target={targetPage} />
         </div>
     );
 };

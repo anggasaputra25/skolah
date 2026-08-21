@@ -16,7 +16,7 @@ export const POSTS = [
         author: "Budi Santoso",
         username: "@budi_s",
         avatar: "/assets/flags/indonesia.jpeg",
-        badge: "Top 3 Leaderboard",
+        badge: "Wildfire",
         timeAgo: "5 hours ago",
         content: "Completed my 30-day streak today! 🎉 Consistency is key! Making time for just 15 minutes every morning before work really made a huge difference. Don't give up on your daily quests!",
         likes: 56,

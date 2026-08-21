@@ -144,10 +144,10 @@ const ConversationPage = () => {
                                         </span>
                                         {msg.speaker === "partner" && (
                                             <button 
-                                                className="text-slate-400 hover:text-slate-600 transition"
+                                                className="text-slate-400 hover:text-slate-600 cursor-pointer"
                                                 aria-label="Listen to audio"
                                             >
-                                                <FontAwesomeIcon icon={faVolumeHigh} className="w-3.5 h-3.5" />
+                                                <FontAwesomeIcon icon={faVolumeHigh} className="w-3.5! h-3.5!" />
                                             </button>
                                         )}
                                     </div>
@@ -215,12 +215,12 @@ const ConversationPage = () => {
                         : ""
                 }`}
             >
-                <div className="max-w-2xl w-full mx-auto flex items-center justify-between">
+                <div className="max-w-2xl w-full mx-auto flex gap-5 flex-col-reverse md:flex-row items-center justify-between">
                     {/* Status Feedback */}
                     <div>
                         {status === "correct" && (
                             <div className="flex items-center gap-3 text-blue-600">
-                                <div className="w-10! h-10! bg-blue-600 text-white rounded-full flex justify-center items-center">
+                                <div className="shrink-0 w-10! h-10! bg-blue-600 text-white rounded-full flex justify-center items-center">
                                     <FontAwesomeIcon icon={faCheck} className="w-6! h-6!" />
                                 </div>
                                 <div>
@@ -231,7 +231,7 @@ const ConversationPage = () => {
                         )}
                         {status === "incorrect" && (
                             <div className="flex items-center gap-3 text-red-600">
-                                <div className="w-10! h-10! bg-red-600 text-white rounded-full flex justify-center items-center">
+                                <div className="shrink-0 w-10! h-10! bg-red-600 text-white rounded-full flex justify-center items-center">
                                     <FontAwesomeIcon icon={faXmark} className="w-6! h-6!" />
                                 </div>
                                 <div>
@@ -248,6 +248,7 @@ const ConversationPage = () => {
                             variant={selectedOption ? "primary" : "disabled"}
                             onClick={handleCheck}
                             size="lg"
+                            className="w-full"
                         >
                             Check Answer
                         </Button>
@@ -256,6 +257,7 @@ const ConversationPage = () => {
                             href="/learn"
                             variant="primary"
                             size="lg"
+                            className="w-full"
                         >
                             Finish Lesson
                         </ButtonLink>
@@ -264,6 +266,7 @@ const ConversationPage = () => {
                             onClick={handleContinue}
                             variant={status === "correct" ? "primary" : "danger"}
                             size="lg"
+                            className="w-full"
                         >
                             Continue
                         </Button>
