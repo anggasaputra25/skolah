@@ -140,8 +140,8 @@ const Home = () => {
                         <Link href={'/blog'} key={index} className="rounded-2xl w-full">
                             <BorderCard className="hover:bg-neutral-100 active:border-b-2 active:translate-y-1 p-3! space-y-5">
                                 <Image src={item.image} alt="image" width={300} height={300} className="rounded-xl w-full object-cover aspect-video" />
-                                <div className="px-2">
-                                    <p className="font-semibold">{item.title}</p>
+                                <div className="px-2 space-y-1">
+                                    <p className="font-semibold text-lg">{item.title}</p>
                                     <p className="text-slate-500">{item.description}</p>
                                 </div>
                                 <div className="flex gap-2 items-center px-2">
