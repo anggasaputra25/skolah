@@ -6,6 +6,7 @@ import Image from "next/image";
 import { BLOG_POSTS } from "@/constants/blog";
 import Link from "next/link";
 import { BorderCard } from "@/components/ui/BorderCard";
+import { CTASection } from "@/components/layout/CTA";
 
 const Blog = () => {
     return (
@@ -118,6 +119,9 @@ const Blog = () => {
                     ))}
                 </div>
             </div>
+
+            {/* CTA */}
+            <CTASection />
 
             <Footer />
         </>

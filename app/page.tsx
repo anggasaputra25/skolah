@@ -12,6 +12,7 @@ import { scrollToSection } from "@/lib/scroll";
 import Link from "next/link";
 import { BorderCard } from "@/components/ui/BorderCard";
 import { BLOG_POSTS } from "@/constants/blog";
+import { CTASection } from "@/components/layout/CTA";
 
 const Home = () => {
     const stats = [
@@ -156,6 +157,9 @@ const Home = () => {
                     ))}
                 </div>
             </div>
+
+            {/* CTA */}
+            <CTASection />
 
             {/* Footer */}
             <Footer />
