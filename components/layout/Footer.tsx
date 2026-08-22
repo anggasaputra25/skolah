@@ -15,7 +15,7 @@ export default function Footer() {
                             <FontAwesomeIcon icon={faEarthAsia} className="w-6 h-6" />
                             <span>Skolah</span>
                         </Link>
-                        <p className="text-neutral-500 max-w-sm leading-relaxed">
+                        <p className="text-slate-500 max-w-sm leading-relaxed">
                             Skolah is designed to enhance reading comprehension, conversation skills, and cross-cultural communication through an engaging and enjoyable learning experience.
                         </p>
                         
@@ -31,7 +31,7 @@ export default function Footer() {
                     {/* Navigation Columns */}
                     <div className="flex flex-col gap-3">
                         <p className="font-semibold text-neutral-900">Platform</p>
-                        <ul className="flex flex-col gap-2 text-neutral-500">
+                        <ul className="flex flex-col gap-2 text-slate-500">
                             <li><Link href="/courses" className="hover:text-blue-600 transition-colors">Courses</Link></li>
                             <li><Link href="/method" className="hover:text-blue-600 transition-colors">Method</Link></li>
                             <li><Link href="#" className="hover:text-blue-600 transition-colors">Gamification</Link></li>
@@ -41,7 +41,7 @@ export default function Footer() {
 
                     <div className="flex flex-col gap-3">
                         <p className="font-semibold text-neutral-900">Company</p>
-                        <ul className="flex flex-col gap-2 text-neutral-500">
+                        <ul className="flex flex-col gap-2 text-slate-500">
                             <li><Link href="/about" className="hover:text-blue-600 transition-colors">About Us</Link></li>
                             <li><Link href="#" className="hover:text-blue-600 transition-colors">Careers</Link></li>
                             <li><Link href="#" className="hover:text-blue-600 transition-colors">Blog</Link></li>
@@ -51,7 +51,7 @@ export default function Footer() {
 
                     <div className="flex flex-col gap-3">
                         <p className="font-semibold text-neutral-900">Legal</p>
-                        <ul className="flex flex-col gap-2 text-neutral-500">
+                        <ul className="flex flex-col gap-2 text-slate-500">
                             <li><Link href="#" className="hover:text-blue-600 transition-colors">Privacy Policy</Link></li>
                             <li><Link href="#" className="hover:text-blue-600 transition-colors">Terms of Service</Link></li>
                             <li><Link href="#" className="hover:text-blue-600 transition-colors">Cookie Policy</Link></li>
@@ -62,7 +62,7 @@ export default function Footer() {
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="border-t border-slate-200 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-neutral-500">
+                <div className="border-t border-slate-200 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
                     <p>© {new Date().getFullYear()} Skolah. All rights reserved.</p>
                     <p className="flex items-center gap-1">
                         Built with passion for global learners.

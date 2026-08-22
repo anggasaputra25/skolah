@@ -36,7 +36,7 @@ const LicensesPage = () => {
             <div className="mx-auto max-w-4xl px-6 py-20 sm:px-8 lg:py-28">
                 {/* Header */}
                 <header className="max-w-2xl">
-                    <p className="mb-3 text-sm font-medium tracking-wide text-neutral-500">
+                    <p className="mb-3 text-sm font-medium tracking-wide text-slate-500">
                         LEGAL
                     </p>
 
@@ -44,7 +44,7 @@ const LicensesPage = () => {
                         Licenses
                     </h1>
 
-                    <p className="mt-5 text-base leading-7 text-neutral-500">
+                    <p className="mt-5 text-base leading-7 text-slate-500">
                         This website uses third-party assets and resources from various
                         creators and open-source projects. Their respective licenses and
                         attribution requirements are listed below.
@@ -64,7 +64,7 @@ const LicensesPage = () => {
                             Third-party assets
                         </h2>
 
-                        <p className="mt-1 text-sm text-neutral-500">
+                        <p className="mt-1 text-sm text-slate-500">
                             Attribution and licensing information for assets used on this
                             website.
                         </p>
@@ -83,7 +83,7 @@ const LicensesPage = () => {
                                             {asset.name}
                                         </h3>
 
-                                        <p className="mt-1 text-sm text-neutral-500">
+                                        <p className="mt-1 text-sm text-slate-500">
                                             by {asset.creator}
                                         </p>
                                     </div>
@@ -97,7 +97,7 @@ const LicensesPage = () => {
                                 {/* Metadata */}
                                 <dl className="mt-6 grid gap-4 text-sm sm:grid-cols-2">
                                     <div>
-                                        <dt className="text-neutral-500">
+                                        <dt className="text-slate-500">
                                             Source
                                         </dt>
 
@@ -114,7 +114,7 @@ const LicensesPage = () => {
                                     </div>
 
                                     <div>
-                                        <dt className="text-neutral-500">
+                                        <dt className="text-slate-500">
                                             License
                                         </dt>
 
@@ -133,7 +133,7 @@ const LicensesPage = () => {
 
                                 {/* Modification notice */}
                                 {asset.modified && (
-                                    <p className="mt-5 rounded-xl bg-neutral-50 py-3 text-xs leading-5 text-neutral-500">
+                                    <p className="mt-5 rounded-xl bg-neutral-50 py-3 text-xs leading-5 text-slate-500">
                                         This asset has been modified from the original.
                                     </p>
                                 )}
@@ -148,7 +148,7 @@ const LicensesPage = () => {
                         About third-party licenses
                     </h2>
 
-                    <p className="mt-2 text-sm leading-6 text-neutral-500">
+                    <p className="mt-2 text-sm leading-6 text-slate-500">
                         Third-party assets remain subject to their respective licenses.
                         Please refer to the original source and license information for
                         the applicable terms.

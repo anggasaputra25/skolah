@@ -34,7 +34,7 @@ const ProfilePage = () => {
                         <div className="flex gap-5 items-center">
                             <div className="relative">
                                 <Image 
-                                    src="/assets/flags/indonesia.jpeg" 
+                                    src="/assets/person/person-6.jpg" 
                                     alt="Profile Avatar" 
                                     width={96} 
                                     height={96} 

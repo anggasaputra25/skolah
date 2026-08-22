@@ -21,7 +21,7 @@ export const RightPanel = ({target = 1}: {target?: number}) => {
                     <Image src={'/assets/flags/indonesia.jpeg'} alt="flag" width={64} height={64} className="block cursor-pointer border-2 aspect-2/1.5 border-slate-300 rounded-lg" />
                     <Image src={'/assets/flags/english.jpeg'} alt="flag" width={64} height={64} className="block cursor-pointer border-2 aspect-2/1.5 border-slate-300 rounded-lg" />
                     <Image src={'/assets/flags/french.jpeg'} alt="flag" width={64} height={64} className="block cursor-pointer border-2 aspect-2/1.5 border-slate-300 rounded-lg" />
-                    <Image src={'/assets/flags/german.jpeg'} alt="flag" width={64} height={64} className="block cursor-pointer border-2 aspect-2/1.5 border-slate-300 rounded-lg" />
+                    <Image src={'/assets/flags/german.jpeg'} alt="flag" width={64} height={64} className="hidden xl:block cursor-pointer border-2 aspect-2/1.5 border-slate-300 rounded-lg" />
                     <Link href={'/languages'} className="border-2 aspect-2/1.5 border-slate-300 rounded-lg w-16 h-auto flex justify-center items-center">
                         <FontAwesomeIcon icon={faEllipsis} className="w-8! h-8! text-slate-500" />
                     </Link>
@@ -84,7 +84,7 @@ export const RightPanel = ({target = 1}: {target?: number}) => {
                                         alt={`${user.name} flag`}
                                         width={40}
                                         height={40}
-                                        className="border-2 aspect-square border-slate-300 rounded-full"
+                                        className="border-2 aspect-square object-cover border-slate-300 rounded-full"
                                     />
                                     <p className={user.isCurrentUser ? "font-bold" : ""}>
                                         {user.name}
