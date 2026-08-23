@@ -12,31 +12,15 @@ import { BorderCard } from "@/components/ui/BorderCard";
 import { BLOG_POSTS } from "@/constants/blog";
 import { CTASection } from "@/components/layout/CTA";
 import { useScroll } from "@/hooks/useScroll";
+import { WordAnimation } from "@/components/ui/WordAnimation";
 
 const Home = () => {
     const ref1 = useScroll();
-    const ref2 = useScroll(0.2);
+    const ref2 = useScroll();
     const ref3 = useScroll();
     const ref4 = useScroll();
     const ref5 = useScroll();
-    const splitWords = (text: string) => {
-        const words = text.split(" ");
-
-        return words.map((word, index) => (
-            <div
-                className="overflow-y-hidden inline-block align-top pb-0.5"
-                key={index}
-            >
-                <span
-                    className={`fade-word inline-block ${
-                        index !== words.length - 1 ? "mr-[0.25em]" : ""
-                    }`}
-                >
-                    {word}
-                </span>
-            </div>
-        ));
-    };
+    
     const stats = [
         {
             value: "30+",
@@ -65,8 +49,12 @@ const Home = () => {
             {/* Hero Section */}
             <div ref={ref1} className="lg:pt-22 relative overflow-hidden min-h-dvh flex flex-col justify-center lg:justify-between items-center gap-5">
                 <h1 className="text-2xl md:text-4xl font-bold md:w-xl text-center mt-5">
-                    {splitWords("Speak the World and Elevate")}
-                    <span className="text-blue-600">{splitWords("Your Career")}</span>
+                    <WordAnimation>
+                        Speak the World and Elevate
+                    </WordAnimation>
+                    <WordAnimation className="text-blue-600">
+                        Your Career
+                    </WordAnimation>
                 </h1>
                 <ButtonLink className="fade-up transition-none!" href="/register">Get Started</ButtonLink>
                 <Image src={'/assets/person.png'} alt="person" width={300} height={100} className="fade-up hidden lg:block" />
@@ -90,11 +78,15 @@ const Home = () => {
             <div ref={ref2} id="explore" className="w-11/12 md:w-10/12 mx-auto lg:min-h-dvh mb-10 flex flex-col-reverse lg:flex-row items-center gap-10 overflow-hidden">
                 <div className="space-y-3">
                     <p className="fade-down text-blue-600 font-semibold">A New Way To Learn</p>
-                    <h2 className="text-2xl md:text-4xl font-bold">{splitWords("The World Doesn't Need Another Boring Language App")}</h2>
+                    <h2 className="text-2xl md:text-4xl font-bold">
+                        <WordAnimation>
+                            The World Doesn&apos;t Need Another Boring Language App
+                        </WordAnimation>
+                    </h2>
                     <p className="fade-up text-slate-500 md:text-lg">We believe that true fluency happens when learning feels like playing, progress feels rewarding, and practice happens in a real community. By combining smart gamification, interactive rewards, and immersive practice, Skolah turns daily language practice into an addiction you actually benefit from.</p>
                 </div>
                 <div className="overflow-hidden rounded-2xl shrink-0">
-                    <div className="fade-up bg-blue-600 p-10 overflow-hidden flex justify-center items-center">
+                    <div className="fade-up bg-blue-600 p-10 overflow-hidden flex justify-center items-center rounded-2xl">
                         <Image src={'/assets/screenshots/learn.png'} alt="Path" width={500} height={500} className="fade-up rounded-xl shadow-[12px_12px_0_0_rgb(255_255_255/50%)]" />
                     </div>
                 </div>
@@ -104,7 +96,11 @@ const Home = () => {
             <div ref={ref3} className="w-11/12 md:w-10/12 mx-auto min-h-dvh mb-10 flex flex-col justify-center gap-10 overflow-hidden">
                 <div className="space-y-3 text-center w-full">
                     <p className="fade-down text-blue-600 font-semibold">Daily Rewards</p>
-                    <h2 className="text-2xl md:text-4xl font-bold">{splitWords("Boost Your Progress")}</h2>
+                    <h2 className="text-2xl md:text-4xl font-bold">
+                        <WordAnimation>
+                            Boost Your Progress
+                        </WordAnimation>
+                    </h2>
                 </div>
                 <div className="fade-up bg-blue-600 rounded-2xl w-full p-10 flex flex-col gap-10">
                     <div className="flex flex-col lg:flex-row gap-10 text-neutral-50">
@@ -122,7 +118,11 @@ const Home = () => {
             <div ref={ref4} className="w-11/12 md:w-10/12 mx-auto min-h-dvh mb-10 flex flex-col justify-center gap-10 overflow-hidden">
                 <div className="space-y-3 text-center w-full">
                     <p className="fade-down text-blue-600 font-semibold">Testimonials</p>
-                    <h2 className="text-2xl md:text-4xl font-bold">{splitWords("See Why Learners Are Hooked on Skolah")}</h2>
+                    <h2 className="text-2xl md:text-4xl font-bold">
+                        <WordAnimation>
+                            See Why Learners Are Hooked on Skolah
+                        </WordAnimation>
+                    </h2>
                 </div>
                 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -156,7 +156,11 @@ const Home = () => {
                 <div className="flex flex-col lg:flex-row gap-3 justify-between lg:items-center">
                     <div className="space-y-3 max-w-lg">
                         <p className="fade-down text-blue-600 font-semibold">Insight & Tips</p>
-                        <h2 className="text-2xl md:text-4xl font-bold">{splitWords("Loved by Thousands of Language Learners")}</h2>
+                        <h2 className="text-2xl md:text-4xl font-bold">
+                            <WordAnimation>
+                                Loved by Thousands of Language Learners
+                            </WordAnimation>
+                        </h2>
                     </div>
                     <p className="fade-up text-slate-500 md:text-lg max-w-lg">Discover practical learning strategies, cultural insights, and expert tips designed to help you speak with confidence.</p>
                 </div>
