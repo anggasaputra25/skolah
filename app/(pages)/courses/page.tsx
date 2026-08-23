@@ -29,7 +29,7 @@ const CoursesPage = () => {
                     <p className="text-slate-500 md:text-lg">Pick a path, dive into interactive quests, and start building real-world fluency.</p>
                 </div>
                 <div className="flex gap-2">
-                    <Button onClick={() => scrollToSection('explore')}>Explore Courses</Button>
+                    <Button onClick={() => scrollToSection('explore')}>Explore Paths</Button>
                     <ButtonLink variant="secondary" href="/register">Get Started</ButtonLink>
                 </div>
 

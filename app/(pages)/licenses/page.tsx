@@ -1,4 +1,5 @@
 import Footer from "@/components/layout/Footer";
+import { Navbar } from "@/components/layout/Navbar";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -33,6 +34,7 @@ const assets: Asset[] = [
 const LicensesPage = () => {
     return (
         <main className="min-h-screen">
+            <Navbar />
             <div className="mx-auto max-w-4xl px-6 py-20 sm:px-8 lg:py-28">
                 {/* Header */}
                 <header className="max-w-2xl">
