@@ -7,8 +7,6 @@ import Image from "next/image";
 import Footer from "@/components/layout/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { TESTIMONIALS } from "@/constants/testimonials";
-import { Button } from "@/components/ui/Button";
-import { scrollToSection } from "@/lib/scroll";
 import Link from "next/link";
 import { BorderCard } from "@/components/ui/BorderCard";
 import { BLOG_POSTS } from "@/constants/blog";
@@ -43,10 +41,7 @@ const Home = () => {
             {/* Hero Section */}
             <div className="lg:pt-22 relative overflow-hidden min-h-dvh flex flex-col justify-center lg:justify-between items-center gap-5">
                 <h1 className="text-2xl md:text-4xl font-bold md:w-xl text-center mt-5">Speak the World and Elevate <span className="text-blue-600">Your Career</span></h1>
-                <div className="flex gap-2">
-                    <ButtonLink href="/register">Get Started</ButtonLink>
-                    <Button variant="secondary" onClick={() => scrollToSection('explore')}>Explore Skolah</Button>
-                </div>
+                <ButtonLink href="/register">Get Started</ButtonLink>
                 <Image src={'/assets/person.png'} alt="person" width={300} height={100} className="hidden lg:block" />
                 <div className="rounded-full bg-blue-100 w-2xl h-168 absolute -bottom-5/12 -z-10 hidden lg:block"></div>
 
