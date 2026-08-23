@@ -25,7 +25,7 @@ const CoursesPage = () => {
             <div className="lg:pt-22 relative overflow-hidden min-h-dvh flex flex-col justify-center items-center gap-5">
                 <div className="space-y-3 max-w-xl text-center">
                     <p className="text-blue-600 font-semibold">Choose Your Journey</p>
-                    <h1 className="text-2xl md:text-4xl font-bold md:w-xl text-center">What Do You Want to Learn?</h1>
+                    <h1 className="text-2xl md:text-4xl font-bold text-center">What Do You Want to Learn?</h1>
                     <p className="text-slate-500 md:text-lg">Pick a path, dive into interactive quests, and start building real-world fluency.</p>
                 </div>
                 <div className="flex gap-2">

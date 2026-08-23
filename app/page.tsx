@@ -60,7 +60,7 @@ const Home = () => {
             </div>
 
             {/* New Way */}
-            <div id="explore" className="w-11/12 md:w-10/12 mx-auto min-h-dvh mb-10 flex flex-col-reverse lg:flex-row items-center gap-10">
+            <div id="explore" className="w-11/12 md:w-10/12 mx-auto lg:min-h-dvh mb-10 flex flex-col-reverse lg:flex-row items-center gap-10">
                 <div className="space-y-3">
                     <p className="text-blue-600 font-semibold">A New Way To Learn</p>
                     <h2 className="text-2xl md:text-4xl font-bold">The World Doesn&apos;t Need Another Boring Language App</h2>
