@@ -1,5 +1,6 @@
 import Footer from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
+import { Licenses } from "@/constants/licenses";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -7,29 +8,6 @@ export const metadata: Metadata = {
     description:
         "Third-party assets and open-source resources used on this website.",
 };
-
-type Asset = {
-    name: string;
-    creator: string;
-    source: string;
-    sourceUrl: string;
-    license: string;
-    licenseUrl: string;
-    modified?: boolean;
-};
-
-const assets: Asset[] = [
-    {
-        name: "Stars Pack",
-        creator: "Dasha Dzisko",
-        source: "Figma Community",
-        sourceUrl:
-            "https://www.figma.com/community/file/1020701317322253884/stars-pack",
-        license: "CC BY 4.0",
-        licenseUrl: "https://creativecommons.org/licenses/by/4.0/",
-        modified: false,
-    },
-];
 
 const LicensesPage = () => {
     return (
@@ -73,7 +51,7 @@ const LicensesPage = () => {
                     </div>
 
                     <div className="divide-y divide-neutral-200 rounded-2xl border border-neutral-200">
-                        {assets.map((asset) => (
+                        {Licenses.map((asset) => (
                             <article
                                 key={`${asset.name}-${asset.creator}`}
                                 className="p-6 sm:p-7"
