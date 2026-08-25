@@ -20,7 +20,7 @@ const LoginPage = () => {
                 alt="star decoration"
                 width={100}
                 height={100}
-                className="absolute right-12 bottom-16 hidden md:block rotate-12 opacity-70"
+                className="absolute right-12 bottom-16 hidden md:block rotate-12 opacity-70 animate-[spin_20s_linear_infinite]"
             />
 
             {/* Back Button */}

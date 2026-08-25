@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image"
 import { ButtonLink } from "../ui/ButtonLink"
 import { useScroll } from "@/hooks/useScroll";

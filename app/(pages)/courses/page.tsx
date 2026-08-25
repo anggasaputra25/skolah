@@ -13,37 +13,49 @@ import { Popover } from "@/components/ui/PopOver";
 import { useState } from "react";
 import { CTASection } from "@/components/layout/CTA";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { useScroll } from "@/hooks/useScroll";
+import { WordAnimation } from "@/components/ui/WordAnimation";
 
 const CoursesPage = () => {
     const [isOpen, setOpen] = useState(false);
+    const ref1 = useScroll();
+    const ref2 = useScroll();
 
     return (
         <>
             <Navbar target={1} />
 
             {/* Hero Section */}
-            <div className="lg:pt-22 relative overflow-hidden min-h-dvh flex flex-col justify-center items-center gap-5">
-                <div className="space-y-3 max-w-xl text-center">
-                    <p className="text-blue-600 font-semibold">Choose Your Journey</p>
-                    <h1 className="text-2xl md:text-4xl font-bold text-center">What Do You Want to Learn?</h1>
-                    <p className="text-slate-500 md:text-lg">Pick a path, dive into interactive quests, and start building real-world fluency.</p>
+            <div ref={ref1} className="lg:pt-22 relative overflow-hidden min-h-dvh flex flex-col justify-center items-center gap-5">
+                <div className="space-y-3 max-w-3xl text-center">
+                    <p className="fade-down text-blue-600 font-semibold">Choose Your Journey</p>
+                    <h1 className="text-2xl md:text-4xl font-bold text-center">
+                        <WordAnimation>
+                            What Do You Want to Learn?
+                        </WordAnimation>
+                    </h1>
+                    <p className="fade-up text-slate-500 md:text-lg">Pick a path, dive into interactive quests, and start building real-world fluency.</p>
                 </div>
                 <div className="flex gap-2">
-                    <Button onClick={() => scrollToSection('explore')}>Explore Paths</Button>
-                    <ButtonLink variant="secondary" href="/register">Get Started</ButtonLink>
+                    <Button className="fade-up transition-none!" onClick={() => scrollToSection('explore')}>Explore Paths</Button>
+                    <ButtonLink className="fade-up transition-none!" variant="secondary" href="/register">Get Started</ButtonLink>
                 </div>
 
-                <Image src={'/assets/star1.svg'} alt="star" width={171} height={276} className="absolute left-52 bottom-12 md:top-40" />
-                <Image src={'/assets/star2.svg'} alt="star" width={150} height={148} className="absolute right-32 top-28 md:top-auto md:bottom-72 lg:top-28 lg:bottom-auto rotate-12" />
-                <FontAwesomeIcon icon={faLanguage} className="w-10! h-auto! p-5 bg-blue-600 text-neutral-50 rounded-2xl absolute bottom-28 right-72 md:top-72 lg:bottom-28 lg:top-auto md:right-60 rotate-12 shadow" />
+                <Image src={'/assets/star1.svg'} alt="star" width={171} height={276} className="fade-up absolute left-52 bottom-12 md:top-40" />
+                <Image src={'/assets/star2.svg'} alt="star" width={150} height={148} className="absolute right-32 top-28 md:top-auto md:bottom-72 lg:top-28 lg:bottom-auto rotate-12 animate-[spin_20s_linear_infinite]" />
+                <FontAwesomeIcon icon={faLanguage} className="fade-up w-9! h-auto! p-5 bg-blue-600 text-neutral-50 rounded-2xl absolute bottom-28 right-72 md:top-72 lg:bottom-28 lg:top-auto md:right-60 rotate-12 shadow" />
             </div>
             
             {/* Main Section */}
-            <div id="explore" className="w-11/12 md:w-fit mx-auto min-h-dvh py-20 flex flex-col justify-center items-center">
+            <div ref={ref2} id="explore" className="w-11/12 md:w-fit mx-auto min-h-dvh py-20 flex flex-col justify-center items-center overflow-hidden">
                 <div className="flex justify-between items-center w-full">
-                    <h2 className="text-2xl font-bold">Courses for English Speakers</h2>
+                    <h2 className="text-2xl font-bold">
+                        <WordAnimation>
+                            Courses for English Speakers
+                        </WordAnimation>
+                    </h2>
                     <div className="relative">
-                        <button onClick={() => setOpen(!isOpen)} className="text-slate-500 flex gap-2 items-center cursor-pointer font-semibold">
+                        <button onClick={() => setOpen(!isOpen)} className="fade-down text-slate-500 flex gap-2 items-center cursor-pointer font-semibold">
                             <span>I speak English</span>
                             <FontAwesomeIcon icon={faChevronDown} className="w-4! h-4!" />
                         </button>
@@ -68,7 +80,7 @@ const CoursesPage = () => {
                 </div>
                 <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
                     {LANGUAGES.map((item, index) => (
-                        <Link href={'/login'} key={index} className="rounded-2xl">
+                        <Link href={'/login'} key={index} className="fade-up rounded-2xl">
                             <BorderCard className="hover:bg-neutral-100 active:border-b-2 active:translate-y-1">
                                 <Image src={item.image} alt="flag" width={120} height={120} className="border-2 border-slate-300 rounded-lg mb-2" />
                                 <p className="font-semibold">{item.title}</p>

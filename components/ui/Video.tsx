@@ -8,7 +8,7 @@ export const Video = ({image}: {image:string}) => {
     const [isPlaying, setIsPlaying] = useState(false);
     return (
         <div className="rounded-2xl overflow-hidden w-full">
-            <div className="relative aspect-video w-full">
+            <div className="fade-up rounded-2xl overflow-hidden relative aspect-video w-full">
                 <iframe
                     className="absolute top-0 left-0 w-full h-full"
                     src={
