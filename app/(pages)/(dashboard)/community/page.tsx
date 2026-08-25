@@ -59,11 +59,11 @@ const CommunityPage = () => {
                 <BorderCard className="p-4 space-y-3 bg-white">
                     <div className="flex gap-3 items-center">
                         <Image 
-                            src="/assets/flags/indonesia.jpeg" 
+                            src="/assets/person/person-6.jpg" 
                             alt="Your Avatar" 
                             width={44} 
                             height={44} 
-                            className="border-2 aspect-square border-slate-300 rounded-full"
+                            className="border-2 aspect-square border-slate-300 rounded-full object-cover"
                         />
                         <input
                             type="text"
@@ -99,7 +99,7 @@ const CommunityPage = () => {
                                         alt={post.author}
                                         width={48}
                                         height={48}
-                                        className="border-2 aspect-square border-slate-300 rounded-full"
+                                        className="border-2 aspect-square border-slate-300 rounded-full object-cover"
                                     />
                                     <div>
                                         <p className="font-bold">{post.author}</p>

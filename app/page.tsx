@@ -23,7 +23,7 @@ const Home = () => {
     
     const stats = [
         {
-            value: "30+",
+            value: "10+",
             label: "Courses",
             icon: faBook,
             positionClasses: "bottom-20 left-32",
@@ -52,6 +52,7 @@ const Home = () => {
                     <WordAnimation>
                         Speak the World and Elevate
                     </WordAnimation>
+                    <br />
                     <WordAnimation className="text-blue-600">
                         Your Career
                     </WordAnimation>

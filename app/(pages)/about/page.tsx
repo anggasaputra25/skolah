@@ -53,17 +53,17 @@ const AboutPage = () => {
                 </div>
                 <div className="flex gap-10 items-center flex-col md:flex-row">
                     <Video image="/assets/about/engineer.jpg" />
-                    <div className="w-full space-y-2 over">
+                    <div className="w-full space-y-2 overflow-hidden">
                         <p className="fade-up text-2xl font-bold">Engineering</p>
                         <p className="fade-up text-slate-500 text-lg">Engineering is our largest function at Skolah. They build, run, and maintain our product and features.</p>
-                        <Link href={''} className="fade-up text-blue-600 font-semibold text-lg">Explore Engineering</Link>
+                        <Link href={''} className="fade-up inline-block text-blue-600 font-semibold text-lg">Explore Engineering</Link>
                     </div>
                 </div>
                 <div className="flex gap-10 items-center flex-col-reverse md:flex-row">
-                    <div className="w-full space-y-2 over">
+                    <div className="w-full space-y-2 overflow-hidden">
                         <p className="fade-up text-2xl font-bold">Design</p>
                         <p className="fade-up text-slate-500 text-lg">Design combines product design, art, animation, brand, and experiential to bring delight to our product.</p>
-                        <Link href={''} className="fade-up text-blue-600 font-semibold text-lg">Explore Design</Link>
+                        <Link href={''} className="fade-up inline-block text-blue-600 font-semibold text-lg">Explore Design</Link>
                     </div>
                     <div className="rounded-2xl overflow-hidden w-full">
                         <Video image="/assets/about/design.jpg" />
@@ -71,10 +71,10 @@ const AboutPage = () => {
                 </div>
                 <div className="flex gap-10 items-center flex-col md:flex-row">
                     <Video image="/assets/about/research.jpg" />
-                    <div className="w-full space-y-2 over">
+                    <div className="w-full space-y-2 overflow-hidden">
                         <p className="fade-up text-2xl font-bold">Research</p>
                         <p className="fade-up text-slate-500 text-lg">Research turns user insights into smarter learning experiences. They explore how people learn, test new ideas, and shape every feature we build.</p>
-                        <Link href={''} className="fade-up text-blue-600 font-semibold text-lg">Explore Research</Link>
+                        <Link href={''} className="fade-up inline-block text-blue-600 font-semibold text-lg">Explore Research</Link>
                     </div>
                 </div>
             </div>

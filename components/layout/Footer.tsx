@@ -12,7 +12,7 @@ export default function Footer() {
                     {/* Brand & Intro */}
                     <div className="md:col-span-2 flex flex-col gap-3">
                         <Link href={'/'} className="font-semibold text-2xl flex items-center gap-2 text-blue-600 w-fit">
-                            <FontAwesomeIcon icon={faEarthAsia} className="w-6 h-6" />
+                            <FontAwesomeIcon icon={faEarthAsia} className="w-6! h-6!" />
                             <span>Skolah</span>
                         </Link>
                         <p className="text-slate-500 max-w-sm leading-relaxed">
