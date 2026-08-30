@@ -16,6 +16,7 @@ import Image from "next/image";
 import { RightPanel } from "@/components/layout/RightPanel";
 import { POSTS } from "@/constants/posts";
 import Bottombar from "@/components/layout/Bottombar";
+import Link from "next/link";
 
 const CommunityPage = () => {
     const targetPage = 5;
@@ -130,10 +131,10 @@ const CommunityPage = () => {
                                     <span>{post.likes}</span>
                                 </button>
 
-                                <button className="flex items-center gap-2 cursor-pointer">
+                                <Link href="/community/comments" className="flex items-center gap-2 cursor-pointer">
                                     <FontAwesomeIcon icon={faMessage} className="w-4! h-4!" />
                                     <span>{post.comments} Comments</span>
-                                </button>
+                                </Link>
 
                                 <button className="flex items-center gap-2 cursor-pointer ms-auto">
                                     <FontAwesomeIcon icon={faShareNodes} className="w-4! h-4!" />
