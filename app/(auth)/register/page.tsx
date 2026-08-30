@@ -27,7 +27,7 @@ const RegisterPage = () => {
             <ButtonLink
                 variant="secondary"
                 href="/"
-                className="fixed! top-5 left-5 p-3!"
+                className="fixed! top-5 left-5 p-3! bg-neutral-50 z-10"
             >
                 <FontAwesomeIcon icon={faChevronLeft} className="w-4! h-4!" />
             </ButtonLink>

@@ -40,13 +40,13 @@ const ForgotPasswordPage = () => {
             <ButtonLink
                 variant="secondary"
                 href="/login"
-                className="fixed! top-5 left-5 p-3!"
+                className="fixed! top-5 left-5 p-3! bg-neutral-50 z-10"
             >
                 <FontAwesomeIcon icon={faChevronLeft} className="w-4 h-4" />
             </ButtonLink>
 
             {/* Main Container */}
-            <BorderCard className="w-full max-w-md bg-white p-8 shadow-sm">
+            <BorderCard className="w-full max-w-md bg-white p-8">
                 <div className="text-center mb-6">
                     <h1 className="text-2xl font-bold">Forgot Password?</h1>
                     <p className="text-slate-400 text-sm mt-1">
