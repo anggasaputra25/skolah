@@ -124,7 +124,7 @@ const ReadingPage = () => {
                         : ""
                 }`}
             >
-                <div className="max-w-2xl w-full mx-auto flex gap-5 flex-col-reverse md:flex-row items-center justify-between">
+                <div className="max-w-2xl w-full mx-auto flex gap-5 flex-col-reverse items-center">
                     {/* Status Feedback */}
                     <div>
                         {status === "correct" && (
