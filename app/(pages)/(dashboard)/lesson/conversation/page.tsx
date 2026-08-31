@@ -254,7 +254,7 @@ const ConversationPage = () => {
                         </Button>
                     ) : isLastConversation ? (
                         <ButtonLink
-                            href="/learn"
+                            href="/reward"
                             variant="primary"
                             size="lg"
                             className="w-full"

@@ -281,7 +281,7 @@ const SpeakingPage = () => {
                         </Button>
                     ) : (
                         <ButtonLink
-                            href="/learn"
+                            href="/reward"
                             variant={status === "correct" ? "primary" : "danger"}
                             size="lg"
                             className="w-full"
