@@ -1,14 +1,23 @@
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
+import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { BorderCard } from "@/components/ui/BorderCard";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { ProgressBar } from "@/components/ui/ProgressBar";
+import { WordAnimation } from "@/components/ui/WordAnimation";
 import { faAlarmClock, faCrosshairs, faScrollTorah, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Reward = () => {
     return (
-        <div className="max-w-lg w-full min-h-dvh mx-auto flex flex-col justify-center items-center gap-5 px-5 md:px-0">
-            <h1 className="text-4xl font-bold">Amazing!</h1>
+        <AnimatedSection className="max-w-lg w-full min-h-dvh mx-auto flex flex-col justify-center items-center gap-5 px-5 md:px-0 overflow-hidden">
+            <div className="space-y-2 text-center">
+                <h1 className="text-3xl md:text-4xl font-bold">
+                    <WordAnimation>
+                        Excellent Progress!
+                    </WordAnimation>
+                </h1>
+                <p className="fade-down text-slate-500 md:text-lg">All caught up and ready to roll. Time to celebrate!</p>
+            </div>
             <BorderCard className="w-full space-y-5">
                 <div className="flex gap-5 items-center">
                     <FontAwesomeIcon icon={faStar} className="w-12! h-12! text-blue-600 filter-[drop-shadow(0px_2px_0px_#1e3a8a)]" />
@@ -27,7 +36,7 @@ const Reward = () => {
                 </div>
             </BorderCard>
             <div className="flex gap-2 w-full">
-                <div className="flex gap-2 justify-center items-center rounded-2xl bg-blue-100 w-full p-3 border-blue-300 border">
+                <div className="fade-up flex gap-2 justify-center items-center rounded-2xl bg-blue-100 w-full p-3 border-blue-300 border">
                     <FontAwesomeIcon icon={faStar} className="w-5! h-5! text-blue-600" />
                     <AnimatedCounter
                         target={10} 
@@ -35,7 +44,7 @@ const Reward = () => {
                         className="text-lg font-bold text-blue-600" 
                     />
                 </div>
-                <div className="flex gap-2 justify-center items-center rounded-2xl bg-green-100 w-full p-3 border-green-300 border">
+                <div className="fade-up flex gap-2 justify-center items-center rounded-2xl bg-green-100 w-full p-3 border-green-300 border">
                     <FontAwesomeIcon icon={faCrosshairs} className="w-5! h-5! text-green-600" />
                     <AnimatedCounter 
                         target={100} 
@@ -44,7 +53,7 @@ const Reward = () => {
                         className="text-lg font-bold text-green-600" 
                     />
                 </div>
-                <div className="flex gap-2 justify-center items-center rounded-2xl bg-violet-100 w-full p-3 border-violet-300 border">
+                <div className="fade-up flex gap-2 justify-center items-center rounded-2xl bg-violet-100 w-full p-3 border-violet-300 border">
                     <FontAwesomeIcon icon={faAlarmClock} className="w-5! h-5! text-violet-600" />
                     <div className="flex items-center text-lg font-bold text-violet-600">
                         <span>0</span>
@@ -65,7 +74,7 @@ const Reward = () => {
                     Continue
                 </ButtonLink>
             </div>
-        </div>
+        </AnimatedSection>
     )
 }
 
