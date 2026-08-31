@@ -5,10 +5,9 @@ import Sidebar from "@/components/layout/Sidebar"
 import { BorderCard } from "@/components/ui/BorderCard";
 import { Button } from "@/components/ui/Button";
 import { COMMENTS, POSTS } from "@/constants/posts";
-import { faHeart, faMessage, faPaperPlane, faShareNodes } from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faMessage, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 
 const CommentsPage = () => {
