@@ -42,16 +42,18 @@ const Home = () => {
 
             {/* Hero Section */}
             <AnimatedSection className="lg:pt-22 relative overflow-hidden min-h-dvh flex flex-col justify-center lg:justify-between items-center gap-5">
-                <h1 className="text-2xl md:text-4xl font-bold md:w-xl text-center mt-5">
-                    <WordAnimation>
-                        Speak the World and Elevate
-                    </WordAnimation>
-                    <br />
-                    <WordAnimation className="text-blue-600">
-                        Your Career
-                    </WordAnimation>
-                </h1>
-                <ButtonLink className="fade-up transition-none!" href="/register">Get Started</ButtonLink>
+                <div className="space-y-5 text-center">
+                    <h1 className="text-2xl md:text-4xl font-bold md:w-xl text-center mt-5">
+                        <WordAnimation>
+                            Speak the World and Elevate
+                        </WordAnimation>
+                        <br />
+                        <WordAnimation className="text-blue-600">
+                            Your Career
+                        </WordAnimation>
+                    </h1>
+                    <ButtonLink className="fade-up transition-none!" href="/register">Get Started</ButtonLink>
+                </div>
                 <Image src={'/assets/person.png'} alt="person" width={300} height={100} className="fade-up hidden lg:block" />
                 <div className="fade-up rounded-full bg-blue-100 w-2xl h-168 absolute -bottom-5/12 -z-10 hidden lg:block"></div>
 
