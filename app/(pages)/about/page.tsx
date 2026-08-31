@@ -29,7 +29,7 @@ const AboutPage = () => {
                     </h1>
                     <p className="fade-up text-slate-500 md:text-lg">See how we combined cognitive science, smart gamification, and social connection to create a language learning experience you&apos;ll actually stick with.</p>
                 </div>
-                <div className="flex gap-2">
+                <div className="flex gap-2 z-10">
                     <Button className="fade-up transition-none!" onClick={() => scrollToSection('explore')}>Our Story</Button>
                     <ButtonLink className="fade-up transition-none!" variant="secondary" href="/register">Get Started</ButtonLink>
                 </div>

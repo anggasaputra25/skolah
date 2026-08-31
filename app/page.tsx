@@ -52,7 +52,7 @@ const Home = () => {
                             Your Career
                         </WordAnimation>
                     </h1>
-                    <ButtonLink className="fade-up transition-none!" href="/register">Get Started</ButtonLink>
+                    <ButtonLink className="fade-up transition-none! z-10" href="/register">Get Started</ButtonLink>
                 </div>
                 <Image src={'/assets/person.png'} alt="person" width={300} height={100} className="fade-up hidden lg:block" />
                 <div className="fade-up rounded-full bg-blue-100 w-2xl h-168 absolute -bottom-5/12 -z-10 hidden lg:block"></div>

@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const QuestPage = () => {
     const targetPage = 2;
     return (
-        <div className="flex">
+        <div className="flex mb-20 md:mb-0">
             {/* Sidebar*/}
             <Sidebar target={targetPage} />
 

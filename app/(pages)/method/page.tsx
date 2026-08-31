@@ -27,7 +27,7 @@ const MethodPage = () => {
                     </h1>
                     <p className="fade-up text-slate-500 md:text-lg">No overwhelming rules. Just a clean, highly effective cycle of structured learning, active practice, and social engagement.</p>
                 </div>
-                <div className="flex gap-2">
+                <div className="flex gap-2 z-10">
                     <Button className="fade-up transition-none!" onClick={() => scrollToSection('explore')}>Explore Method</Button>
                     <ButtonLink className="fade-up transition-none!" variant="secondary" href="/register">Get Started</ButtonLink>
                 </div>

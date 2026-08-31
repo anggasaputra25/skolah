@@ -34,7 +34,7 @@ const CoursesPage = () => {
                     </h1>
                     <p className="fade-up text-slate-500 md:text-lg">Pick a path, dive into interactive quests, and start building real-world fluency.</p>
                 </div>
-                <div className="flex gap-2">
+                <div className="flex gap-2 z-10">
                     <Button className="fade-up transition-none!" onClick={() => scrollToSection('explore')}>Explore Paths</Button>
                     <ButtonLink className="fade-up transition-none!" variant="secondary" href="/register">Get Started</ButtonLink>
                 </div>

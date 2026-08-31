@@ -16,7 +16,7 @@ const Reward = () => {
                         Excellent Progress!
                     </WordAnimation>
                 </h1>
-                <p className="fade-down text-slate-500 md:text-lg">All caught up and ready to roll. Time to celebrate!</p>
+                <p className="fade-down text-slate-500 md:text-lg">You haven&apos;t missed a single thing! Time to celebrate!</p>
             </div>
             <BorderCard className="w-full space-y-5">
                 <div className="flex gap-5 items-center">
