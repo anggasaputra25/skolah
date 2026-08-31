@@ -11,16 +11,10 @@ import Link from "next/link";
 import { BorderCard } from "@/components/ui/BorderCard";
 import { BLOG_POSTS } from "@/constants/blog";
 import { CTASection } from "@/components/layout/CTA";
-import { useScroll } from "@/hooks/useScroll";
 import { WordAnimation } from "@/components/ui/WordAnimation";
+import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
 const Home = () => {
-    const ref1 = useScroll();
-    const ref2 = useScroll();
-    const ref3 = useScroll();
-    const ref4 = useScroll();
-    const ref5 = useScroll();
-    
     const stats = [
         {
             value: "10+",
@@ -47,7 +41,7 @@ const Home = () => {
             <Navbar />
 
             {/* Hero Section */}
-            <div ref={ref1} className="lg:pt-22 relative overflow-hidden min-h-dvh flex flex-col justify-center lg:justify-between items-center gap-5">
+            <AnimatedSection className="lg:pt-22 relative overflow-hidden min-h-dvh flex flex-col justify-center lg:justify-between items-center gap-5">
                 <h1 className="text-2xl md:text-4xl font-bold md:w-xl text-center mt-5">
                     <WordAnimation>
                         Speak the World and Elevate
@@ -73,10 +67,10 @@ const Home = () => {
                         className={`${stat.positionClasses} fade-up`}
                     />
                 ))}
-            </div>
+            </AnimatedSection>
 
             {/* New Way */}
-            <div ref={ref2} id="explore" className="w-11/12 md:w-10/12 mx-auto lg:min-h-dvh mb-10 flex flex-col-reverse lg:flex-row items-center gap-10 overflow-hidden">
+            <AnimatedSection id="explore" className="w-11/12 md:w-10/12 mx-auto lg:min-h-dvh mb-10 flex flex-col-reverse lg:flex-row items-center gap-10 overflow-hidden">
                 <div className="space-y-3">
                     <p className="fade-down text-blue-600 font-semibold">A New Way To Learn</p>
                     <h2 className="text-2xl md:text-4xl font-bold">
@@ -91,10 +85,10 @@ const Home = () => {
                         <Image src={'/assets/screenshots/learn.png'} alt="Path" width={500} height={500} className="fade-up rounded-xl shadow-[12px_12px_0_0_rgb(255_255_255/50%)]" />
                     </div>
                 </div>
-            </div>
+            </AnimatedSection>
 
             {/* Daily Rewards */}
-            <div ref={ref3} className="w-11/12 md:w-10/12 mx-auto min-h-dvh mb-10 flex flex-col justify-center gap-10 overflow-hidden">
+            <AnimatedSection className="w-11/12 md:w-10/12 mx-auto min-h-dvh mb-10 flex flex-col justify-center gap-10 overflow-hidden">
                 <div className="space-y-3 text-center w-full">
                     <p className="fade-down text-blue-600 font-semibold">Daily Rewards</p>
                     <h2 className="text-2xl md:text-4xl font-bold">
@@ -113,10 +107,10 @@ const Home = () => {
                         <p className="text-slate-300 text-lg">Learning a new language should feel rewarding every single day. By completing interactive quests, you automatically stack up coins that you can spend on useful items and upgrades in the shop. Whether you want to boost your daily streak or customize your experience, you have full control over how you spend your rewards. Start playing, start earning, and claim your favorites!</p>
                     </div>
                 </div>
-            </div>
+            </AnimatedSection>
             
             {/* Testimonials */}
-            <div ref={ref4} className="w-11/12 md:w-10/12 mx-auto min-h-dvh mb-10 flex flex-col justify-center gap-10 overflow-hidden">
+            <AnimatedSection className="w-11/12 md:w-10/12 mx-auto min-h-dvh mb-10 flex flex-col justify-center gap-10 overflow-hidden">
                 <div className="space-y-3 text-center w-full">
                     <p className="fade-down text-blue-600 font-semibold">Testimonials</p>
                     <h2 className="text-2xl md:text-4xl font-bold">
@@ -150,10 +144,10 @@ const Home = () => {
                         </div>
                     ))}
                 </div>
-            </div>
+            </AnimatedSection>
 
             {/* Blog */}
-            <div ref={ref5} className="w-11/12 md:w-10/12 mx-auto min-h-dvh mb-10 flex flex-col justify-center gap-10 overflow-hidden">
+            <AnimatedSection className="w-11/12 md:w-10/12 mx-auto min-h-dvh mb-10 flex flex-col justify-center gap-10 overflow-hidden">
                 <div className="flex flex-col lg:flex-row gap-3 justify-between lg:items-center">
                     <div className="space-y-3 max-w-lg">
                         <p className="fade-down text-blue-600 font-semibold">Insight & Tips</p>
@@ -185,7 +179,7 @@ const Home = () => {
                         </Link>
                     ))}
                 </div>
-            </div>
+            </AnimatedSection>
 
             {/* CTA */}
             <CTASection />

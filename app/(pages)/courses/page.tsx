@@ -13,20 +13,18 @@ import { Popover } from "@/components/ui/PopOver";
 import { useState } from "react";
 import { CTASection } from "@/components/layout/CTA";
 import { ButtonLink } from "@/components/ui/ButtonLink";
-import { useScroll } from "@/hooks/useScroll";
 import { WordAnimation } from "@/components/ui/WordAnimation";
+import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
 const CoursesPage = () => {
     const [isOpen, setOpen] = useState(false);
-    const ref1 = useScroll();
-    const ref2 = useScroll();
 
     return (
         <>
             <Navbar target={1} />
 
             {/* Hero Section */}
-            <div ref={ref1} className="lg:pt-22 relative overflow-hidden min-h-dvh flex flex-col justify-center items-center gap-5">
+            <AnimatedSection className="lg:pt-22 relative overflow-hidden min-h-dvh flex flex-col justify-center items-center gap-5">
                 <div className="space-y-3 max-w-3xl text-center">
                     <p className="fade-down text-blue-600 font-semibold">Choose Your Journey</p>
                     <h1 className="text-2xl md:text-4xl font-bold text-center">
@@ -44,10 +42,10 @@ const CoursesPage = () => {
                 <Image src={'/assets/star1.svg'} alt="star" width={171} height={276} className="fade-up absolute left-52 bottom-12 md:top-40" />
                 <Image src={'/assets/star2.svg'} alt="star" width={150} height={148} className="absolute right-32 top-28 md:top-auto md:bottom-72 lg:top-28 lg:bottom-auto rotate-12 animate-[spin_20s_linear_infinite]" />
                 <FontAwesomeIcon icon={faLanguage} className="fade-up w-9! h-auto! p-5 bg-blue-600 text-neutral-50 rounded-2xl absolute bottom-28 right-72 md:top-72 lg:bottom-28 lg:top-auto md:right-60 rotate-12 shadow" />
-            </div>
+            </AnimatedSection>
             
             {/* Main Section */}
-            <div ref={ref2} id="explore" className="w-11/12 md:w-fit mx-auto min-h-dvh py-20 flex flex-col justify-center items-center overflow-hidden">
+            <AnimatedSection id="explore" className="w-11/12 md:w-fit mx-auto min-h-dvh py-20 flex flex-col justify-center items-center overflow-hidden">
                 <div className="flex justify-between items-center w-full">
                     <h2 className="text-2xl font-bold">
                         <WordAnimation>
@@ -89,7 +87,7 @@ const CoursesPage = () => {
                         </Link>
                     ))}
                 </div>
-            </div>
+            </AnimatedSection>
 
             {/* CTA */}
             <CTASection />
